@@ -30,7 +30,8 @@ const brevoListId = 12;
 const brevoEmailTemplateId = 37;
 const courseCodes: CourseCode[] = [ 'fd' ];
 
-const FreeFloralDesignCatalogPage: PageComponent = ({ searchParams }) => {
+const FreeFloralDesignCatalogPage: PageComponent = async props => {
+  const searchParams = await props.searchParams;
   const { countryCode } = getData();
   const date = new Date().getTime();
   const gclid = getParam(searchParams.gclid);
@@ -40,7 +41,7 @@ const FreeFloralDesignCatalogPage: PageComponent = ({ searchParams }) => {
   const utmCampaign = getParam(searchParams.utm_campaign);
   const utmContent = getParam(searchParams.utm_content);
   const utmTerm = getParam(searchParams.utm_term);
-  const headerList = headers();
+  const headerList = await headers();
   const referrer = headerList.get('referer');
 
   return (

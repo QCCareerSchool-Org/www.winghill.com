@@ -28,7 +28,8 @@ export const metadata: Metadata = {
 const brevoListId = 2;
 const brevoEmailTemplateId = 32;
 
-const FreeEventAndWeddingPlanningCatalogPage: PageComponent = ({ searchParams }) => {
+const FreeEventAndWeddingPlanningCatalogPage: PageComponent = async props => {
+  const searchParams = await props.searchParams;
   const { countryCode } = getData();
   const date = new Date().getTime();
   const gclid = getParam(searchParams.gclid);
@@ -38,7 +39,7 @@ const FreeEventAndWeddingPlanningCatalogPage: PageComponent = ({ searchParams })
   const utmCampaign = getParam(searchParams.utm_campaign);
   const utmContent = getParam(searchParams.utm_content);
   const utmTerm = getParam(searchParams.utm_term);
-  const headerList = headers();
+  const headerList = await headers();
   const referrer = headerList.get('referer');
 
   return (

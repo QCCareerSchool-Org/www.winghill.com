@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { FC } from 'react';
+import type { FC, JSX } from 'react';
 
 import { ButtonWrapper } from './buttonWrapper';
 import styles from './header.module.scss';

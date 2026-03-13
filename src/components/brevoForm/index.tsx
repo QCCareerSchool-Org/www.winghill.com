@@ -23,7 +23,7 @@ type Props = {
   utmContent?: string;
   utmTerm?: string;
   courseCodes?: string[];
-  button?: ReactElement;
+  button?: ReactElement<any>;
   referrer: string | null;
 };
 

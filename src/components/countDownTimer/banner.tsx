@@ -5,7 +5,7 @@ import { CountDownElement } from './countDownElement';
 
 type Props = {
   url: string;
-  message: ReactElement;
+  message: ReactElement<any>;
   showTimer: boolean;
   days: number;
   hours: number;
