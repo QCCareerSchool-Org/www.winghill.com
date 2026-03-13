@@ -8,7 +8,7 @@ import { v1 } from 'uuid';
 import styles from './index.module.scss';
 import DownloadIcon from '@/components/download.svg';
 
-type Props = {
+interface Props {
   successLocation: string;
   listId: number;
   emailTemplateId?: number;
@@ -25,7 +25,7 @@ type Props = {
   courseCodes?: string[];
   button?: ReactElement<any>;
   referrer: string | null;
-};
+}
 
 export const BrevoForm: FC<Props> = props => {
   const id = useId();

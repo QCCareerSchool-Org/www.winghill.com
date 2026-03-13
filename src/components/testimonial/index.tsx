@@ -8,10 +8,10 @@ import { Star } from './star';
 import { Title } from './title';
 import type { CourseCode } from '@/domain/courseCode';
 
-type Props = {
+interface Props {
   id: string;
   courseCodes?: string[];
-};
+}
 
 export const courseSort = (a: CourseCode, b: CourseCode): number => {
   if (a === b) {

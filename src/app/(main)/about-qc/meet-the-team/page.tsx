@@ -52,7 +52,7 @@ const MeetTheTeamPage: PageComponent = () => {
  * @returns the next pair
  */
 // eslint-disable-next-line @typescript-eslint/comma-dangle
-const mapToPairs = <T,>(value: T, index: number, array: T[]): T[][] => {
+const mapToPairs = <T>(value: T, index: number, array: T[]): T[][] => {
   // skip odd elements
   if (index % 2 !== 0) {
     return [];

@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react';
 import { Banner } from './banner';
 import { getParts } from './getParts';
 
-type Props = {
+interface Props {
   date: number;
   countryCode: string;
-};
+}
 
 const bannerStartDate = Date.UTC(2024, 11, 12, 19); // Dec 12, 2024 at 14:00 (19:00 UTC)
 const countDownStartDate = Date.UTC(2024, 11, 18, 8); // Dec 18, 2024 at 03:00 (08:00 UTC)

@@ -3,13 +3,13 @@ import type { FC, JSX } from 'react';
 
 import styles from './index.module.scss';
 
-type Props = {
+interface Props {
   title: string;
   text?: string;
   courseCodes?: string[];
   buttonText?: string | JSX.Element;
   buttonHref?: string;
-};
+}
 
 export const GetStartedSection: FC<Props> = ({ title, text, courseCodes, buttonText = 'Enroll Today', buttonHref }) => {
   let href: string;

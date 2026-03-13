@@ -7,13 +7,13 @@ import { CountDownTimer } from '@/components/countDownTimer';
 import { Logo } from '@/components/logo';
 import { getData } from '@/lib/getData';
 
-type Props = {
+interface Props {
   logoLink?: boolean;
   buttonHref?: string;
   buttonContent?: JSX.Element | string;
   buttonAlwaysVisible?: boolean;
   showBanner?: boolean;
-};
+}
 
 export const Header: FC<Props> = ({ logoLink, buttonHref = '#', buttonContent, buttonAlwaysVisible, showBanner }) => {
   const { countryCode } = getData();

@@ -30,12 +30,12 @@ export const trustPulseEnrollment = async (enrollment: Enrollment, ipAddress: st
   await trustPulse(payload, url);
 };
 
-type Payload = {
+interface Payload {
   firstName: string | null;
   emailAddress: string | null;
   postalCode: string | null;
   ipAddress: string | null;
-};
+}
 
 const trustPulse = async (payload: Payload, url: string): Promise<void> => {
   const response = await fetch(url, {

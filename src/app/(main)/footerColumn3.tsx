@@ -8,9 +8,9 @@ import EmailIcon from './_footerIcons/email.svg';
 import PhoneIcon from './_footerIcons/phone.svg';
 import { TelephoneLink } from '@/components/telephoneLink';
 
-type Props = {
+interface Props {
   countryCode: string;
-};
+}
 
 export const FooterColumn3: FC<Props> = ({ countryCode }) => {
   const [ emailAddress, setEmailAddress ] = useState('');

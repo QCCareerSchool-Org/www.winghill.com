@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import type { FC, ReactNode } from 'react';
 
-type PageProps = {
+interface PageProps {
   params: {};
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+  searchParams: Record<string, string | string[] | undefined>;
+}
 
-type LayoutProps = {
+interface LayoutProps {
   children: ReactNode;
-};
+}
 
 export type PageComponent = FC<PageProps>;
 

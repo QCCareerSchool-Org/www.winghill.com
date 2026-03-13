@@ -7,7 +7,7 @@ import { brevoIdentifyLead } from '@/lib/brevo';
 import { fbqLead } from '@/lib/fbq';
 import { gaEvent, gaUserData } from '@/lib/gtag';
 
-type Props = {
+interface Props {
   emailAddress?: string;
   countryCode?: string;
   provinceCode?: string;
@@ -16,7 +16,7 @@ type Props = {
   ipAddress?: string;
   leadId?: string;
   conversionId: string;
-};
+}
 
 export const LeadProcessing: FC<Props> = props => {
   const effectCalled = useRef(false);

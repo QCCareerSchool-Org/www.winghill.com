@@ -8,10 +8,10 @@ import type { PriceQuery } from '@/lib/fetch';
 import { fetchPrice } from '@/lib/fetch';
 import { getData } from '@/lib/getData';
 
-type Props = {
+interface Props {
   courseCodes: CourseCode[];
   className?: string;
-};
+}
 
 export const PaymentPlanSection: FC<Props> = async ({ courseCodes, className }) => {
   const { countryCode, provinceCode } = getData();

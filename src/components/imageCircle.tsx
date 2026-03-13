@@ -2,13 +2,13 @@ import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import type { FC } from 'react';
 
-type Props = {
+interface Props {
   src: StaticImageData;
   alt: string;
   imagePositionX?: number;
   imagePositionY?: number;
   size?: number;
-};
+}
 
 export const ImageCircle: FC<Props> = ({ src, alt, imagePositionX, imagePositionY, size = 64 }) => {
   const width = Math.floor(size);

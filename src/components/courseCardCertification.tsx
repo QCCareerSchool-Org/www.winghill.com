@@ -1,6 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
+
 import DWS from '@/components/certifications/dws.svg';
 import ICPP from '@/components/certifications/icpp.svg';
 import IEDP from '@/components/certifications/iedp.svg';
@@ -14,9 +15,9 @@ import PES from '@/components/certifications/pes.svg';
 import type { CourseCode } from '@/domain/courseCode';
 import { useScreenWidth } from '@/hooks/useScreenWidth';
 
-type Props = {
+interface Props {
   courseCode: CourseCode;
-};
+}
 
 export const CourseCardCertifcation: FC<Props> = ({ courseCode }) => {
   const screenWidth = useScreenWidth();
