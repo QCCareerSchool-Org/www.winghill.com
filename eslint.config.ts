@@ -7,12 +7,15 @@ import importPlugin from 'eslint-plugin-import';
 import reactPlugin from 'eslint-plugin-react';
 import tseslint from 'typescript-eslint';
 
+import customPlugin from './eslint-rules';
+
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
+  customPlugin.configs.recommended,
   {
     languageOptions: {
       parser: tseslint.parser,
@@ -36,6 +39,7 @@ const eslintConfig = defineConfig([
       'react': reactPlugin,
       '@stylistic': stylistic,
       'import': importPlugin,
+      'custom': customPlugin,
     },
     settings: {
       // Needed for TS path + extension resolution
@@ -169,7 +173,7 @@ const eslintConfig = defineConfig([
       'yield-star-spacing': 'error',
 
       // @typescript-eslint rules
-      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/consistent-type-imports': [ 'error', { prefer: 'type-imports', fixStyle: 'separate-type-imports' } ],
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-member-accessibility': 'off',
       '@typescript-eslint/member-ordering': 'error',
@@ -261,6 +265,7 @@ const eslintConfig = defineConfig([
       'react/react-in-jsx-scope': 'off',
       'react/self-closing-comp': 'error',
 
+      'import/consistent-type-specifier-style': [ 'error', 'prefer-top-level' ],
       'import/order': [ 'error', {
         'alphabetize': {
           order: 'asc',

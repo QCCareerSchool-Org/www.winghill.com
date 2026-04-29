@@ -5,16 +5,16 @@ import { redirect } from 'next/navigation';
 
 import AlexSignatureImage from './alex-myers.png';
 import { Processing } from './processing';
-import type { PageComponent } from '@/app/serverComponent';
 import { EnrollmentDetails } from '@/components/enrollmentDetails';
 import { TelephoneLink } from '@/components/telephoneLink';
 import { addToIDevAffiliate } from '@/lib/addToIDevAffiliate';
 import { createBrevoContact } from '@/lib/brevoAPI';
 import { fbPostPurchase } from '@/lib/facebookConversionAPI';
-import { getEnrollment } from '@/lib/fetch';
+import { fetchEnrollment } from '@/lib/fetchEnrollment';
 import { getParam } from '@/lib/getParam';
 import { sendEnrollmentEmail } from '@/lib/sendEnrollmentEmail';
 import { trustPulseEnrollment } from '@/lib/trustpulse';
+import type { PageComponent } from '@/serverComponent';
 
 const brevoStudentListId = 14;
 
@@ -39,7 +39,13 @@ const WelcomeToTheSchoolPage: PageComponent = async props => {
     redirect('/');
   }
 
-  const enrollment = await getEnrollment(enrollmentId, codeParam);
+  const enrollmentResult = await fetchEnrollment(enrollmentId, codeParam);
+
+  if (!enrollmentResult.success) {
+    redirect('/');
+  }
+
+  const enrollment = enrollmentResult.value;
 
   if (!enrollment.success) {
     redirect('/');

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import type { PageComponent } from '../serverComponent';
 import MainLayout from './(main)/layout';
 import styles from './not-found.module.scss';
-import type { PageComponent } from './serverComponent';
 
 export const metadata: Metadata = {
   title: 'Page Not Found',

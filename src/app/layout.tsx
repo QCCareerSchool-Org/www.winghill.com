@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 
-import type { LayoutComponent } from './serverComponent';
 import { neueHaasDisplay, neueHaasText } from '@/fonts';
 import { Provider } from '@/providers';
 import { Bing } from '@/scripts/bing';
@@ -12,6 +11,7 @@ import { PerfectAudience } from '@/scripts/perfectAudience';
 import { Tiktok } from '@/scripts/tiktok';
 import { TrustPulse } from '@/scripts/trustPulse';
 import { VWO } from '@/scripts/vwo';
+import type { LayoutComponent } from '@/serverComponent';
 
 import './global.scss';
 
