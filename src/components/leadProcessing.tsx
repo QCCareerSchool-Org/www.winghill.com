@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use client';
 
 import type { FC } from 'react';
@@ -6,19 +7,22 @@ import { useEffect, useRef } from 'react';
 import { brevoIdentifyLead } from '@/lib/brevo';
 import { fbqLead } from '@/lib/fbq';
 import { gaEvent, gaUserData } from '@/lib/gtag';
+import { uetUserData } from '@/lib/uet';
 
 interface Props {
-  emailAddress?: string;
-  countryCode?: string;
-  provinceCode?: string;
-  firstName?: string;
-  lastName?: string;
-  ipAddress?: string;
-  leadId?: string;
-  conversionId: string;
+  emailAddress: string;
+  telephoneNumber: string | null;
+  city: string | null;
+  provinceCode: string | null;
+  countryCode: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  leadId: string;
+  googleAdsConversionId?: string;
 }
 
 export const LeadProcessing: FC<Props> = props => {
+  const googleAdsConversionId = props.googleAdsConversionId ?? 'AW-1071836607/G9e-CI_BQxC_24v_Aw';
   const effectCalled = useRef(false);
 
   useEffect(() => {
@@ -29,12 +33,12 @@ export const LeadProcessing: FC<Props> = props => {
       return;
     }
     effectCalled.current = true;
-    gaUserData({ email: props.emailAddress });
-    fbqLead(props.leadId);
-    // eslint-disable-next-line camelcase
-    gaEvent('conversion', { send_to: props.conversionId });
+    gaUserData(props.emailAddress, props.telephoneNumber, props.firstName, props.lastName, props.city, props.provinceCode, props.countryCode);
+    uetUserData(props.emailAddress, props.telephoneNumber);
+    fbqLead(props.leadId, { emailAddress: props.emailAddress, telephoneNumber: props.telephoneNumber, city: props.city, province: props.provinceCode, country: props.countryCode, firstName: props.firstName, lastName: props.lastName });
+    gaEvent('conversion', { send_to: googleAdsConversionId, transaction_id: props.leadId });
     brevoIdentifyLead(props.emailAddress, props.countryCode, props.provinceCode, props.firstName, props.lastName);
-  }, [ props.emailAddress, props.countryCode, props.provinceCode, props.firstName, props.lastName, props.ipAddress, props.leadId, props.conversionId ]);
+  }, [ props.emailAddress, props.telephoneNumber, props.city, props.countryCode, props.provinceCode, props.firstName, props.lastName, props.leadId, googleAdsConversionId ]);
 
   return null;
 };

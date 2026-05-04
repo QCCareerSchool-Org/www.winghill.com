@@ -1,6 +1,6 @@
 'use client';
 
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 
 import { Banner } from './banner';
@@ -8,23 +8,24 @@ import { getParts } from './getParts';
 
 interface Props {
   date: number;
-  countryCode: string;
+  startDate: number;
+  countdownStartDate: number;
+  endDate: number;
+  message: ReactNode;
+  lastChanceMessage?: ReactNode;
+  url?: string;
 }
 
-const bannerStartDate = Date.UTC(2024, 11, 12, 19); // Dec 12, 2024 at 14:00 (19:00 UTC)
-const countDownStartDate = Date.UTC(2024, 11, 18, 8); // Dec 18, 2024 at 03:00 (08:00 UTC)
-const endDate = Date.UTC(2024, 11, 19, 8); // Dec 19, 2024 at 03:00 (08:00 UTC)
+export const CountDownTimer: FC<Props> = props => {
+  if (props.endDate < props.countdownStartDate) {
+    throw Error('end is before count down start');
+  }
 
-if (endDate < countDownStartDate) {
-  throw Error('end is before count down start');
-}
+  if (props.countdownStartDate < props.startDate) {
+    throw Error('count down starts before banner starts');
+  }
 
-if (countDownStartDate < bannerStartDate) {
-  throw Error('count down starts before banner starts');
-}
-
-export const CountDownTimer: FC<Props> = ({ date }) => {
-  const [ currentDate, setCurrentDate ] = useState(date);
+  const [ currentDate, setCurrentDate ] = useState(props.date);
 
   // keep track of the current time each second
   useEffect(() => {
@@ -32,22 +33,18 @@ export const CountDownTimer: FC<Props> = ({ date }) => {
       setCurrentDate(d => d + 1000);
     }, 1000);
 
-    return () => clearInterval(id);
+    return () => { clearInterval(id); };
   }, []);
 
-  if (currentDate >= bannerStartDate && currentDate < endDate) {
-    const [ days, hours, minutes, seconds ] = getParts(endDate - currentDate);
+  if (currentDate >= props.startDate && currentDate < props.endDate) {
+    const [ days, hours, minutes, seconds ] = getParts(props.endDate - currentDate);
 
-    const showTimer = currentDate >= countDownStartDate;
-
-    const message = showTimer
-      ? <LastChanceMessage />
-      : <RegularMessage />;
+    const showTimer = currentDate >= props.countdownStartDate;
 
     return (
       <Banner
-        url="https://enroll.qceventplanning.com"
-        message={message}
+        url={props.url ?? 'https://enroll.qcdesignschool.com'}
+        message={showTimer && typeof props.lastChanceMessage !== 'undefined' ? props.lastChanceMessage : props.message}
         showTimer={showTimer}
         days={days}
         hours={hours}
@@ -57,15 +54,3 @@ export const CountDownTimer: FC<Props> = ({ date }) => {
     );
   }
 };
-
-const RegularMessage: FC = () => (
-  <span style={{ textTransform: 'uppercase' }}>
-    Get a Second Course FREE!
-  </span>
-);
-
-const LastChanceMessage: FC = () => (
-  <span style={{ textTransform: 'uppercase' }}>
-    <strong style={{ color: '#f00', paddingRight: '0.125rem' }}>Last Chance:</strong> Get a Second Course FREE!
-  </span>
-);

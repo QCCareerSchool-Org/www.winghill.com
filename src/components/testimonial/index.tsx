@@ -1,75 +1,59 @@
 import type { FC } from 'react';
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 
-import { ImageCircle } from '../imageCircle';
+import type { TestimonialId } from './data';
 import { testimonials } from './data';
 import styles from './index.module.css';
 import { Star } from './star';
 import { Title } from './title';
+import { ImageCircle } from '@/components/imageCircle';
+import { CourseMicrodata } from '@/components/microdata/course';
 import type { CourseCode } from '@/domain/courseCode';
 
 interface Props {
-  id: string;
-  courseCodes?: string[];
+  id: TestimonialId;
+  courseCodes?: CourseCode[];
+  showProvinceCode?: boolean;
+  schemaCourseId?: string;
+  small?: boolean;
 }
 
-export const courseSort = (a: CourseCode, b: CourseCode): number => {
-  if (a === b) {
-    return 0;
-  }
-  if (a === 'ep') {
-    return -1;
-  }
-  if (b === 'ep') {
-    return 1;
-  }
-  return a.localeCompare(b);
-};
-
-export const Testimonial: FC<Props> = memo(({ id, courseCodes }) => {
-  const testimonial = useMemo(() => {
-    const found = testimonials[id];
-    if (!found) {
-      return;
-    }
-    return {
-      ...found,
-      courses: found.courses.sort((a, b) => {
-        if (courseCodes?.includes(a) && courseCodes?.includes(b)) {
-          return courseSort(a, b);
-        }
-        if (courseCodes?.includes(a)) {
-          return -1;
-        }
-        if (courseCodes?.includes(b)) {
-          return 1;
-        }
-        return courseSort(a, b);
-      }),
-    };
-  }, [ id, courseCodes ]);
-
-  if (!testimonial) {
-    return;
-  }
+export const Testimonial: FC<Props> = memo(({ id, showProvinceCode = false, schemaCourseId, small = false }) => {
+  const testimonial = testimonials[id];
 
   return (
-    <blockquote className={styles.testimonial}>
+    <blockquote className={styles.testimonial} itemScope itemType="https://schema.org/Review">
+      {schemaCourseId
+        ? (
+          <meta itemProp="itemReviewed" itemScope itemID={schemaCourseId} />
+        )
+        : testimonial.courses.length > 0
+          ? <CourseMicrodata itemProp="itemReviewed" courseCode={testimonial.courses[0]} />
+          : (
+            <span itemProp="itemReviewed" itemScope itemType="https://schema.org/EducationalOrganization" itemID="https://www.qcdesignschool.com/#school">
+              <link itemProp="url" href="https://www.qcdesignschool.com" />
+              <meta itemProp="name" content="QC Design School" />
+            </span>
+          )}
+      <span itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+        <meta itemProp="ratingValue" content={testimonial.stars.toString()} />
+        <meta itemProp="worstRating" content="0" />
+        <meta itemProp="bestRating" content="5" />
+      </span>
       <div className={styles.stars}>{Array(5).fill(null).map((_, i) => <Star key={i} filled={i < testimonial.stars} />)}</div>
-      <div>
+      <div itemProp="reviewBody">
         {testimonial.short.map((q, i, a) => {
-          if (i < a.length - 1) {
-            return <p key={i} className={styles.quotation}>&ldquo;{q}</p>;
-          }
-          return <p key={i} className={styles.quotation}>&ldquo;{q}&rdquo;</p>;
+          return <p key={i} className={`${styles.quotation} ${small ? styles.small : ''}`}>&ldquo;{q}{i === a.length - 1 && <>&rdquo;</>}</p>;
         })}
       </div>
-      <footer className={styles.footer}>
-        <div className={styles.imageWrapper}>
-          <ImageCircle src={testimonial.image} alt={testimonial.name} imagePositionX={testimonial.imagePositionX} imagePositionY={testimonial.imagePositionY} />
-        </div>
+      <footer className={styles.footer} itemProp="author" itemScope itemType="https://schema.org/Person">
+        {testimonial.image && (
+          <div className={styles.imageWrapper}>
+            <ImageCircle itemProp src={testimonial.image} alt={testimonial.name} imagePositionX={testimonial.imagePositionX} imagePositionY={testimonial.imagePositionY} />
+          </div>
+        )}
         <cite>
-          <span className={styles.attribution}>{testimonial.name}</span>{testimonial.courses.length > 0 && <><br /><Title testimonial={testimonial} /></>}
+          <span className={styles.attribution} itemProp="name">{testimonial.name}</span>{showProvinceCode && typeof testimonial.provinceCode !== 'undefined' && <>, {testimonial.provinceCode}</>}{testimonial.courses.length > 0 && <><br /><Title testimonial={testimonial} /></>}
         </cite>
       </footer>
     </blockquote>

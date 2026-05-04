@@ -13,7 +13,6 @@ import { fbPostPurchase } from '@/lib/facebookConversionAPI';
 import { fetchEnrollment } from '@/lib/fetchEnrollment';
 import { getParam } from '@/lib/getParam';
 import { sendEnrollmentEmail } from '@/lib/sendEnrollmentEmail';
-import { trustPulseEnrollment } from '@/lib/trustpulse';
 import type { PageComponent } from '@/serverComponent';
 
 const brevoStudentListId = 14;
@@ -69,14 +68,7 @@ const WelcomeToTheSchoolPage: PageComponent = async props => {
 
     // create Brevo contact
     try {
-      await createBrevoContact(enrollment.emailAddress, enrollment.firstName, enrollment.lastName, enrollment.countryCode, enrollment.provinceCode, { STATUS_EVENT_STUDENT: true }, [ brevoStudentListId ]);
-    } catch (err) {
-      console.error(err);
-    }
-
-    // TrustPulse
-    try {
-      await trustPulseEnrollment(enrollment, ipAddress);
+      await createBrevoContact(enrollment.emailAddress, enrollment.firstName, enrollment.lastName, enrollment.countryCode, enrollment.provinceCode, { STATUS_WRITING_STUDENT: true }, [ brevoStudentListId ]);
     } catch (err) {
       console.error(err);
     }

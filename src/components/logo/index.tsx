@@ -1,9 +1,10 @@
 import type { FC } from 'react';
+import Image from 'next/image';
 
-import LogoImage from './logo.svg';
+import LogoImage from './logo.png';
 
 interface Props {
   height: number;
 }
 
-export const Logo: FC<Props> = ({ height }) => <LogoImage alt="QC Event School" style={{ height, width: 'auto' }} />;
+export const Logo: FC<Props> = ({ height }) => <Image src={LogoImage} alt="Winghill Writing School" style={{ height, width: 'auto' }} />;

@@ -1,43 +1,54 @@
 import type { Metadata } from 'next';
+import { ToastContainer } from 'react-toastify';
 
-import { neueHaasDisplay, neueHaasText } from '@/fonts';
+import { inter } from '@/fonts';
 import { Provider } from '@/providers';
 import { Bing } from '@/scripts/bing';
 import { Brevo } from '@/scripts/brevo';
 import { Facebook } from '@/scripts/facebook';
 import { GoogleAnalytics } from '@/scripts/googleAnalytics';
 import { OptInMonster } from '@/scripts/optInMonster';
-import { PerfectAudience } from '@/scripts/perfectAudience';
 import { Tiktok } from '@/scripts/tiktok';
-import { TrustPulse } from '@/scripts/trustPulse';
-import { VWO } from '@/scripts/vwo';
 import type { LayoutComponent } from '@/serverComponent';
+import { getServerData } from '@/lib/getServerData';
+import { cookies } from 'next/headers';
+import { decodeJwt } from '@/lib/jwt';
+import { isUserValues } from '@/domain/userValues';
+import { LayoutClient } from './layoutClient';
+import { Suspense } from 'react';
+import styles from './layout.module.scss';
 
+import './bootstrap.scss';
 import './global.scss';
 
 export const metadata: Metadata = {
-  title: { default: 'QC Event School', template: '%s - QC Event School' },
-  metadataBase: new URL('https://www.qceventplanning.com'),
+  title: { default: 'Winghill Writing School', template: '%s - Winghill Writing School' },
+  metadataBase: new URL('https://www.winghill.com'),
 };
 
-const RootLayout: LayoutComponent = ({ children }) => {
+const RootLayout: LayoutComponent = async ({ children }) => {
+  const { clientIp } = await getServerData();
+  const jwt = (await cookies()).get('user')?.value;
+  const result = jwt ? await decodeJwt(jwt) : undefined;
+  const raw = result?.success ? result.value : undefined;
+  const userValues = raw && isUserValues(raw) ? raw : undefined;
+
   return (
-    <html lang="en" className={`${neueHaasText.variable} ${neueHaasDisplay.variable} h-100`}>
+    <html lang="en" className={`${inter.variable} h-100`}>
       <head>
-        {process.env.GOOGLE_ANALYTICS_ID && <GoogleAnalytics id={process.env.GOOGLE_ANALYTICS_ID} adsId={process.env.GOOGLE_ADS_ID} />}
-        {process.env.VWO_ID && <VWO id={parseInt(process.env.VWO_ID, 10)} />}
-        {process.env.BREVO_CLIENT_KEY && <Brevo clientKey={process.env.BREVO_CLIENT_KEY} />}
+        {process.env.GOOGLE_ANALYTICS_ID && <GoogleAnalytics id={process.env.GOOGLE_ANALYTICS_ID} adsId={process.env.GOOGLE_ADS_ID} userValues={userValues} />}
+        {process.env.BREVO_CLIENT_KEY && <Brevo clientKey={process.env.BREVO_CLIENT_KEY} userValues={userValues} />}
+        {process.env.NEXT_PUBLIC_FACEBOOK_ID && <Facebook id={process.env.NEXT_PUBLIC_FACEBOOK_ID} userValues={userValues} />}
+        {process.env.TIKTOK_ID && <Tiktok id={process.env.TIKTOK_ID} />}
+        {process.env.BING_ID && <Bing id={process.env.BING_ID} userValues={userValues} />}
       </head>
       <body className="d-flex flex-column">
-        <Provider>
+        <Provider userValues={userValues} clientIp={clientIp}>
           {children}
         </Provider>
-        {process.env.FACEBOOK_ID && <Facebook id={process.env.FACEBOOK_ID} />}
-        {process.env.TIKTOK_ID && <Tiktok id={process.env.TIKTOK_ID} />}
-        {process.env.BING_ID && <Bing id={process.env.BING_ID} />}
-        {process.env.TRUSTPULSE_ID && <TrustPulse id={parseInt(process.env.TRUSTPULSE_ID, 10)} />}
-        {process.env.PERFECT_AUDIENCE_ID && <PerfectAudience id={process.env.PERFECT_AUDIENCE_ID} />}
         <OptInMonster />
+        <Suspense><LayoutClient /></Suspense>
+        <ToastContainer pauseOnFocusLoss pauseOnHover position="top-center" className={styles.toastContainer} />
       </body>
     </html>
   );

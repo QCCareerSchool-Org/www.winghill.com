@@ -12,15 +12,7 @@ interface Props {
 }
 
 export const GetStartedSection: FC<Props> = ({ title, text, courseCodes, buttonText = 'Enroll Today', buttonHref }) => {
-  let href: string;
-  if (buttonHref) {
-    href = buttonHref;
-  } else {
-    href = 'https://enroll.qceventplanning.com';
-    if (courseCodes) {
-      href += '?' + courseCodes?.map(c => `c=${encodeURIComponent(c)}`).join('&');
-    }
-  }
+  const href = buttonHref ?? getHref(courseCodes);
   return (
     <section className={styles.section}>
       <div className="container">
@@ -34,4 +26,12 @@ export const GetStartedSection: FC<Props> = ({ title, text, courseCodes, buttonT
       </div>
     </section>
   );
+};
+
+const getHref = (courseCodes?: string[]) => {
+  let href = 'https://enroll.winghill.com';
+  if (courseCodes) {
+    href += '?' + courseCodes.map(c => `c=${encodeURIComponent(c)}`).join('&');
+  }
+  return href;
 };
