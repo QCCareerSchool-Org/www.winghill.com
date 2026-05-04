@@ -7,6 +7,7 @@ export const AccountsEmailAddress: FC = () => {
   const [ emailAddress, setEmailAddress ] = useState('');
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setEmailAddress('accounts@qccareerschool.com');
   }, []);
 

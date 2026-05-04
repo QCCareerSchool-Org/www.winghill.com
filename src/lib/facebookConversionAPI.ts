@@ -1,12 +1,15 @@
 'server only';
 
-import { createHash } from 'crypto';
-
+import { hash, normalizeCity, normalizeEmailAddress, normalizeName, normalizeState, normalizeTelephoneNumber, normalizeZipCode } from './hash';
 import type { Enrollment } from '@/domain/enrollment';
 
-const apiVersion = 'v20.0';
-const datasetId = '520626392908502';
-const accessToken = 'EAAMUT7XQ1g0BO5wBaKj6vPYKLZBz0GZBsyGoFaGe6DMK9noiEvjUWfxNy0PKwloAqn7Lpuvi2ZCPwZAENgb2Ie5bwW7Y9ctPhP0MyY7S6ZBlvSuJ6bWHor6DPG7gbZB0FHPeWE7uHLu3WgxYPATgv9aT2H54sPmYMISUyynQxhxRBWvAHmekQyy7tVvOb7QPhvrwZDZD';
+const apiVersion = 'v24.0';
+const datasetId = process.env.NEXT_PUBLIC_FACEBOOK_ID;
+const accessToken = process.env.FACEBOOK_ACCESS_TOKEN;
+
+if (!accessToken) {
+  throw Error('Access token not found');
+}
 
 export const fbPostPurchase = async (
   enrollment: Enrollment,
@@ -51,30 +54,19 @@ export const fbPostPurchase = async (
     ],
   };
 
-  const response = await fetch(url, {
-    method: 'post',
-    body: JSON.stringify(body),
-    headers: { 'content-type': 'application/json' },
-    cache: 'no-cache',
-  });
-
-  if (!response.ok) {
-    throw Error(JSON.stringify(await response.json()));
-  }
-
-  return response.json();
+  return postJSON(url, body);
 };
 
 export const fbPostLead = async (
   eventId: string,
   eventTime: Date,
   emailAddress: string,
-  firstName: string | undefined,
-  lastName: string | undefined,
-  countryCode: string | undefined,
-  eventSourceUrl: string | undefined,
-  clientIPAddress: string | undefined,
-  clientUserAgent: string | undefined,
+  firstName: string | null,
+  lastName: string | null,
+  countryCode: string | null,
+  eventSourceUrl: string | null,
+  clientIPAddress: string | null,
+  clientUserAgent: string | null,
   fbc?: string,
   fbp?: string,
 ): Promise<unknown> => {
@@ -88,20 +80,33 @@ export const fbPostLead = async (
         action_source: 'website', // eslint-disable-line camelcase
         user_data: { // eslint-disable-line camelcase
           em: hash(normalizeEmailAddress(emailAddress)),
-          fn: typeof firstName === 'undefined' ? undefined : hash(normalizeName(firstName)),
-          ln: typeof lastName === 'undefined' ? undefined : hash(normalizeName(lastName)),
-          country: typeof countryCode === 'undefined' ? undefined : hash(countryCode.toLowerCase()),
-          client_ip_address: clientIPAddress, // eslint-disable-line camelcase
-          client_user_agent: clientUserAgent, // eslint-disable-line camelcase
+          client_ip_address: clientIPAddress ?? undefined, // eslint-disable-line camelcase
+          client_user_agent: clientUserAgent ?? undefined, // eslint-disable-line camelcase
           fbc,
           fbp,
         },
-        event_source_url: eventSourceUrl, // eslint-disable-line camelcase
+        event_source_url: eventSourceUrl ?? undefined, // eslint-disable-line camelcase
         event_id: eventId, // eslint-disable-line camelcase
       },
     ],
   };
 
+  if (firstName) {
+    body.data[0].user_data.fn = hash(normalizeName(firstName));
+  }
+
+  if (lastName) {
+    body.data[0].user_data.ln = hash(normalizeName(lastName));
+  }
+
+  if (countryCode) {
+    body.data[0].user_data.country = hash(countryCode.toLowerCase());
+  }
+
+  return postJSON(url, body);
+};
+
+const postJSON = async (url: string, body: object): Promise<unknown> => {
   const response = await fetch(url, {
     method: 'post',
     body: JSON.stringify(body),
@@ -116,42 +121,9 @@ export const fbPostLead = async (
   return response.json();
 };
 
-const hash = (input: string): string => {
-  return createHash('sha256').update(input).digest('hex');
-};
-
-const removePunctuation = (input: string): string => input.replace(/[^\p{L}\s]/ug, '').replace(/\s+/ug, ' ');
-
-const normalizeEmailAddress = (emailAddress: string): string => {
-  return emailAddress.toLowerCase().trim();
-};
-
-const normalizeTelephoneNumber = (telephoneNumber: string): string => {
-  return telephoneNumber.trim().replace(/[^0-9]/ug, '').replace(/^0+/ug, ''); // remove anything that's not a number, and leading zeros
-};
-
-const normalizeName = (name: string): string => {
-  return removePunctuation(name.trim().toLowerCase());
-};
-
-const normalizeCity = (city: string): string => {
-  return removePunctuation(city.trim().toLowerCase().replace(/\s+/ug, ''));
-};
-
-const normalizeState = (state: string): string => {
-  return state.toLowerCase().replace(/[^a-z]/ug, '');
-};
-
-const normalizeZipCode = (zipCode: string, countryCode: string): string => {
-  if (countryCode === 'US') {
-    return zipCode.trim().substring(0, 4);
-  }
-  return zipCode.trim().toLowerCase().replace(/\s+/ug, '');
-};
-
 type ActionSource = 'email' | 'website' | 'app' | 'phone_call' | 'chat' | 'physical_store' | 'system_generated' | 'business_messaging' | 'other';
 
-type UserData = {
+interface UserData {
   /** email address (hashing required) */
   em: string | string[];
   /** telephone number (hashing required) */
@@ -182,23 +154,23 @@ type UserData = {
   fbc?: string;
   /** Facebook browser id (do not hash) */
   fbp?: string;
-};
+}
 
-type LeadConversion = {
+interface LeadConversion {
   event_name: 'Lead';
   event_time: number;
   action_source: ActionSource;
   user_data: UserData;
   event_source_url?: string;
   event_id: string;
-};
+}
 
-type CustomData = {
+interface CustomData {
   value: number;
   currency: 'CAD' | 'USD' | 'GBP' | 'AUD' | 'NZD';
-};
+}
 
-type PurchaseConversion = {
+interface PurchaseConversion {
   event_name: 'Purchase';
   event_time: number;
   action_source: ActionSource;
@@ -206,4 +178,4 @@ type PurchaseConversion = {
   custom_data: CustomData;
   event_source_url?: string;
   event_id: string;
-};
+}

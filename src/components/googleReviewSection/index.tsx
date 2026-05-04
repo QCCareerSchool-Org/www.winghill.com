@@ -7,10 +7,10 @@ import GoogleLogo from './googleLogo.svg';
 import type { CourseCode } from '@/domain/courseCode';
 import { useScreenWidth } from '@/hooks/useScreenWidth';
 
-type Props = {
+interface Props {
   courseCode?: CourseCode;
   className?: string;
-};
+}
 
 export const GoogleReviewSection: FC<Props> = ({ courseCode, className }) => {
   const screenWidth = useScreenWidth();

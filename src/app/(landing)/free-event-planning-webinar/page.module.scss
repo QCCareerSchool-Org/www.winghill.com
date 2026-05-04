@@ -1,9 +1,0 @@
-.headerButtonLargeText {
-  display: none;
-  @media screen and (min-width: 450px) { display: inline; }
-}
-
-.headerButtonSmallText {
-  display: inline;
-  @media screen and (min-width: 450px) { display: none; }
-}

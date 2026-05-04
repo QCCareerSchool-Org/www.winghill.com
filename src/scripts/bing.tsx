@@ -1,19 +1,28 @@
 import Script from 'next/script';
 import type { FC } from 'react';
 
-type Props = {
-  id: string;
-};
+import type { UserValues } from '@/domain/userValues';
+import { safeJSON } from '@/lib/safeJSON';
+import type { UETUserData } from '@/lib/uet';
+import { uetStandardizeEmailAddress } from '@/lib/uet';
 
-export const Bing: FC<Props> = ({ id }) => (
-  <Script id="bing-uet" dangerouslySetInnerHTML={{ __html: getScript(id) }} />
+interface Props {
+  id: string;
+  userValues?: UserValues;
+}
+
+export const Bing: FC<Props> = ({ id, userValues }) => (
+  <>
+    <Script id="bing-uet" dangerouslySetInnerHTML={{ __html: getScript(id) }} />
+    {userValues && <Script id="bing-uet-enhanced" dangerouslySetInnerHTML={{ __html: getEnhancedScript(userValues) }} />}
+  </>
 );
 
 const getScript = (id: string): string => `
 (function(w,d,t,r,u) {
   var f,n,i;
   w[u]=w[u]||[],f=function() {
-    var o={ti:\`${id.replace(/`/ug, '\\`')}\`, enableAutoSpaTracking: true};
+    var o={ti:${safeJSON(id)}, enableAutoSpaTracking: true};
     o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")
   },
   n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function() {
@@ -23,3 +32,19 @@ const getScript = (id: string): string => `
   i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)
 })(window,document,"script","//bat.bing.com/bat.js","uetq");
 `;
+
+const getEnhancedScript = (userValues: UserValues) => {
+  const enhancedData: UETUserData = {};
+  if (userValues.emailAddress) {
+    enhancedData.em = uetStandardizeEmailAddress(userValues.emailAddress);
+  }
+  if (userValues.telephoneNumber) {
+    enhancedData.ph = userValues.telephoneNumber;
+  }
+  return `
+window.uetq = window.uetq || [];
+window.uetq.push('set', {
+  pid: ${safeJSON(enhancedData)},
+});
+`;
+};

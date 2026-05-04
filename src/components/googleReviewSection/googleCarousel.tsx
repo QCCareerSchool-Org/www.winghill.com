@@ -11,10 +11,10 @@ import { getCompareFunction } from './sortReviewData';
 import type { CourseCode } from '@/domain/courseCode';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-type Props = {
+interface Props {
   mobile: boolean;
   courseCode?: CourseCode;
-};
+}
 
 const responsive: ResponsiveType = {
   all: {

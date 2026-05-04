@@ -1,16 +1,36 @@
-export const sendEnrollmentEmail = async (enrollmentId: number, code: string): Promise<void> => {
-  console.log('sending enrollment email', enrollmentId);
-  const url = `${process.env.ENROLLMENT_ENDPOINT}/${enrollmentId}/email`;
-  const response = await fetch(url, {
-    method: 'post',
-    headers: {
+import type { Result } from 'generic-result-type';
+import { failure, success } from 'generic-result-type';
+
+export const sendEnrollmentEmail = async (
+  enrollmentId: number,
+  code: string,
+  signal?: AbortSignal,
+  firewallBypassSecret?: string,
+): Promise<Result> => {
+  try {
+    const url = `${process.env.ENROLLMENT_ENDPOINT}/${encodeURIComponent(enrollmentId)}/email`;
+    const body = JSON.stringify({ code });
+
+    const headers: Record<string, string> = {
       'X-API-Version': '2',
       'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ code }),
-  });
-  if (!response.ok) {
-    throw Error(response.statusText);
+    };
+    if (firewallBypassSecret) {
+      headers['X-Firewall-Bypass-Secret'] = firewallBypassSecret;
+    }
+
+    const response = await fetch(url, { method: 'post', headers, body, signal });
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+
+    await response.json();
+
+    return success();
+  } catch (err) {
+    if (!signal?.aborted) {
+      console.error(err);
+    }
+    return failure(err instanceof Error ? err : Error(String(err)));
   }
-  await response.json();
 };

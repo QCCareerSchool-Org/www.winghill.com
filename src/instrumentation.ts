@@ -1,0 +1,40 @@
+const isProd = process.env.NODE_ENV === 'production';
+
+const expectedVariables = [
+  // QC
+  'PRICES_ENDPONT',
+  'ENROLLMENT_ENDPOINT',
+  // Google
+  'GOOGLE_ANALYTICS_ID',
+  'GOOGLE_ADS_ID',
+  // Meta
+  'NEXT_PUBLIC_FACEBOOK_ID',
+  'FACEBOOK_ACCESS_TOKEN',
+  // Tiktok
+  'TIKTOK_ID',
+  // Microsoft Ads
+  'BING_ID',
+  // Brevo
+  'BREVO_CLIENT_KEY',
+  'BREVO_CONVERSATIONS_ID',
+  'BREVO_GROUP_ID',
+  // cookies
+  'JWT_SECRET_BASE64',
+  // network
+  'FIREWALL_BYPASS_SECRET',
+  'PROXY_SECRET',
+] as const;
+
+// eslint-disable-next-line @typescript-eslint/require-await
+export const register = async (): Promise<void> => {
+  for (const variable of expectedVariables) {
+    const message = `Environment variable ${variable} not found`;
+    if (!process.env[variable]) {
+      if (isProd) {
+        throw Error(message);
+      } else {
+        console.warn(message);
+      }
+    }
+  }
+};
