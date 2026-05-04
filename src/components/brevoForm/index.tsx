@@ -1,6 +1,6 @@
 'use client';
 
-import type { ChangeEventHandler, FC, FormEventHandler, ReactElement } from 'react';
+import type { ChangeEventHandler, FC, ReactElement, SubmitEventHandler } from 'react';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { v1 } from 'uuid';
@@ -8,7 +8,7 @@ import { v1 } from 'uuid';
 import styles from './index.module.scss';
 import DownloadIcon from '@/components/download.svg';
 
-type Props = {
+interface Props {
   successLocation: string;
   listId: number;
   emailTemplateId?: number;
@@ -25,7 +25,7 @@ type Props = {
   courseCodes?: string[];
   button?: ReactElement;
   referrer: string | null;
-};
+}
 
 export const BrevoForm: FC<Props> = props => {
   const id = useId();
@@ -74,7 +74,7 @@ export const BrevoForm: FC<Props> = props => {
     };
   }, []);
 
-  const handleSubmit: FormEventHandler = e => {
+  const handleSubmit: SubmitEventHandler = e => {
     if (submitting.current || disabled) {
       e.preventDefault();
       return false;

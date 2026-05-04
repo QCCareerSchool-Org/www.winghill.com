@@ -1,46 +1,14 @@
-:root {
-  --qc-color-text: #506172;
-  --qc-color-headings: #02013f;
-  --qc-color-dark-blue: #0a2540;
-  --qc-color-navy: #010025;
-  --qc-color-navy-gradient-start: #0a2540;
-  --qc-color-navy-gradient-end: #010025;
-  --qc-color-light-gold: #faf0b6;
-  --qc-color-gold: #e1bc93;
-  --qc-color-dark-gold: #c19e76;
-  --qc-color-light-blue-steel: #d9e5f1;
-  --qc-color-blue-steel: #506172;
-  --qc-color-cobal-grey: #bcbccb;
-  --qc-color-light: #f8f8fb;
-  --qc-color-light-stroke: #b5c3d1;
-
-  --qc-text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
-  
-  --qc-section-padding: 4rem;
-  @media only screen and (min-width: 768px) {
-    --qc-section-padding: 5rem;
-  }
-  @media only screen and (min-width: 992px) {
-    --qc-section-padding: 6rem;
-  }
-  @media only screen and (min-width: 1200px) {
-    --qc-section-padding: 7rem;
-  }
-}
-
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "~bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
-
-$font-family-sans-serif: var(--qc-neue-haas-text), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$headings-font-family: var(--qc-neue-haas-display), serif;
+$font-family-sans-serif: var(--qc-font-inter), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$headings-font-family: $font-family-sans-serif;
 $headings-font-weight: 600;
 $lead-font-size: 1.125rem;
-$lead-font-weight: 400; /* no 300 available */
 
-$body-color: #506172;
-$headings-color: var(--qc-color-headings);
+$body-color: #454565;
+$headings-color: #09093f;
 
 $form-label-margin-bottom: 0.25rem;
 
@@ -51,8 +19,11 @@ $focus-ring-width: 0.125rem;
 
 $headings-margin-bottom: 0.5rem;
 
-$primary: #23d7bc;
+$primary: #8c0a1e;
 $light: #f8f8fb;
+$dark: #010025;
+
+$box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.125);
 
 // $btn-padding-y: 0.75rem;
 $btn-padding-x: 1.5rem;
@@ -75,8 +46,8 @@ $navbar-toggler-focus-width: 0;
 $dropdown-padding-x: 0.5rem;
 $dropdown-padding-y: 1rem;
 
-$accordion-border-radius: 1.5rem;
-$card-border-radius: 1.5rem;
+$accordion-border-radius: 1rem;
+$card-border-radius: 1rem;
 $card-spacer-y: 2rem;
 $card-spacer-x: 2rem;
 
@@ -93,7 +64,7 @@ $accordion-button-active-color: inherit;
 
 // 4. Include any default map overrides here
 $custom-colors: (
-  "navy": #010025,
+  // "navy": #010025,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
@@ -140,14 +111,25 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "~bootstrap/scss/utilities/api";
 
-body {
-  overflow-y: scroll; /* Show scrollbars */
-  --scrollbar-width: calc(100vw - 100%);
+:root {
+  --qc-color-primary: #{$primary};
+  --qc-box-shadow: #{$box-shadow};
+  --qc-text-shadow: 0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.25);
+
+  --qc-section-padding: 4rem;
+  @media only screen and (min-width: 768px) {
+    --qc-section-padding: 5rem;
+  }
+  @media only screen and (min-width: 992px) {
+    --qc-section-padding: 6rem;
+  }
+  @media only screen and (min-width: 1200px) {
+    --qc-section-padding: 7rem;
+  }
 }
 
-.btn-primary {
-  color: white;
-  &:hover, &:focus { color: white; }
+body {
+  scrollbar-gutter: stable;
 }
 
 section {
@@ -155,10 +137,6 @@ section {
   overflow: hidden;
   padding: var(--qc-section-padding) 0;
 }
-
-section.half-padding-top {
-  padding: calc(var(--qc-section-padding) / 2) 0 var(--qc-section-padding); // reduce 
-}   
 
 section > div.container {
   position: relative; /* so that if we use a cover image, the content will display on top */
@@ -294,16 +272,6 @@ section > div.container {
   .g-xxl-s { --bs-gutter-x: var(--qc-section-padding) !important; --bs-gutter-y: var(--qc-section-padding) !important; }
 }
 
-section.noPadding {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-section.noPadding > div.container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 h1, .h1 { font-size: 2.75rem; line-height: 1.2; }
 h2, .h2 { font-size: 2.25rem; line-height: 1.2; }
 h3, .h3 { font-size: 2rem; line-height: 1.2; }
@@ -325,25 +293,11 @@ h6, .h6 { font-size: 1.125rem; line-height: 1.4; font-family: $font-family-sans-
   h2, .h2 { font-size: 3rem; line-height: 1.2; }
 }
 
-.text-white {
-  h1, .h1 { color: white; }
-  h2, .h2 { color: white; }
-  h3, .h3 { color: white; }
-  h4, .h4 { color: white; }
-  h5, .h5 { color: white; }
-  h6, .h6 { color: white; }
-}
-
-// .navbar { font-size: 0.9375rem; }
-// .navbar .btn { font-size: 0.9375rem; }
-
 #navLogo {
   position: relative;
   top: -1px;
   @include media-breakpoint-up(lg) { top: -2px; }
 }
-
-.text-dark-blue { color: var(--qc-color-dark-blue); }
 
 @include media-breakpoint-up(lg) {
   .navbar { padding-top: 1rem; padding-bottom: 1rem; }
@@ -351,43 +305,6 @@ h6, .h6 { font-size: 1.125rem; line-height: 1.4; font-family: $font-family-sans-
 
 @include media-breakpoint-up(xl) {
   .navbar { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-}
-
-.gold { color: var(--qc-color-gold); }
-.lightGold { color: var(--qc-color-light-gold); }
-
-.btn-outline-grey {
-  --bs-btn-color: var(--qc-color-text);
-  --bs-btn-border-color: #B5C3D1;
-  --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #B5C3D1;
-  --bs-btn-hover-border-color: #B5C3D1;
-  --bs-btn-focus-shadow-rgb: 181, 195, 209;
-  --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #B5C3D1;
-  --bs-btn-active-border-color: #B5C3D1;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #B5C3D1;
-  --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #B5C3D1;
-  --bs-gradient: none;
-}
-
-.btn-grey {
-  --bs-btn-color: #000;
-  --bs-btn-bg: #B5C3D1;
-  --bs-btn-border-color: #B5C3D1;
-  --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #c0ccd8;
-  --bs-btn-hover-border-color: #bcc9d6;
-  --bs-btn-focus-shadow-rgb: 154, 166, 178;
-  --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #c4cfda;
-  --bs-btn-active-border-color: #bcc9d6;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #B5C3D1;
-  --bs-btn-disabled-border-color: #B5C3D1;
 }
 
 .accordion-button:not(.collapsed) {
@@ -404,40 +321,6 @@ h6, .h6 { font-size: 1.125rem; line-height: 1.4; font-family: $font-family-sans-
   .tooltip-inner {
     text-align: left;
   }
-}
-
-.btn-medium {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #898994;
-  --bs-btn-border-color: #898994;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #424649;
-  --bs-btn-hover-border-color: #373b3e;
-  --bs-btn-focus-shadow-rgb: 66, 70, 73;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #4d5154;
-  --bs-btn-active-border-color: #373b3e;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #4d5760;
-  --bs-btn-disabled-border-color: #4d5760;
-}
-
-.btn-outline-medium {
-  --bs-btn-color: #212529;
-  --bs-btn-border-color: var(--qc-color-cobal-grey);
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #4d5760;
-  --bs-btn-hover-border-color: #4d5760;
-  --bs-btn-focus-shadow-rgb: 33, 37, 41;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #4d5760;
-  --bs-btn-active-border-color: #4d5760;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #4d5760;
-  --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #4d5760;
-  --bs-gradient: none;
 }
 
 .btn-none {
@@ -459,10 +342,6 @@ h6, .h6 { font-size: 1.125rem; line-height: 1.4; font-family: $font-family-sans-
 
 .dropdown-menu {
   --bs-dropdown-padding-y: 0.5rem;
-}
-
-.btn-lg {
-  --bs-btn-line-height: normal;
 }
 
 .text-shadow {

@@ -1,7 +1,9 @@
-import { type Currency, isCurrency } from './currency';
-import { isNoShipping, type NoShipping } from './noShipping';
+import type { Currency } from './currency';
+import { isCurrency } from './currency';
+import type { NoShipping } from './noShipping';
+import { isNoShipping } from './noShipping';
 
-type Plan = {
+interface Plan {
   /** the discount based on the payment plan */
   discount: number;
   /** the amount to be paid today */
@@ -18,9 +20,9 @@ type Plan = {
   originalDeposit: number;
   /** the original number of installments, before overrides */
   originalInstallments: number;
-};
+}
 
-type PriceDetails = {
+interface PriceDetails {
   /** the base price before any discounts */
   cost: number;
   /** the discount on courses after the first course */
@@ -35,7 +37,7 @@ type PriceDetails = {
   plans: { full: Plan; part: Plan };
   /** what our cost for shipping would be if we shipped */
   shipping: number;
-};
+}
 
 export type Price = {
   countryCode: string;
@@ -98,8 +100,8 @@ const isPriceDetails = (obj: unknown): obj is PriceDetails => {
 
 const isPlans = (obj: unknown): obj is { full: Plan; part: Plan } => {
   return obj !== null && typeof obj === 'object' &&
-    'full' in obj && isPlan(obj.full) &&
-    'part' in obj && isPlan(obj.part);
+    (('full' in obj && isPlan(obj.full)) || !('full' in obj)) &&
+    (('part' in obj && isPlan(obj.part)) || !('part' in obj));
 };
 
 const isPlan = (obj: unknown): obj is Plan => {

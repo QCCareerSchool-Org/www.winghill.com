@@ -1,22 +1,6 @@
-import { Suspense } from 'react';
+import { SiteLayout } from '@/components/siteLayout';
+import type { LayoutComponent } from '@/serverComponent';
 
-import { LayoutClient } from '../layoutClient';
-import { Footer } from './footer';
-import { Header } from './header';
-import type { LayoutComponent } from '@/app/serverComponent';
-import '@/app/bootstrap.scss';
-import { LiveChat } from '@/scripts/liveChat';
-
-const MainLayout: LayoutComponent = ({ children }) => {
-  return (
-    <>
-      <Header />
-      <main className="flex-shrink-0">{children}</main>
-      <Footer />
-      <LiveChat license={1056788} group={1} />
-      <Suspense><LayoutClient /></Suspense>
-    </>
-  );
-};
+const MainLayout: LayoutComponent = ({ children }) => <SiteLayout>{children}</SiteLayout>;
 
 export default MainLayout;

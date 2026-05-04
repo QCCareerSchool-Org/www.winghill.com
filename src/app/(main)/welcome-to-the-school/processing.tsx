@@ -8,9 +8,9 @@ import { brevoIdentifyStudent } from '@/lib/brevo';
 import { fbqSale } from '@/lib/fbq';
 import { gaSale } from '@/lib/gtag';
 
-type Props = {
+interface Props {
   enrollment: Enrollment;
-};
+}
 
 export const Processing: FC<Props> = ({ enrollment }) => {
   useEffect(() => {

@@ -1,22 +1,22 @@
 import Script from 'next/script';
 import type { FC } from 'react';
 
-type Props = {
-  clientKey: string;
-};
+import type { UserValues } from '@/domain/userValues';
+import { safeJSON } from '@/lib/safeJSON';
 
-export const Brevo: FC<Props> = ({ clientKey }) => (
-  <Script id="brevo" dangerouslySetInnerHTML={{ __html: getScript(clientKey) }} />
+interface Props {
+  clientKey: string;
+  userValues?: UserValues;
+}
+
+export const Brevo: FC<Props> = ({ clientKey, userValues }) => (
+  <Script id="brevo" dangerouslySetInnerHTML={{ __html: getScript(clientKey, userValues?.emailAddress) }} />
 );
 
-const getScript = (clientKey: string): string => `
+const getScript = (clientKey: string, emailAddress?: string): string => `
 (function() {
-  window.sib = {
-    equeue: [],
-    client_key: \`${clientKey.replace(/`/ug, '\\`')}\`
-  };
-  /* OPTIONAL: email for identify request*/
-  // window.sib.email_id = 'example@domain.com';
+  window.sib = { equeue: [], client_key: ${safeJSON(clientKey)} };
+  ${emailAddress ? `window.sib.email_id = ${safeJSON(emailAddress)};\n` : ``}
   window.sendinblue = {};
   for (var j = ['track', 'identify', 'trackLink', 'page'], i = 0; i < j.length; i++) {
     (function(k) {
