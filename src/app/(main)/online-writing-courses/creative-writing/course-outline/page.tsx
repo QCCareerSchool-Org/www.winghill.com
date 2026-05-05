@@ -66,7 +66,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             </div>
             <div className="col-6 text-center">
               <h2 className="h1">Unit 3</h2>
-              <h5>The Short Story </h5>
+              <h5>The Short Story</h5>
               <p>The Short Story is a fascinating insider's look at the world of fiction. You'll learn how to develop an outline, how to set up and break down conflict in a whole range of different kinds of fiction. You'll understand the place of narrative and how to establish place, setting and time to contribute to the story. Find it hard to develop ideas? Not after you've learned from this unit of your course!</p>
             </div>
           </div>

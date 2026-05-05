@@ -17,6 +17,10 @@ export const noJSXTrailingTextSpace: Rule.RuleModule = {
         return;
       }
 
+      if (node.value.includes('\n')) {
+        return;
+      }
+
       if (!/\S/u.test(node.value)) {
         return;
       }

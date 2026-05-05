@@ -1,24 +1,19 @@
 'use client';
 
+import { useIntersectionObserver } from '@davewelsh79/use-intersection-observer';
 import type { FC } from 'react';
-import { useRef } from 'react';
 import { useCountUp } from 'react-use-count-up';
 
 import CounterBackgroundImage from './counter-bg.jpg';
 import styles from './statsSection.module.scss';
 import { BackgroundImage } from '@/components/backgroundImage';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const duration = 2_000; // 2 seconds
 
 export const StatsSection: FC = () => {
-  const studentsRef = useRef<HTMLDivElement>(null);
-  const yearsRef = useRef<HTMLDivElement>(null);
-  const expertsRef = useRef<HTMLDivElement>(null);
-
-  const studentsStart = useIntersectionObserver(studentsRef);
-  const yearsStart = useIntersectionObserver(yearsRef);
-  const expertsStart = useIntersectionObserver(expertsRef);
+  const [ studentsStart, studentsRef ] = useIntersectionObserver(true);
+  const [ yearsStart, yearsRef ] = useIntersectionObserver(true);
+  const [ expertsStart, expertsRef ] = useIntersectionObserver(true);
 
   const students = useCountUp({ start: 0, end: 30, duration, started: studentsStart, easingFunction: 'easeOutCubic' });
   const years = useCountUp({ start: 0, end: 40, duration, started: yearsStart, easingFunction: 'easeOutCubic' });

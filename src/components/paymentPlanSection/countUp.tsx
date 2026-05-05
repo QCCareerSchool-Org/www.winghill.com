@@ -1,9 +1,8 @@
 'use client';
 
-import { type FC, useRef } from 'react';
+import { useIntersectionObserver } from '@davewelsh79/use-intersection-observer';
+import type { FC } from 'react';
 import { useCountUp } from 'react-use-count-up';
-
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 interface Props {
   value: number;
@@ -11,11 +10,8 @@ interface Props {
 
 const duration = 2_000; // 2 seconds
 
-// const formatter = (n: number) => n.toString()
-
 export const CountUp: FC<Props> = ({ value }) => {
-  const ref = useRef<HTMLElement>(null);
-  const intersected = useIntersectionObserver(ref);
+  const [ intersected, ref ] = useIntersectionObserver(true);
 
   const displayValue = useCountUp({ start: 0, end: value, duration, easingFunction: 'easeOutCubic', started: intersected });
 
