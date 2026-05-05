@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import Banner from './course-banner-creative-writing.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
-import GuaranteeSection from '../_components/guaranteeSection';
+import { GuaranteeSection } from '../_components/guaranteeSection';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
@@ -11,7 +11,7 @@ import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
 const courseCodes: CourseCode[] = [ 'ws' ];
-const courseOutlineArr = [ 'Identifying Your Market Niche', 'From Thought to Paper', 'The Short Story', 'Developing Unique Characters', 'Writing For Children', 'Writing Romance', 'Technical Writing', 'Specialty Writing', 'Writing Humor', 'Novels', 'Biographies and Poetry', 'Writing For Television', 'Writing For Radio', 'Writing For Theatre', 'Writer\'s First Aid Kit' ];
+
 const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
   const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);

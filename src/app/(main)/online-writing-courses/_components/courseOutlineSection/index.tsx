@@ -10,8 +10,8 @@ interface Props {
 export const CourseOutlineSection: FC<Props> = ({ items, className }) => (
   <section className={className}>
     <div className="container">
-      <h2 className="h1 text-center">Course Outline </h2>
-      <p>The following topics are covered through our extensive course package: </p>
+      <h2 className="h1 text-center">Course Outline</h2>
+      <p>The following topics are covered through our extensive course package:</p>
       <ol>
         {items.map(item => <li key={item}>{item}</li>)}
       </ol>

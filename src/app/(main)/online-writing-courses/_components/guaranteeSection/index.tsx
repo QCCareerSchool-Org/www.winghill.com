@@ -8,12 +8,11 @@ interface Props {
   title: string;
   doubleGuarantee: boolean;
   courseCodes: CourseCode[];
-  additionalText: boolean;
-  additionalTextBody?: string;
+  additionalText?: string;
   className?: string;
 }
 
-const GuaranteeSection: FC<Props> = ({ title, doubleGuarantee, courseCodes, additionalText, additionalTextBody, className }) => (
+export const GuaranteeSection: FC<Props> = ({ title, doubleGuarantee, courseCodes, additionalText, className }) => (
   <section className={className}>
     <div className="container">
       <h2 className="h1 mb-4 text-center">{title} Course Guarantee</h2>
@@ -30,11 +29,9 @@ const GuaranteeSection: FC<Props> = ({ title, doubleGuarantee, courseCodes, addi
               <a href={`https://enroll.winghill.com?${courseCodes.map(c => `c=${encodeURIComponent(c)}`).join('&')}`} className="btn btn-primary">Enroll Now</a>
             </>
           )}
-          {additionalText && <p>{additionalTextBody}</p>}
+          {additionalText && <p>{additionalText}</p>}
         </div>
       </div>
     </div>
   </section>
 );
-
-export default GuaranteeSection;
