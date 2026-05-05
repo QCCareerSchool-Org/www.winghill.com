@@ -9,7 +9,7 @@ export const EmailLink: FC = () => {
   useEffect(() => {
     if (ref.current) {
       // eslint-disable-next-line no-useless-concat
-      const emailAddress = 'info' + '@' + 'qcdesignschool.com';
+      const emailAddress = 'info' + '@' + 'qccareerschool.com';
       ref.current.href = `mailto:${emailAddress}`;
       ref.current.innerHTML = emailAddress;
     }
