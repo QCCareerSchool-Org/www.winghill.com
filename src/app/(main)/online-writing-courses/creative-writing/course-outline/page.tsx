@@ -37,7 +37,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             <div className="col-6 text-center">
               <h2 className="h1">Unit 1</h2>
               <h5>Identifying Your Market Niche</h5>
-              <p>You learn how to decide on the right publication for a specific idea and analyze the range of available market areas. In the first unit, you’ll take the “Marketable Knowledge Test” and “Market Tester” and start, with your tutor’s help, to produce your first stories and articles. Learn how to write queries, cover letters, and outlines that really help sell your work. Your confidence as a writer will improve as you learn the right way to deal with editors.</p>
+              <p>You learn how to decide on the right publication for a specific idea and analyze the range of available market areas. In the first unit, you'll take the &ldquo;Marketable Knowledge Test&rdquo; and &ldquo;Market Tester&rdquo; and start, with your tutor's help, to produce your first stories and articles. Learn how to write queries, cover letters, and outlines that really help sell your work. Your confidence as a writer will improve as you learn the right way to deal with editors.</p>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             <div className="col-6 text-center">
               <h2 className="h1">Unit 2</h2>
               <h5>From Thought to Paper</h5>
-              <p>In From Thought to Paper, you'll learn so many practical skills. How to research your topic, the right way to interview, developing your subject. Learn about the different kinds of leads, how to "paint with words," how to self edit in a professional way, the correct preparation of a manuscript, the right way to use quotes and how to protect yourself.</p>
+              <p>In From Thought to Paper, you'll learn so many practical skills. How to research your topic, the right way to interview, developing your subject. Learn about the different kinds of leads, how to &ldquo;paint with words,&rdquo; how to self edit in a professional way, the correct preparation of a manuscript, the right way to use quotes and how to protect yourself.</p>
             </div>
             <div className="col-6">
               <Image src={Logo2} alt="" className="img-fluid" />
@@ -79,7 +79,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             <div className="col-6 text-center">
               <h2 className="h1">Unit 4</h2>
               <h5>Developing Unique Characters</h5>
-              <p>Characterization is a vital ingredient of fiction. Learn how to make your readers really care about your characters. Learn how to build emotions, understand motivation, gain the reader’s sympathy, and introduce cause and effect. The importance of dialogue and how to use it convincingly and effectively are also introduced. Create supporting characters so that they are believable and interesting without “taking over” the story. Avoid clichés, and develop narration and characterization hand in hand.</p>
+              <p>Characterization is a vital ingredient of fiction. Learn how to make your readers really care about your characters. Learn how to build emotions, understand motivation, gain the reader's sympathy, and introduce cause and effect. The importance of dialogue and how to use it convincingly and effectively are also introduced. Create supporting characters so that they are believable and interesting without &ldquo;taking over the story&rdquo;. Avoid clichés, and develop narration and characterization hand in hand.</p>
             </div>
             <div className="col-6">
               <Image src={Logo4} alt="" className="img-fluid" />
@@ -139,7 +139,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             <div className="col-6 text-center">
               <h2 className="h1">Unit 8</h2>
               <h5>Specialty Writing</h5>
-              <p>Specialty Writing requires special techniques. Learn to determine the most profitable area for you. Then we'll show you how to write for it. Want to write for newspapers? You'll need different skill sets for hard news vs. soft news, travel writing, sports features or sports reporting, reviews, How To articles, fillers, topical stories. Learn all of the special skills you'll need and how to apply them to the right area in the {'write'} way.</p>
+              <p>Specialty Writing requires special techniques. Learn to determine the most profitable area for you. Then we'll show you how to write for it. Want to write for newspapers? You'll need different skill sets for hard news vs. soft news, travel writing, sports features or sports reporting, reviews, How To articles, fillers, topical stories. Learn all of the special skills you'll need and how to apply them to the right area in the &ldquo;write&rdquo; way.</p>
             </div>
             <div className="col-6">
               <Image src={Logo8} alt="" className="img-fluid" />
@@ -169,7 +169,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             <div className="col-6 text-center">
               <h2 className="h1">Unit 10</h2>
               <h5>Novels</h5>
-              <p>You'll take a novel approach to novel writing. Learn how to develop creative techniques, build believable characters your readers will love (or love to hate). You'll understand how to solve plotting problems, motivate your characters and make their dialogue really “sing.” You'll know how to establish viewpoint. A novel is a major undertaking. We structure and support your work so that your finished manuscript stays firmly in your reach.</p>
+              <p>You'll take a novel approach to novel writing. Learn how to develop creative techniques, build believable characters your readers will love (or love to hate). You'll understand how to solve plotting problems, motivate your characters and make their dialogue really &ldquo;sing&rdquo;. You'll know how to establish viewpoint. A novel is a major undertaking. We structure and support your work so that your finished manuscript stays firmly in your reach.</p>
             </div>
             <div className="col-6">
               <Image src={Logo10} alt="" className="img-fluid" />
@@ -229,7 +229,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             <div className="col-6 text-center">
               <h2 className="h1">Unit 12</h2>
               <h5>Writing For Theatre</h5>
-              <p>The world of the theater is an exciting and dramatic one but you have to understand the rules. We’ll teach you the conventions of time, place, and action that you have to master for this genre. You’ll learn how to develop conflict, characters, crises, and conclusions which satisfy the needs of the market. Learn about dialogue, dialects, specific types of plays, stage directions, and writing within a production budget. Learn about the pitfalls that have trapped many budding playwrights.</p>
+              <p>The world of the theater is an exciting and dramatic one but you have to understand the rules. We'll teach you the conventions of time, place, and action that you have to master for this genre. You'll learn how to develop conflict, characters, crises, and conclusions which satisfy the needs of the market. Learn about dialogue, dialects, specific types of plays, stage directions, and writing within a production budget. Learn about the pitfalls that have trapped many budding playwrights.</p>
             </div>
             <div className="col-6">
               <Image src={Logo14} alt="" className="img-fluid" />
