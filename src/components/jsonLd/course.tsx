@@ -49,7 +49,7 @@ export const getCourse = async (courseCode: CourseCode, id?: string, providerId?
         '@type': 'EducationalOrganization',
         '@id': 'https://www.winghill.com/#school',
         'url': 'https://www.winghill.com',
-        'name': 'QC Design School',
+        'name': 'Winghill Writing School',
         'sameAs': 'sameAs' in educationalOrganization ? educationalOrganization.sameAs : undefined,
       },
   };
