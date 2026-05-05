@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
 import Banner from './course-banner-creative-writing.jpg';
-import CourseOutlineComponent from '../courseOutlineComponent';
-import ReusableGuarantee from '../ReusableGuaranteeComponent';
+import CourseOutlineSection from '../courseOutlineSection';
+import GuaranteeSection from '../guaranteeSection';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
@@ -33,15 +33,9 @@ const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
 
       <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
 
-      <section>
-        <CourseOutlineComponent items={courseOutlineArr} coursePath="creative-writing" />
-      </section>
+      <CourseOutlineSection items={courseOutlineArr} coursePath="creative-writing" className="" />
+      <GuaranteeSection title="Creative Writing" doubleGuarantee={true} courseCode="wc" additionalText={false} className="bg-light" />
 
-      <section className="bg-light">
-        <div className="container">
-          <ReusableGuarantee title="Creative Writing" doubleGuarantee={true} courseCode="wc" additionalText={false} />
-        </div>
-      </section>
     </>
   );
 
