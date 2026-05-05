@@ -5,7 +5,7 @@ import type { FC, PropsWithChildren } from 'react';
 interface Props {
   unit: number;
   title: string;
-  src: StaticImageData;
+  src?: StaticImageData;
   className?: string;
   alternate?: boolean;
 }
