@@ -1,4 +1,3 @@
-import { QCCard } from '@/components/qc/card';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import { courseCodes, getCourseName, getCourseUrl } from '@/domain/courseCode';
 import type { PageComponent } from '@/serverComponent';

@@ -12,7 +12,7 @@ interface Props {
   provinceCode: string | null;
 }
 
-export const Header: FC<Props> = ({ date, countryCode, provinceCode }) => {
+export const Header: FC<Props> = ({ date }) => {
 
   return (
     <header className={`${styles.header} flex-shrink-0`} style={{ position: 'sticky', top: 0, zIndex: 1050, width: '100%' }}>
