@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Banner from './course-banner-romance-writing.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
 import { GuaranteeSection } from '../_components/guaranteeSection';
-import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
 import { formatPrice } from '@/lib/formatPrice';
