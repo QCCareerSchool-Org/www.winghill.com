@@ -3,6 +3,7 @@ import Image from 'next/image';
 import CourseBanner from './course-banner-novel-writing.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
 import { GuaranteeSection } from '../_components/guaranteeSection';
+import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
@@ -19,6 +20,7 @@ const NovelWritingPage: PageComponent = async ({ searchParams }) => {
 
   return(
     <>
+      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
       <section>
         <div className="container">
           <h1>Novel Writing Course</h1>

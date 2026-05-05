@@ -237,6 +237,7 @@ const eslintConfig = defineConfig([
       'react/jsx-closing-bracket-location': [ 'error', {
         location: 'line-aligned',
       } ],
+      'react/jsx-closing-tag-location': 'error',
       'react/jsx-curly-spacing': 'error',
       'react/jsx-equals-spacing': 'error',
       'react/jsx-first-prop-new-line': [ 'error', 'multiline' ],

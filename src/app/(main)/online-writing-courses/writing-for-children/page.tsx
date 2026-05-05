@@ -3,6 +3,7 @@ import Image from 'next/image';
 import CourseBanner from './course-banner-writing-for-children.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
 import { GuaranteeSection } from '../_components/guaranteeSection';
+import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
@@ -17,8 +18,9 @@ const ChildrenWritingPage: PageComponent = async ({ searchParams }) => {
   const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
 
-  return(
+  return (
     <>
+      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
       <section>
         <div className="container">
           <h1>Writing for Children Course</h1>
