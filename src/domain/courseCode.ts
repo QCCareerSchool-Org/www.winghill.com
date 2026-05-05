@@ -1,6 +1,6 @@
 import { dataMap } from './courseData';
 
-export const courseCodes = [ 'ws', 'nv', 'ch', 'rm', 'fh', 'bc', 'sc' ] as const;
+export const courseCodes = ['ws', 'nv', 'ch', 'rm', 'fh', 'bc', 'sc'] as const;
 
 export type CourseCode = typeof courseCodes[number];
 
