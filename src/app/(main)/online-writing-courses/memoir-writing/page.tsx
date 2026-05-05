@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import CourseBanner from './course-banner-memoir-writing.jpg';
-import Guarantee from './guarantee.png';
+import { CourseOutlineSection } from '../_components/courseOutlineSection';
+import { GuaranteeSection } from '../_components/guaranteeSection';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
@@ -29,47 +29,29 @@ const MemoirWritingPage: PageComponent = async ({ searchParams }) => {
           <p>Our easy-to-follow course makes it a pleasure to re-discover your personal history or your family's past. You'll write a treasured legacy for yourself, your children, and future generations of your family. We'll show you how to effectively research and organize information. We'll help you to decide what's important and what can be left out. And, most importantly, you'll learn how to structure an engaging and captivating story that will fascinate both your loved ones and general readers.</p>
         </div>
       </section>
-      <TestimonialWallSection testimonialIds={[]} className="bg-light" />
-      <section>
-        <div className="container">
-          <h2 className="h1">Course Outline</h2>
-          <p>The following topics are covered through our extensive course package:</p>
-          <ol>
-            <li>Family History</li>
-            <li>Beginning the Writing Process</li>
-            <li>Developing Working Parameters</li>
-            <li>Locating Essential Information</li>
-            <li>Working From an Outline</li>
-            <li>Creating Lively Narrative</li>
-            <li>Writing From the Heart</li>
-            <li>Flexing Your Storytelling Muscles</li>
-            <li>The Responsibility of the Writer</li>
-            <li>Variety, the Spice of Life</li>
-            <li>Focusing on the Writer</li>
-            <li>Editing Like a Pro</li>
-            <li>Your Book</li>
-            <li>Reproducing Your Memoir</li>
-            <li>The Business of Writing</li>
-          </ol>
-          <Link href="memoir-writing/course-outline" className="btn btn-primary">Learn More</Link>
-        </div>
-      </section>
-      <section className="bg-light">
-        <div className="container">
-          <h2 className="h1 mb-4 text-center">Memoir Writing Course Guarantee</h2>
-          <div className="row justify-content-center align-items-center g-5">
-            <div className="col-3 d-none d-lg-block">
-              <Image src={Guarantee} alt="21 Day Money Back Guarantee" className="img-fluid" />
-            </div>
-            <div className="col-12 col-md-10 col-lg-9">
-              <p>You get a full money-back guarantee for all of our writing programs. You can take the time to review the course materials in your home for 21 days. If for any reason you decide the course is not right for you, simply send everything back to the School and we'll issue you a full refund—no questions asked.</p>
-              <a className="btn btn-primary" href="https://enroll.winghill.com/?c=rm">ENROLL NOW</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
+      <CourseOutlineSection items={outlineItems} />
+      <GuaranteeSection title="Memoir Writing" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
     </>
   );
 };
 
 export default MemoirWritingPage;
+
+const outlineItems = [
+  'Family History',
+  'Beginning the Writing Process',
+  'Developing Working Parameters',
+  'Locating Essential Information',
+  'Working From an Outline',
+  'Creating Lively Narrative',
+  'Writing From the Heart',
+  'Flexing Your Storytelling Muscles',
+  'The Responsibility of the Writer',
+  'Variety, the Spice of Life',
+  'Focusing on the Writer',
+  'Editing Like a Pro',
+  'Your Book',
+  'Reproducing Your Memoir',
+  'The Business of Writing',
+];
