@@ -4,6 +4,7 @@ import Banner from './course-banner-screenwriting.jpg';
 import Screenwriting from './movie-magic-screenwriter-box.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
 import { GuaranteeSection } from '../_components/guaranteeSection';
+import { CourseJsonLd } from '@/components/jsonLd/course';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
 import { formatPrice } from '@/lib/formatPrice';
@@ -19,6 +20,7 @@ const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
 
   return (
     <>
+      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
       <section>
         <div className="container">
           <h1>Screenwriting</h1>
@@ -32,7 +34,7 @@ const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
       <CourseOutlineSection items={outlineItems} className="bg-light" />
       <section>
         <div className="container">
-          <h2 className="h1 text-center"> Movie Magic Screenwriter Software</h2>
+          <h2 className="h1 text-center">Movie Magic Screenwriter Software</h2>
           <div className="row justify-content-center align-items-center">
             <div className="col-4 d-none d-lg-block">
               <Image src={Screenwriting} alt="" />
@@ -51,7 +53,6 @@ const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
           </div>
         </div>
       </section>
-
       <section className="bg-light">
         <div className="container">
           <h2 className="h1 text-center">Your Assignments</h2>
@@ -69,7 +70,6 @@ const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
           <p>Your tutors learned their skills through a long process of trial and error. They will call on all their skills and longstanding experience to guide you in the best way possible as you submit your work. From the start, you are able to work in a really constructive and productive manner that produces real results. Your assignments result in a professional level script that you can feel really proud of.</p>
         </div>
       </section>
-
       <GuaranteeSection title="Screenwriting" doubleGuarantee={false} courseCodes={courseCodes} additionalText={additionalText} />
     </>
   );
