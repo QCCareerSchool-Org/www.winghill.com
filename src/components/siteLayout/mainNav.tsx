@@ -45,10 +45,7 @@ export const MainNav: FC = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <NavDropdown title="Online Writing Courses" id="courses-nav-dropdown">
-                {courseCodes.map(c => {
-                  console.log(getCourseUrl(c));
-                  return <Link key={c} href={getCourseUrl(c)} className="dropdown-item" onClick={handleClick}>{getCourseName(c)}</Link>;
-                })}
+                {courseCodes.map(c => <Link key={c} href={getCourseUrl(c)} className="dropdown-item" onClick={handleClick}>{getCourseName(c)}</Link>)}
                 <li><hr className="dropdown-divider" /></li>
                 <Link href="/online-writing-courses" className="dropdown-item" onClick={handleClick}>View All Courses</Link>
               </NavDropdown>
