@@ -23,8 +23,11 @@ const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
           <h1>Romance Writing Course</h1>
           {price && <h2>{price.currency.symbol}{formatPrice(price.plans.full.total)} or {price.currency.symbol}{formatPrice(price.plans.part.installmentSize)}/mo</h2>}
           <Image src={Banner} alt="" />
-          <p>If you have always wanted to use your talent and passion for writing to earn extra income, our Creative Writing course is the ideal choice for you. Our course caters to people just like you who want to become a published writer but don't know how to get started. Your lessons will expose you to a variety of different genres and together with your tutor you'll identify the types of writing you like best. We'll customize your assignments to suit your particular interests and help you succeed as a published writer.</p>
-          <p>The creative writing program shows you how to write articles and short stories for a variety of audiences. You''ll even learn how to tackle opportunities for radio, television, and screenplays. Each lesson of the course covers a new and exciting topic. You might discover a previously untapped passion for romance writing, or a rewarding new career as a children's author. If you've never been published before and you're not sure what area of writing you'd like to focus on, the creative writing program is the best choice for you.</p>
+          <p>Do you enjoy being swept away in tales of love and romance? Does your heart skip a beat when two star-crossed lovers overcome all obstacles and seal their union with a passionate embrace? If you want to use your talents to write heart-stopping accounts of love found, lost, and won, this is the course for you.</p>
+          <p>With elements of love, conflict, and a touch of adventure, romance writing is always exciting. Our course shows you how to take your creative ideas and mould them into the fairly strict formats most publishers want to see. Editors are constantly clamoring for new, quality material so there is a huge market of opportunity for someone who has a talent for writing romance—someone just like you.</p>
+          <p>Our Romance Writing course shows you, step by step, how to take an idea and turn it into a publishable manuscript. You'll learn how to create dynamic characters, how to build dramatic tension, and how to use sensual words and phrases to draw readers into your story. Once you understand how to write romance that sells, you'll have a satisfying and lucrative career ahead of you.
+          </p>
+
         </div>
       </section>
       <section className="bg-light">
