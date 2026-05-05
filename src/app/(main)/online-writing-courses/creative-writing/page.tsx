@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Banner from './course-banner-creative-writing.jpg';
+import CourseOutlineComponent from '../courseOutlineComponent';
 import ReusableGuarantee from '../ReusableGuaranteeComponent';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
@@ -16,6 +16,8 @@ const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
   const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
+  const courseOutlineArr = [ 'Identifying Your Market Niche', 'From Thought to Paper', 'The Short Story', 'Developing Unique Characters', 'Writing For Children', 'Writing Romance', 'Technical Writing', 'Specialty Writing', 'Writing Humor', 'Novels', 'Biographies and Poetry', 'Writing For Television', 'Writing For Radio', 'Writing For Theatre', 'Writer\'s First Aid Kit' ];
+
   return (
 
     <>
@@ -32,28 +34,7 @@ const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
       <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
 
       <section>
-        <div className="container">
-          <h2 className="h1">Course Outline </h2>
-          <p>The following topics are covered through our extensive course package: </p>
-          <ol>
-            <li>Identifying Your Market Niche</li>
-            <li>The Short Story</li>
-            <li>From Thought to Paper</li>
-            <li>Developing Unique Characters</li>
-            <li>Writing For Children</li>
-            <li>Writing Romance</li>
-            <li>Technical Writing</li>
-            <li>Specialty Writing</li>
-            <li>Writing Humor</li>
-            <li>Novels</li>
-            <li>Biographies and Poetry</li>
-            <li>Writing For Television</li>
-            <li>Writing For Radio</li>
-            <li>Writing For Theatre</li>
-            <li>Writer's First-Aid Kit</li>
-          </ol>
-          <Link href="/online-writing-courses/creative-writing/course-outline" className="btn btn-primary">Learn More</Link>
-        </div>
+        <CourseOutlineComponent items={courseOutlineArr} coursePath="creative-writing" />
       </section>
 
       <section className="bg-light">
