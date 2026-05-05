@@ -26,10 +26,10 @@ export const GuaranteeSection: FC<Props> = ({ title, doubleGuarantee, courseCode
             <>
               <h3 className="h5">Double Guarantee</h3>
               <p>The {title} course is also covered by our Double Guarantee. In addition to the no-risk 21-day trial, we guarantee your success. If by the time you've completed the program you have not earned the equivalent of your course fees through your published work, we'll issue you a full refund. It's as simple as that. Our course is designed for your success and we back up that promise to you with an iron-clad guarantee that's been in place for over twenty years.</p>
-              <a href={`https://enroll.winghill.com?${courseCodes.map(c => `c=${encodeURIComponent(c)}`).join('&')}`} className="btn btn-primary">Enroll Now</a>
             </>
           )}
           {additionalText && <p>{additionalText}</p>}
+          <a href={`https://enroll.winghill.com?${courseCodes.map(c => `c=${encodeURIComponent(c)}`).join('&')}`} className="btn btn-primary">Enroll Now</a>
         </div>
       </div>
     </div>

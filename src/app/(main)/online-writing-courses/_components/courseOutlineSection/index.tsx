@@ -5,9 +5,10 @@ import { OutlineLink } from './outlineLink';
 interface Props {
   items: string[];
   className?: string;
+  noButton?: boolean;
 }
 
-export const CourseOutlineSection: FC<Props> = ({ items, className }) => (
+export const CourseOutlineSection: FC<Props> = ({ items, className, noButton }) => (
   <section className={className}>
     <div className="container">
       <h2 className="h1 text-center">Course Outline</h2>
@@ -15,7 +16,9 @@ export const CourseOutlineSection: FC<Props> = ({ items, className }) => (
       <ol>
         {items.map(item => <li key={item}>{item}</li>)}
       </ol>
-      <OutlineLink />
+      { !noButton && (
+        <OutlineLink />
+      )}
     </div>
   </section>
 );
