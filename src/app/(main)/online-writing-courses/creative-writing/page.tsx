@@ -30,7 +30,7 @@ const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
       </section>
       <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
       <CourseOutlineSection items={outlineItems} />
-      <GuaranteeSection title="Creative Writing" doubleGuarantee={true} courseCodes={courseCodes} additionalText={false} className="bg-light" />
+      <GuaranteeSection title="Creative Writing" doubleGuarantee={true} courseCodes={courseCodes} className="bg-light" />
     </>
   );
 };

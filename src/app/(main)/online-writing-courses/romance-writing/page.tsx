@@ -15,8 +15,8 @@ const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
   const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
-  return (
 
+  return (
     <>
       <section>
         <div className="container">
@@ -27,7 +27,6 @@ const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
           <p>The creative writing program shows you how to write articles and short stories for a variety of audiences. You''ll even learn how to tackle opportunities for radio, television, and screenplays. Each lesson of the course covers a new and exciting topic. You might discover a previously untapped passion for romance writing, or a rewarding new career as a children's author. If you've never been published before and you're not sure what area of writing you'd like to focus on, the creative writing program is the best choice for you. </p>
         </div>
       </section>
-
       <section className="bg-light">
         <div className="container">
           <h2 className="h1">Student Testimonial</h2>
@@ -36,13 +35,33 @@ const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
           <p className="text-end">Romance Writing</p>
         </div>
       </section>
-
-      <CourseOutlineSection items={courseOutlineArr} className="" />
+      <CourseOutlineSection items={outlineItems} className="" />
       <GuaranteeSection title="Romance Writing" doubleGuarantee={true} courseCodes={courseCodes} className="bg-light" />
-
     </>
   );
-
 };
-const courseOutlineArr = [ 'Choosing the Right Words', 'Character Development', 'Getting Inspired', 'Marketing Your Ideas', 'Creating a Plot Outline', 'Developing Your Plot', 'Using the Right Tools', 'Grabbing Attention', 'Writing Your First Chapter', 'Maintaining Tension', 'The Editing Process', 'Choosing Names and Titles', 'Dealing with Copyright', 'Sensual Words', 'Revealing Thoughts on Paper', 'The Process of Rewriting', 'The Role of Research', 'Selling Your Outline', 'Working with Editors', 'Presenting Your Manuscript' ];
+
 export default RomanceWritingPage;
+
+const outlineItems = [
+  'Choosing the Right Words',
+  'Character Development',
+  'Getting Inspired',
+  'Marketing Your Ideas',
+  'Creating a Plot Outline',
+  'Developing Your Plot',
+  'Using the Right Tools',
+  'Grabbing Attention',
+  'Writing Your First Chapter',
+  'Maintaining Tension',
+  'The Editing Process',
+  'Choosing Names and Titles',
+  'Dealing with Copyright',
+  'Sensual Words',
+  'Revealing Thoughts on Paper',
+  'The Process of Rewriting',
+  'The Role of Research',
+  'Selling Your Outline',
+  'Working with Editors',
+  'Presenting Your Manuscript',
+];
