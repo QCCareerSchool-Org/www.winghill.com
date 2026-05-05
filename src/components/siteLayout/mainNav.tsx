@@ -10,12 +10,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import styles from './mainNav.module.css';
 import Toggle from './toggle.svg';
 import { Logo } from '@/components/logo';
-import { useScrollPositionContext } from '@/hooks/useScrollPositionContext';
 import { courseCodes, getCourseName, getCourseUrl } from '@/domain/courseCode';
+import { useScrollPositionContext } from '@/hooks/useScrollPositionContext';
 
 export const MainNav: FC = () => {
   const scrollPosition = useScrollPositionContext() ?? 0;
-  const [key, setKey] = useState(0);
+  const [ key, setKey ] = useState(0);
 
   const handleClick = (): void => {
     setTimeout(() => {
@@ -68,13 +68,3 @@ export const MainNav: FC = () => {
     </div>
   );
 };
-
-const courses = [
-  { name: 'Creative Writing', href: '/online-writing-courses/creative-writing' },
-  { name: 'Novel Writing', href: '/online-writing-courses/novel-writing' },
-  { name: 'Writing for Children', href: '/online-writing-courses/writing-for-children' },
-  { name: 'Romance Writing', href: '/online-writing-courses/romance-writing' },
-  { name: 'Memoir Writing', href: '/online-writing-courses/memoir-writing' },
-  { name: 'Business Communications', href: '/online-writing-courses/business-communications' },
-  { name: 'Screenwriting', href: '/online-writing-courses/screenwriting' },
-] as const;

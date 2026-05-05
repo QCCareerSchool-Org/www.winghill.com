@@ -1,10 +1,10 @@
 import type { FC } from 'react';
+import { BiChat, BiEnvelope, BiPhone } from 'react-icons/bi';
 
 import { ChatLink } from '@/components/chatLink';
 import { EmailLink } from '@/components/emailLink';
 import { TelephoneLink } from '@/components/telephoneLink';
 import { getServerData } from '@/lib/getServerData';
-import { BiChat, BiEnvelope, BiPhone } from 'react-icons/bi';
 
 export const FooterColumn3: FC = async () => {
   const { countryCode } = await getServerData();

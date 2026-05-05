@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import type { FC } from 'react';
+import { BiLogoFacebook, BiLogoLinkedin, BiLogoPinterest } from 'react-icons/bi';
 
+import FortyYearsIcon from './40-years.svg';
 import { Address } from './address';
+import BBBIcon from './bbb.svg';
 import styles from './footer.module.scss';
 import { FooterColumn1 } from './footerColumn1';
 import { FooterColumn2 } from './footerColumn2';
 import { FooterColumn3 } from './footerColumn3';
-import BBBIcon from './bbb.svg';
-import FortyYearsIcon from './40-years.svg';
 import { Logo } from '@/components/logo';
-import { BiLogoFacebook, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTiktok, BiLogoYoutube } from 'react-icons/bi';
 
 const iconSize = 20;
 
