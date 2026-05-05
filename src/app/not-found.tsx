@@ -5,7 +5,7 @@ import Link from 'next/link';
 import type { PageComponent } from '../serverComponent';
 import styles from './not-found.module.scss';
 import { SiteLayout } from '@/components/siteLayout';
-import { getRequiredNumberHeader } from '@/lib/getRequiredHeader';
+import { getRequiredIntegerHeader } from '@/lib/getRequiredHeader';
 
 export const metadata: Metadata = {
   title: 'Page Not Found',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const NotFoundPage: PageComponent = async () => {
   const headersList = await headers();
-  const date = getRequiredNumberHeader(headersList, 'x-current-date');
+  const date = getRequiredIntegerHeader(headersList, 'x-current-date');
 
   return (
     <SiteLayout date={date}>

@@ -20,3 +20,14 @@ export const getRequiredNumberHeader = (headersList: HeadersList, name: string):
 
   return num;
 };
+
+export const getRequiredIntegerHeader = (headersList: HeadersList, name: string): number => {
+  const value = getRequiredHeader(headersList, name);
+  const num = Number(value);
+
+  if (!Number.isInteger(num)) {
+    throw Error(`Header ${name} is not a valid integer`);
+  }
+
+  return num;
+};
