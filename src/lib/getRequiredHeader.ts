@@ -1,17 +1,17 @@
-interface HeadersList {
+interface Getter {
   get: (name: string) => string | null;
 }
 
-export const getRequiredHeader = (headersList: HeadersList, name: string): string => {
-  const value = headersList.get(name);
+export const getRequired = (getter: Getter, name: string): string => {
+  const value = getter.get(name);
   if (value === null) {
     throw Error(`Header ${name} missing`);
   }
   return value;
 };
 
-export const getRequiredNumberHeader = (headersList: HeadersList, name: string): number => {
-  const value = getRequiredHeader(headersList, name);
+export const getRequiredNumber = (getter: Getter, name: string): number => {
+  const value = getRequired(getter, name);
   const num = Number(value);
 
   if (Number.isNaN(num)) {
@@ -21,8 +21,8 @@ export const getRequiredNumberHeader = (headersList: HeadersList, name: string):
   return num;
 };
 
-export const getRequiredIntegerHeader = (headersList: HeadersList, name: string): number => {
-  const value = getRequiredHeader(headersList, name);
+export const getRequiredInteger = (getter: Getter, name: string): number => {
+  const value = getRequired(getter, name);
   const num = Number(value);
 
   if (!Number.isInteger(num)) {
