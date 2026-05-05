@@ -57,7 +57,7 @@ const NovelWritingPage: PageComponent = async ({ searchParams }) => {
             <li>Choosing a Title</li>
             <li>Finding a Publisher</li>
           </ol>
-          <Link href="course-outline" className="btn btn-primary">Learn More</Link>
+          <Link href="novel-writing/course-outline" className="btn btn-primary">Learn More</Link>
         </div>
       </section>
       <section className="bg-light">
