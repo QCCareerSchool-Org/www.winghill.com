@@ -97,7 +97,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             <div className="col-6 text-center">
               <h2 className="h1">Unit 5</h2>
               <h5>Writing For Children</h5>
-              <p>Writing For Children is not just kid’s stuff. You’ll learn just what sets this exciting genre apart and how to ensure your work rates highly. Find out all the details on subject matter, length, narration, dialogue, plotting and titles. Use Wonderful Words to create images that children will carry with them forever. Learn how to tackle sensitive issues and the vital ways to market your work.</p>
+              <p>Writing For Children is not just kid's stuff. You'll learn just what sets this exciting genre apart and how to ensure your work rates highly. Find out all the details on subject matter, length, narration, dialogue, plotting and titles. Use Wonderful Words to create images that children will carry with them forever. Learn how to tackle sensitive issues and the vital ways to market your work.</p>
             </div>
           </div>
         </div>
@@ -139,7 +139,7 @@ const CreativeWritingPageOutline: PageComponent = () => {
             <div className="col-6 text-center">
               <h2 className="h1">Unit 8</h2>
               <h5>Specialty Writing</h5>
-              <p>Specialty Writing requires special techniques. Learn to determine the most profitable area for you. Then we’ll show you how to write for it. Want to write for newspapers? You’ll need different skill sets for hard news vs. soft news, travel writing, sports features or sports reporting, reviews, How To articles, fillers, topical stories. Learn all of the special skills you’ll need and how to apply them to the right area in the “write” way.</p>
+              <p>Specialty Writing requires special techniques. Learn to determine the most profitable area for you. Then we'll show you how to write for it. Want to write for newspapers? You'll need different skill sets for hard news vs. soft news, travel writing, sports features or sports reporting, reviews, How To articles, fillers, topical stories. Learn all of the special skills you'll need and how to apply them to the right area in the {'write'} way.</p>
             </div>
             <div className="col-6">
               <Image src={Logo8} alt="" className="img-fluid" />
