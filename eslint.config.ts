@@ -209,17 +209,21 @@ const eslintConfig = defineConfig([
       '@stylistic/comma-dangle': [ 'error', 'always-multiline' ],
       '@stylistic/comma-spacing': 'error',
       '@stylistic/indent': [ 'error', 2 ],
+      '@stylistic/jsx-closing-tag-location': 'error',
       '@stylistic/function-call-spacing': 'error',
       '@stylistic/lines-between-class-members': [ 'error', 'always', {
         exceptAfterSingleLine: true,
       } ],
       '@stylistic/member-delimiter-style': 'error',
+      '@stylistic/no-multiple-empty-lines': [ 'error', { max: 1 } ],
+      '@stylistic/no-whitespace-before-property': 'error',
       '@stylistic/object-curly-spacing': [ 'error', 'always' ],
       '@stylistic/type-annotation-spacing': 'error',
       '@stylistic/quotes': [ 'error', 'single', {
         avoidEscape: true,
         allowTemplateLiterals: 'always',
       } ],
+      '@stylistic/rest-spread-spacing': 'error',
       '@stylistic/semi': 'error',
       '@stylistic/space-before-function-paren': [ 'error', {
         anonymous: 'always',
@@ -229,6 +233,7 @@ const eslintConfig = defineConfig([
       '@stylistic/space-infix-ops': 'error',
 
       // react rules
+      'react/jsx-child-element-spacing': 'error',
       'react/jsx-closing-bracket-location': [ 'error', {
         location: 'line-aligned',
       } ],

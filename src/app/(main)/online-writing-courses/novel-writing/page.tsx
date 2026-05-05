@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import CourseBanner from './course-banner-novel-writing.jpg';
 import Guarantee from './guarantee.png';
@@ -56,7 +57,7 @@ const NovelWritingPage: PageComponent = async ({ searchParams }) => {
             <li>Choosing a Title</li>
             <li>Finding a Publisher</li>
           </ol>
-          <a className="btn btn-primary">LEARN MORE</a>
+          <Link href="course-outline" className="btn btn-primary">Learn More</Link>
         </div>
       </section>
       <section className="bg-light">
@@ -75,7 +76,6 @@ const NovelWritingPage: PageComponent = async ({ searchParams }) => {
       </section>
     </>
   );
-
 };
 
 export default NovelWritingPage;
