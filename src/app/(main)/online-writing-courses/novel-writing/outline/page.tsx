@@ -1,7 +1,4 @@
-import Image from 'next/image';
-
-import { CourseOutlineLeft } from './courseOutline';
-import { CourseOutlineRight } from './courseOutline';
+import { CourseOutline } from './courseOutline';
 import Unit1Icon from './outline-icons-novel-writing-01.png';
 import Unit2Icon from './outline-icons-novel-writing-02.png';
 import Unit3Icon from './outline-icons-novel-writing-03.png';
@@ -25,6 +22,8 @@ import Unit20Icon from './outline-icons-novel-writing-20.png';
 import type { PageComponent } from '@/serverComponent';
 
 const NovelWritingOutline: PageComponent = () => {
+  let unitCount = 0;
+  const nextUnit = () => ++unitCount;
 
   return(
     <>
@@ -35,14 +34,66 @@ const NovelWritingOutline: PageComponent = () => {
         </div>
       </section>
 
-      <CourseOutlineLeft unit={1} title="Choosing a Genre" description={<p>In <i>Choosing a Genre</i>, you start out the right way. Learn how to dissect the novel and how to recognize all the different elements that compose it. You'll learn how to identify them and when and how to use the different elements to best advantage. How to be sure that the right ones will be included in the right way in your book. The process of working with your own tutor begins.</p>} src={Unit1Icon} bgLight />
-      <CourseOutlineRight unit={2} title="Plot Ideas" description={<p>The bricks and mortar of your book: learn how to introduce action, description, narrative, and how to keep your reader's imagination in the equation. We'll also cover how to advance the plot, show character, develop description, and make each element appropriate for the genre you have chosen. By the end of this unit, you'll know just how to develop the framework of your novel.</p>} src={Unit2Icon} />
-      <CourseOutlineLeft unit={3} title="Developing Your Plot Further" description={<p>How to add spice to your novel. Your reader won't want to put down your book if you have added character, &ldquo;voice,&rdquo; and ambiance. You learn the surprising ways to flesh out your basic plot and add substance to your book. Make your characters reach out and &ldquo;grab&rdquo; the reader. This unit shows you how and gives you lots of practice in how to do it yourself.</p>} src={Unit3Icon} bgLight />
-      <CourseOutlineRight unit={4} title="Building Sub-Plots" description={<p>You want your novel to be read. In this unit you'll learn the essential mechanics of the process and how to be practical before you get really creative. Every novel has to fulfill certain requirements. Learn what they are and how to include them the right way. Give your book the chance it deserves.</p>} src={Unit4Icon} />
-      <CourseOutlineLeft unit={5} title="Keeping Your Novel Balanced" description={<p>In this unit, you'll learn some surprising new skills. Learn how to structure your novel so that it exactly fits the demands of specific publishers. Find out where to place your plot twists and what is behind the arithmetic of novel writing. Learn the vital &ldquo;readability rules&rdquo; and how to make your reader your ally.</p>} src={Unit5Icon} bgLight />
-      <CourseOutlineRight unit={6} title="Creating Characters" description={<p><i>Creating Characters</i> teaches you how to create real people for your book. You want your readers to weep with, laugh at and love your characters. Using a step-by-step approach, you'll learn how to develop traits, build on them, and mix ingredients so that even your minor characters spring to life.</p>} src={Unit6Icon} />
-      <CourseOutlineLeft unit={7} title="Choosing Names" description={<p>Names are important in real life. In fiction, they play a vital role in developing personality. In <i>Choosing Names</i>, you'll learn and understand all the rules and the implications of name development. It's not as easy as it seems and there's a lot to think about. You'll get lots of practice to be sure that your characters have the advantage of the right names.</p>} src={Unit7Icon} bgLight />
-
+      <CourseOutline unit={nextUnit()} title="Choosing a Genre" src={Unit1Icon}>
+        <p>In <i>Choosing a Genre</i>, you start out the right way. Learn how to dissect the novel and how to recognize all the different elements that compose it. You'll learn how to identify them and when and how to use the different elements to best advantage. How to be sure that the right ones will be included in the right way in your book. The process of working with your own tutor begins.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Plot Ideas" src={Unit2Icon}>
+        <p>The bricks and mortar of your book: learn how to introduce action, description, narrative, and how to keep your reader's imagination in the equation. We'll also cover how to advance the plot, show character, develop description, and make each element appropriate for the genre you have chosen. By the end of this unit, you'll know just how to develop the framework of your novel.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Developing Your Plot Further" src={Unit3Icon}>
+        <p>How to add spice to your novel. Your reader won't want to put down your book if you have added character, &ldquo;voice,&rdquo; and ambiance. You learn the surprising ways to flesh out your basic plot and add substance to your book. Make your characters reach out and &ldquo;grab&rdquo; the reader. This unit shows you how and gives you lots of practice in how to do it yourself.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Building Sub-Plots" src={Unit4Icon}>
+        <p>You want your novel to be read. In this unit you'll learn the essential mechanics of the process and how to be practical before you get really creative. Every novel has to fulfill certain requirements. Learn what they are and how to include them the right way. Give your book the chance it deserves.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Keeping Your Novel Balanced" src={Unit5Icon}>
+        <p>In this unit, you'll learn some surprising new skills. Learn how to structure your novel so that it exactly fits the demands of specific publishers. Find out where to place your plot twists and what is behind the arithmetic of novel writing. Learn the vital &ldquo;readability rules&rdquo; and how to make your reader your ally.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Creating Characters" src={Unit6Icon}>
+        <p><i>Creating Characters</i> teaches you how to create real people for your book. You want your readers to weep with, laugh at and love your characters. Using a step-by-step approach, you'll learn how to develop traits, build on them, and mix ingredients so that even your minor characters spring to life.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Choosing Names" src={Unit7Icon}>
+        <p>Names are important in real life. In fiction, they play a vital role in developing personality. In <i>Choosing Names</i>, you'll learn and understand all the rules and the implications of name development. It's not as easy as it seems and there's a lot to think about. You'll get lots of practice to be sure that your characters have the advantage of the right names.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Writing What You Know" src={Unit8Icon}>
+        <p>In <i>Writing What You Know</i>, you learn about how to develop your knowledge and how to apply facts to different settings, times, and places. This unit is packed with information in a very concrete way. As a writer, you need to use the information in your head a thousand different ways. Shakespeare never left England. He wrote Othello, set in Cyprus, utterly convincingly. Find out how.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Sentence Structure" src={Unit9Icon}>
+        <p>Start to think of yourself as a professional. That is what you are fast becoming. In Your Tool Kit, you'll learn all the tools you need as a writer <i>and</i> the way to use them effectively and efficiently. Equip yourself with the right methodology and tools to do your job right.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Outlines and Dialogue" src={Unit10Icon}>
+        <p>An outline is a vital tool. New writers agonize over it. This unit removes all the pain. Learn the professional way to develop an outline to be of greatest help as you write and learn how to make the outline sell the work. This unit will also teach you how to develop dialogue the right way, when to use dialogue to advance the story, and how to make your dialogue &ldquo;right&rdquo; for the character.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Capturing Your Reader" src={Unit11Icon}>
+        <p><i>Capturing Your Reader</i> is not as violent as it sounds. This unit shows you how to ensure that your reader needs to read your book and wants to buy your next one. Where and how to introduce conflict, how to overlap the conflicts at plot twists, how to move the plot forward, how to reveal your characters slowly. How top force the reader to identify with your protagonists.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Choosing Tense" src={Unit12Icon}>
+        <p>How to choose the right tense and person for a story is a complex issue. This unit will make it simple for you. You'll know why the present tense is a difficult one to work in and how and when it should be used. When to write in one person, when in another. It would take years of hit and miss practice to acquire this kind of information by yourself.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Checklist For Success" src={Unit13Icon}>
+        <p>The best writers rewrite their work. <i>Checklist For Success</i> shows you how to do it effectively and efficiently. There's also much more. How to introduce real suspense, the bad and the good kinds. How to be sure your reader does not feel cheated by you. How to make your background work overtime. How to be sure your novel is &ldquo;of its own time&rdquo;. How to change focus.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Polishing Your Dialogue" src={Unit14Icon}>
+        <p>In <i>Polishing Your Dialogue</i>, you learn all the advanced tricks of the trade about how to make your dialogue really work for you. Seventy percent of verbal communication is conveyed by tone and body language. In your book you have to make the character speak volumes about himself with every word. This unit gives you the tools to do just that.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Dissecting Your Characters" src={Unit15Icon}>
+        <p>Would you like to really get inside your characters? This unit gives you real insight. You'll see how to equip your major characters with full compliments of appropriate accessories and tastes. They will say so much about your protagonists that no critic will ever claim that your people are unbelievable.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Choosing the Right Words" src={Unit16Icon}>
+        <p>In <i>Choosing the Right Words</i>, you'll see why &ldquo;the difference between the right word and the almost-right word is like the difference between lightning and the lightning bug&rdquo;. Your words must carry the impact of the lightning. After this chapter, they will!</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Science Fiction and Horror" src={Unit17Icon}>
+        <p>In <i>Science Fiction and Horror</i> you'll learn to describe the grotesque and develop your disposable characters. This chapter will help you build fantasy worlds and the rules that govern them. A must read for those bent on horrifying horror and stellar science fiction.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Comedy, Mystery, and Romance" src={Unit18Icon}>
+        <p>Laughter, love, glitz, and mystery: <i>Comedy, Mystery, and Romance</i> will take you through these difficult genres and help you master them. He died, she married the butler, and <i>you</i> sold a book.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Choosing a Title" src={Unit19Icon}>
+        <p>Names, tense, voices and other tips: <i>Choosing a Title</i> is the final collection of tips and hints that will polish your novel into publishing gold.</p>
+      </CourseOutline>
+      <CourseOutline unit={nextUnit()} title="Finding a Publisher" src={Unit20Icon}>
+        <p>Go from writer to marketer: <i>Finding a Publisher</i> takes you through the steps of selling your work, from choosing a publisher to evaluating your contract.</p>
+      </CourseOutline>
     </>
   );
 };
