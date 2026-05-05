@@ -11,12 +11,11 @@ import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
 const courseCodes: CourseCode[] = [ 'ws' ];
-
+const courseOutlineArr = [ 'Identifying Your Market Niche', 'From Thought to Paper', 'The Short Story', 'Developing Unique Characters', 'Writing For Children', 'Writing Romance', 'Technical Writing', 'Specialty Writing', 'Writing Humor', 'Novels', 'Biographies and Poetry', 'Writing For Television', 'Writing For Radio', 'Writing For Theatre', 'Writer\'s First Aid Kit' ];
 const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
   const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
-  const courseOutlineArr = [ 'Identifying Your Market Niche', 'From Thought to Paper', 'The Short Story', 'Developing Unique Characters', 'Writing For Children', 'Writing Romance', 'Technical Writing', 'Specialty Writing', 'Writing Humor', 'Novels', 'Biographies and Poetry', 'Writing For Television', 'Writing For Radio', 'Writing For Theatre', 'Writer\'s First Aid Kit' ];
 
   return (
 

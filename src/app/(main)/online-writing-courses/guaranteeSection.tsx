@@ -11,7 +11,7 @@ interface Props {
   className: string; // caller must use "" if none
 }
 
-const ReusableGuarantee: FC<Props> = ({ title, doubleGuarantee, courseCode, additionalText, additionalTextBody, className }) => {
+const GuaranteeSection: FC<Props> = ({ title, doubleGuarantee, courseCode, additionalText, additionalTextBody, className }) => {
   return (
     <section className={className}>
       <div className="container">
@@ -39,4 +39,4 @@ const ReusableGuarantee: FC<Props> = ({ title, doubleGuarantee, courseCode, addi
   );
 };
 
-export default ReusableGuarantee;
+export default GuaranteeSection;
