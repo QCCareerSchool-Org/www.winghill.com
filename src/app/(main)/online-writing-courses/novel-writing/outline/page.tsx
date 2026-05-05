@@ -1,4 +1,3 @@
-import { CourseOutline } from './courseOutline';
 import Unit1Icon from './outline-icons-novel-writing-01.png';
 import Unit2Icon from './outline-icons-novel-writing-02.png';
 import Unit3Icon from './outline-icons-novel-writing-03.png';
@@ -19,6 +18,7 @@ import Unit17Icon from './outline-icons-novel-writing-17.png';
 import Unit18Icon from './outline-icons-novel-writing-18.png';
 import Unit19Icon from './outline-icons-novel-writing-19.png';
 import Unit20Icon from './outline-icons-novel-writing-20.png';
+import { CourseOutline } from '../../../../../components/courseOutline';
 import type { PageComponent } from '@/serverComponent';
 
 const NovelWritingOutline: PageComponent = () => {
