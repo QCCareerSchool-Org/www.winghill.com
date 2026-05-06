@@ -33,7 +33,7 @@ const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
       <section className="bg-light">
         <div className="container">
           <h2 className="h1">Student Testimonial</h2>
-          <p>&quot;In a short time you have helped me enhance my writing skills and develop the confidence to market my work. Thanks to the School, I no longer feel isolated in my writing goals. With my tutor's direction and encouragement I now believe I am capable of becoming a successful, well-paid writer. The course material and personal interest have surpassed my wildest expectations. It was worth every cent and so much more. Thank you.&quot;</p>
+          <p><i>&quot;In a short time you have helped me enhance my writing skills and develop the confidence to market my work. Thanks to the School, I no longer feel isolated in my writing goals. With my tutor's direction and encouragement I now believe I am capable of becoming a successful, well-paid writer. The course material and personal interest have surpassed my wildest expectations. It was worth every cent and so much more. Thank you.&quot;</i></p>
           <p className="text-end">Coralie Darsey-Malloy</p>
           <p className="text-end">Romance Writing</p>
         </div>

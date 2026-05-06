@@ -13,6 +13,6 @@ interface Props {
 export const TelephoneLink: FC<Props> = ({ countryCode, className, style }) => {
   const telephoneNumber = getTelephoneNumber(countryCode);
   return (
-    <a href={`tel:${telephoneNumber}`} className={className} style={style}>{telephoneNumber}</a>
+    <a href={`tel:${telephoneNumber}`} className={className} style={{ textWrap: 'nowrap', ...style }}>{telephoneNumber}</a>
   );
 };
