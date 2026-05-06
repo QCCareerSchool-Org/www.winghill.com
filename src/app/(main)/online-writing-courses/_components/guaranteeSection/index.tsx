@@ -30,7 +30,6 @@ export const GuaranteeSection: FC<Props> = ({ title, doubleGuarantee, courseCode
           )}
           {additionalText && <p>{additionalText}</p>}
           <a href={`https://enroll.winghill.com?${courseCodes.map(c => `c=${encodeURIComponent(c)}`).join('&')}`} className="btn btn-primary">Enroll Now</a>
-
         </div>
       </div>
     </div>
