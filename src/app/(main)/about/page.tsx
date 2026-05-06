@@ -54,7 +54,7 @@ const AboutPage: PageComponent = () => {
         <div className="container">
           <h2 className="h1 text-center mb-3">Our Guarantee</h2>
           <div className="row justify-content-center align-items-center">
-            <div className="col-12 col-md-4">
+            <div className="col-12 col-md-4 text-center">
               <Image src={Guarantee} alt="money back 100% guarantee" className="img-fluid" />
             </div>
             <div className="col-12 col-md-8">
