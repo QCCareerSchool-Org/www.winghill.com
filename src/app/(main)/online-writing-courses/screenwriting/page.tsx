@@ -3,11 +3,11 @@ import Image from 'next/image';
 import Banner from './course-banner-screenwriting.jpg';
 import Screenwriting from './movie-magic-screenwriter-box.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
+import { CoursePrice } from '../_components/coursePrice';
 import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
-import { formatPrice } from '@/lib/formatPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
@@ -24,7 +24,7 @@ const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
       <section>
         <div className="container">
           <h1>Screenwriting</h1>
-          {price && <h2>{price.currency.symbol}{formatPrice(price.plans.full.total)} or {price.currency.symbol}{formatPrice(price.plans.part.installmentSize)}/mo</h2>}
+          {price && <CoursePrice price={price} />}
           <Image src={Banner} alt="" />
           <p>Have you dreamed of seeing your creative work on the big screen? Would you love to see your name on movie credits or on TV? Find out how to write money-making scripts with our distance education course in Screenwriting.</p>
           <p>You'll learn what's in demand and you'll learn how to make your script or screenplay the one producers notice. You'll understand how to develop your plot, how to write dialogue that rings true, and how to make your characters the ones that audiences care about. What's more we'll show you how to make good money from your ideas—even if your work is NOT produced!</p>

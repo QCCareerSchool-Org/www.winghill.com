@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 import Banner from './course-banner-romance-writing.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
+import { CoursePrice } from '../_components/coursePrice';
 import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
-import { formatPrice } from '@/lib/formatPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
@@ -23,7 +23,7 @@ const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
       <section>
         <div className="container">
           <h1>Romance Writing Course</h1>
-          {price && <h2>{price.currency.symbol}{formatPrice(price.plans.full.total)} or {price.currency.symbol}{formatPrice(price.plans.part.installmentSize)}/mo</h2>}
+          {price && <CoursePrice price={price} />}
           <Image src={Banner} alt="" />
           <p>Do you enjoy being swept away in tales of love and romance? Does your heart skip a beat when two star-crossed lovers overcome all obstacles and seal their union with a passionate embrace? If you want to use your talents to write heart-stopping accounts of love found, lost, and won, this is the course for you.</p>
           <p>With elements of love, conflict, and a touch of adventure, romance writing is always exciting. Our course shows you how to take your creative ideas and mould them into the fairly strict formats most publishers want to see. Editors are constantly clamoring for new, quality material so there is a huge market of opportunity for someone who has a talent for writing romance—someone just like you.</p>

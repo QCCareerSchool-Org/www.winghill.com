@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 import CourseBanner from './course-banner-novel-writing.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
+import { CoursePrice } from '../_components/coursePrice';
 import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
-import { formatPrice } from '@/lib/formatPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
@@ -18,13 +18,13 @@ const NovelWritingPage: PageComponent = async ({ searchParams }) => {
   const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
 
-  return(
+  return (
     <>
       {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
       <section>
         <div className="container">
           <h1>Novel Writing Course</h1>
-          {price && <h2>{price.currency.symbol}{formatPrice(price.plans.full.total)} or {price.currency.symbol}{formatPrice(price.plans.part.installmentSize)}/mo</h2>}
+          {price && <CoursePrice price={price} />}
           <Image src={CourseBanner} alt="" style={{ maxWidth: '100%', height: 'auto', marginBottom: '0.5rem' }} />
           <p>You might be overwhelmed by the idea of writing an entire novel on your own. We'll let you in on a little secret—it's easier than you think! By writing only a few pages a week, you'll quickly finish your first book. We'll show you how.</p>
           <p>Our course guides break down the process of writing a novel into a few simple steps. The first step involves careful planning and organization. You'll discover that once you've laid out the structure of the book and its characters, writing the novel is actually the easy part! We'll teach you how to create plots, bring in conflict, and craft an effective ending. You'll also learn how to build major and minor characters that are full of life, emotion, and energy. Each lesson of the course is dedicated to helping you harness your creative ideas and mould them into a publishable manuscript.</p>
