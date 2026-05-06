@@ -7,7 +7,6 @@ import PhoneIcon from './icon-phone.png';
 import { ChatLink } from '@/components/chatLink';
 import { EmailLink } from '@/components/emailLink';
 import { getServerData } from '@/lib/getServerData';
-import { getTelephoneNumber } from '@/lib/telephone';
 import type { PageComponent } from '@/serverComponent';
 
 const ContactUsPage: PageComponent = async props => {
