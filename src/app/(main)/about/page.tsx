@@ -15,9 +15,9 @@ const AboutPage: PageComponent = () => {
       <section>
         <div className="container">
           <h1 className="text-center">About Winghill</h1>
-          <p>Winghill Writing School is a faculty of <a href="https://www.qccareerschool.com/">QC Career School</a>. Since 1984, QC Career School has been committed to offering the highest quality distance education experience available. Our writing courses are as old as our school, and we’ve enjoyed watching over two decades of writing students grow and succeed. We’ve expanded to offer courses in many creative pursuits such as event and wedding planning, interior decorating, makeup artistry, and fashion styling.</p>
-          <p>Winghill Writing School offers a completely integrated learning experience, and the best part is that by learning online you’ll be able to pursue your dreams from anywhere, anytime. With Winghill, you’ll develop your craft step by step through careful research, planning, writing, and editing. Your <a href="/your-tutors">tutor</a> is a published author, and will offer their expert advice to help you reach your writing goals.</p>
-          <p>Just as we believe in offering high quality course materials, we’re also committed to offering our students the student support experience they need and deserve. That’s why you’ll not only submit your assignments to a professional writer, but you’ll also have unlimited access to our team of highly trained student support specialists by phone, email, live chat, and social media. You’ll study from home but you’ll never be alone. We’re here, and available, to help you whenever you need it.</p>
+          <p>Winghill Writing School is a faculty of <a href="https://www.qccareerschool.com/">QC Career School</a>. Since 1984, QC Career School has been committed to offering the highest quality distance education experience available. Our writing courses are as old as our school, and we've enjoyed watching over two decades of writing students grow and succeed. We've expanded to offer courses in many creative pursuits such as event and wedding planning, interior decorating, makeup artistry, and fashion styling.</p>
+          <p>Winghill Writing School offers a completely integrated learning experience, and the best part is that by learning online you'll be able to pursue your dreams from anywhere, anytime. With Winghill, you'll develop your craft step by step through careful research, planning, writing, and editing. Your <a href="/your-tutors">tutor</a> is a published author, and will offer their expert advice to help you reach your writing goals.</p>
+          <p>Just as we believe in offering high quality course materials, we're also committed to offering our students the student support experience they need and deserve. That's why you'll not only submit your assignments to a professional writer, but you'll also have unlimited access to our team of highly trained student support specialists by phone, email, live chat, and social media. You'll study from home but you'll never be alone. We're here, and available, to help you whenever you need it.</p>
         </div>
       </section>
 
@@ -26,7 +26,7 @@ const AboutPage: PageComponent = () => {
           <h2 className="h1 text-center">BBB Accreditation</h2>
           <div className="row justify-content-center align-items-center">
             <div className="col-5 text-start">
-              <p>We know that some people might think twice before enrolling in a distance education course. However, you don’t need to worry with QC Career School. We have the highest rating of consumer satisfaction possible with the <a href="https://www.bbb.org/ca/on/ottawa/profile/correspondence-schools/qc-career-school-0117-4175#sealclick">Better Business Bureau (A+)</a>. In addition, thousands of satisfied students have taken our courses. Many of them are now the proud owners of their own successful business. We sincerely hope that you’ll be our next student to follow in their footsteps!</p>
+              <p>We know that some people might think twice before enrolling in a distance education course. However, you don't need to worry with QC Career School. We have the highest rating of consumer satisfaction possible with the <a href="https://www.bbb.org/ca/on/ottawa/profile/correspondence-schools/qc-career-school-0117-4175#sealclick">Better Business Bureau (A+)</a>. In addition, thousands of satisfied students have taken our courses. Many of them are now the proud owners of their own successful business. We sincerely hope that you'll be our next student to follow in their footsteps!</p>
             </div>
             <div className="col-2">
               <Image src={BBB} alt="" />
@@ -59,7 +59,7 @@ const AboutPage: PageComponent = () => {
             <div className="col">
               <Image src={PersonalRelationshipsIcon} alt="" className="img-fluid" />
               <h5>Personal Relationships</h5>
-              <p>Our goal is to connect on a personal level with each and every one of our students, and to remain connected even after you’ve graduated.</p>
+              <p>Our goal is to connect on a personal level with each and every one of our students, and to remain connected even after you've graduated.</p>
             </div>
             <div className="col">
               <Image src={ServiceIcon} alt="" className="img-fluid" />
@@ -82,7 +82,7 @@ const AboutPage: PageComponent = () => {
               <p>Please note that the Movie Magic Screenwriter software program (value $170 US) can not be refunded.</p>
               <h5>Double Guarantee</h5>
               <p>If you enroll in our <a href="/online-writing-courses/creative-writing">Creative Writing</a>, <a href="/online-writing-courses/romance-writing">Romance Writing</a>, or <a href="/online-writing-courses/writing-for-children">Writing For Children</a> courses, you also qualify for our Double Guarantee policy.</p>
-              <p>How does this work? It’s simple. If, during your course, you do not earn the equivalent of your course fees from your writing, we will refund your course fees. There are only two conditions to this guarantee:</p>
+              <p>How does this work? It's simple. If, during your course, you do not earn the equivalent of your course fees from your writing, we will refund your course fees. There are only two conditions to this guarantee:</p>
               <ol>
                 <li>You must have been actively seeking publication opportunities during your course; and</li>
                 <li>You must have completed all assignments and graduated from the course within the allotted three-year timeframe.</li>
