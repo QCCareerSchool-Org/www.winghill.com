@@ -7,13 +7,14 @@ import PhoneIcon from './icon-phone.png';
 import { ChatLink } from '@/components/chatLink';
 import { EmailLink } from '@/components/emailLink';
 import { TelephoneLink } from '@/components/telephoneLink';
-// import { getAddress } from '@/lib/address.ts';
+import { getAddress } from '@/lib/address';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
 const ContactUsPage: PageComponent = async props => {
-  const { countryCode } = await getServerData(props.searchParams);
-  // const { address } = await getAddress(countryCode);
+  // const { countryCode } = await getServerData(props.searchParams);
+  const countryCode = 'GB';
+  const address = getAddress(countryCode);
 
   return (
     <section>
@@ -39,11 +40,10 @@ const ContactUsPage: PageComponent = async props => {
           <div className="col-12 col-lg-3 mb-5 mb-lg-0 text-center">
             <Image src={MailIcon} alt="" className="mb-2" />
             <h3>Mail</h3>
-            <p><b>Winghill Writing Skill</b><br />
-              1011 Robin Rd<br />
-              Silver Spring MD  20901<br />
-              USA
-            </p>
+            <p className="mb-0"><b>Winghill Writing School</b><br /></p>
+            {address.map((line, index) => (
+              <p key={index} className="mb-0">{line}</p>
+            ))}
           </div>
         </div>
       </div>
