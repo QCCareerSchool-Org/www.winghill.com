@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import CourseBanner from './course-banner-novel-writing.jpg';
-import Guarantee from './guarantee.png';
+import { CourseOutlineSection } from '../_components/courseOutlineSection';
+import { GuaranteeSection } from '../_components/guaranteeSection';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
@@ -31,51 +31,35 @@ const NovelWritingPage: PageComponent = async ({ searchParams }) => {
         </div>
       </section>
       <TestimonialWallSection testimonialIds={[]} className="bg-light" />
-      <section>
-        <div className="container">
-          <h2 className="h1">Course Outline</h2>
-          <p>The following topics are covered through our extensive course package:</p>
-          <ol>
-            <li>Choosing a Genre</li>
-            <li>Plot Ideas</li>
-            <li>Developing Your Plot Further</li>
-            <li>Building Subplots</li>
-            <li>Keeping Your Novel Balanced</li>
-            <li>Creating Characters</li>
-            <li>Choosing Names</li>
-            <li>Writing What You Know</li>
-            <li>Sentence Structure</li>
-            <li>Outlines and Dialogue</li>
-            <li>Capturing Your Reader</li>
-            <li>Choosing Your Tense</li>
-            <li>Checklist For Success</li>
-            <li>Polishing Your Dialogue</li>
-            <li>Dissecting Your Characters</li>
-            <li>Choosing the Right Words</li>
-            <li>Science Fiction and Horror</li>
-            <li>Comedy, Mystery, and Romance</li>
-            <li>Choosing a Title</li>
-            <li>Finding a Publisher</li>
-          </ol>
-          <Link href="novel-writing/course-outline" className="btn btn-primary">Learn More</Link>
-        </div>
-      </section>
-      <section className="bg-light">
-        <div className="container">
-          <h2 className="h1 mb-4 text-center">Novel Writing Course Guarantee</h2>
-          <div className="row justify-content-center align-items-center g-5">
-            <div className="col-3 d-none d-lg-block">
-              <Image src={Guarantee} alt="21 Day Money Back Guarantee" className="img-fluid" />
-            </div>
-            <div className="col-12 col-md-10 col-lg-9">
-              <p>You get a full money-back guarantee for all of our writing programs. You can take the time to review the course materials in your home for 21 days. If for any reason you decide the course is not right for you, simply send everything back to the School and we'll issue you a full refund—no questions asked.</p>
-              <a className="btn btn-primary" href="https://enroll.winghill.com/?c=nv">ENROLL NOW</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CourseOutlineSection items={outlineItems} />
+      <GuaranteeSection title="Memoir Writing" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
+
     </>
   );
+
 };
 
 export default NovelWritingPage;
+
+const outlineItems = [
+  'Choosing a Genre',
+  'Plot Ideas',
+  'Developing Your Plot Further',
+  'Building Subplots',
+  'Keeping Your Novel Balanced',
+  'Creating Characters',
+  'Choosing Names',
+  'Writing What You Know',
+  'Sentence Structure',
+  'Outlines and Dialogue',
+  'Capturing Your Reader',
+  'Choosing Your Tense',
+  'Checklist For Success',
+  'Polishing Your Dialogue',
+  'Dissecting Your Characters',
+  'Choosing the Right Words',
+  'Science Fiction and Horror',
+  'Comedy, Mystery, and Romance',
+  'Choosing a Title',
+  'Finding a Publisher',
+];
