@@ -15,5 +15,5 @@ export const EmailLink: FC = () => {
     }
   }, []);
 
-  return <a ref={ref} />;
+  return <a ref={ref} style={{ textWrap: 'nowrap' }} />;
 };
