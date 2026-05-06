@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { FC } from 'react';
 
-export const FooterColumn1: FC = async () => (
+export const FooterColumn1: FC = () => (
   <>
     <li><Link href="/online-courses/home-staging">Home Staging</Link></li>
     <li><Link href="/online-courses/landscape-design">Landscape Design</Link></li>

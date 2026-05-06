@@ -12,12 +12,7 @@ type TraversableNode = Node & {
 };
 
 const isTraversableNode = (value: unknown): value is TraversableNode => {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    'type' in value &&
-    typeof (value as { type: unknown }).type === 'string'
-  );
+  return typeof value === 'object' && value !== null && 'type' in value && typeof value.type === 'string';
 };
 
 const isNode = (key: string, node: TraversableNode): node is TraversableNode & { [key]: TraversableNode | TraversableNode[] | null | undefined } => {
@@ -84,7 +79,7 @@ export const noUnnecessaryConditionExceptWindow: Rule.RuleModule = {
         if (typeof descriptor !== 'string') {
           const node = (descriptor as { node?: Rule.Node }).node;
 
-          if (node && containsWindow(node as TraversableNode, context)) {
+          if (node && containsWindow(node, context)) {
             // swallow any report whose node subtree touches `window`
             return;
           }

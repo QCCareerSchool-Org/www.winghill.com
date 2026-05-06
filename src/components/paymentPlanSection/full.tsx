@@ -25,8 +25,7 @@ export const Full: FC<Props> = ({ price, href }) => (
         <span className={styles.redStrikethrough}>{price.currency.symbol}{formatPrice(price.cost)}</span>
         <span className={commonStyles.priceSmall}>{price.currency.symbol}</span>{tightNumber(price.plans.full.total) && <span style={{ marginRight: '0.25rem' }} />}{formatPrice(price.plans.full.total)}
       </div>
-      <p className="mb-1">
-        <span className="fw-bold">Save {price.currency.symbol}{formatPrice(price.plans.full.discount)}</span> when you pay in full</p>
+      <p className="mb-1"><span className="fw-bold">Save {price.currency.symbol}{formatPrice(price.plans.full.discount)}</span> when you pay in full</p>
       <p className="fw-bold">(Total: {price.currency.symbol}{formatPrice(price.plans.full.total)})</p>
       <hr className={`${commonStyles.hr} ${styles.hr}`} />
       <Link href={href} className="btn btn-light">Enroll Now</Link>

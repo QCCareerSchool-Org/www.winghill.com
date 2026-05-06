@@ -9,7 +9,7 @@ interface CourseData {
   workload: string | undefined;
 }
 
-const baseUrl = 'https://www.winghill.com';
+const baseUrl = process.env.HOST ?? '';
 
 export const dataMap: Readonly<Record<CourseCode, CourseData>> = {
   ws: {

@@ -6,9 +6,12 @@ import { TaxCreditsModal } from '@/components/taxCreditsModal';
 import { getServerData } from '@/lib/getServerData';
 import { BrevoConversations } from '@/scripts/brevoConversations';
 
-export const SiteLayout: FC<PropsWithChildren> = async ({ children }) => {
+interface Props {
+  date: number;
+}
+
+export const SiteLayout: FC<PropsWithChildren<Props>> = async ({ date, children }) => {
   const { countryCode, provinceCode } = await getServerData();
-  const date = Date.now();
 
   return (
     <>

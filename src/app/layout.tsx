@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
+import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 
+import styles from './layout.module.scss';
+import { LayoutClient } from './layoutClient';
+import { isUserValues } from '@/domain/userValues';
 import { inter } from '@/fonts';
+import { getServerData } from '@/lib/getServerData';
+import { decodeJwt } from '@/lib/jwt';
 import { Provider } from '@/providers';
 import { Bing } from '@/scripts/bing';
 import { Brevo } from '@/scripts/brevo';
@@ -10,13 +17,6 @@ import { GoogleAnalytics } from '@/scripts/googleAnalytics';
 import { OptInMonster } from '@/scripts/optInMonster';
 import { Tiktok } from '@/scripts/tiktok';
 import type { LayoutComponent } from '@/serverComponent';
-import { getServerData } from '@/lib/getServerData';
-import { cookies } from 'next/headers';
-import { decodeJwt } from '@/lib/jwt';
-import { isUserValues } from '@/domain/userValues';
-import { LayoutClient } from './layoutClient';
-import { Suspense } from 'react';
-import styles from './layout.module.scss';
 
 import './bootstrap.scss';
 import './global.scss';

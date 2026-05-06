@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { memo } from 'react';
 
-import type { TestimonialId } from './data';
+import type { TestimonialId, Testimonial as TestimonialType } from './data';
 import { testimonials } from './data';
 import styles from './index.module.css';
 import { Star } from './star';
@@ -19,7 +19,7 @@ interface Props {
 }
 
 export const Testimonial: FC<Props> = memo(({ id, showProvinceCode = false, schemaCourseId, small = false }) => {
-  const testimonial = testimonials[id];
+  const testimonial: TestimonialType = testimonials[id];
 
   return (
     <blockquote className={styles.testimonial} itemScope itemType="https://schema.org/Review">

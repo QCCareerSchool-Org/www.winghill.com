@@ -47,9 +47,9 @@ export const getCourse = async (courseCode: CourseCode, id?: string, providerId?
       ? { '@id': providerId }
       : {
         '@type': 'EducationalOrganization',
-        '@id': 'https://www.qcdesignschool.com/#school',
-        'url': 'https://www.qcdesignschool.com',
-        'name': 'QC Design School',
+        '@id': 'https://www.winghill.com/#school',
+        'url': 'https://www.winghill.com',
+        'name': 'Winghill Writing School',
         'sameAs': 'sameAs' in educationalOrganization ? educationalOrganization.sameAs : undefined,
       },
   };
@@ -62,7 +62,7 @@ export const getCourse = async (courseCode: CourseCode, id?: string, providerId?
         '@type': 'Offer',
         'price': priceResult.value.discountedCost.toFixed(2),
         'priceCurrency': priceResult.value.currency.code,
-        'url': 'https://enroll.qcdesignschool.com',
+        'url': 'https://enroll.winghill.com',
         'availability': 'https://schema.org/InStock',
       } satisfies Offer;
     }
