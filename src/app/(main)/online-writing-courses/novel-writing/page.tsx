@@ -11,7 +11,7 @@ import { formatPrice } from '@/lib/formatPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
-const courseCodes: CourseCode[] = [ 'nv' ];
+const courseCodes: CourseCode[] = [ 'fh' ];
 
 const NovelWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
@@ -31,9 +31,9 @@ const NovelWritingPage: PageComponent = async ({ searchParams }) => {
           <p>If you've ever read a book and thought &ldquo;I could do better than that!&rdquo; or you've always dreamed of writing a novel, our program will guide you towards success.</p>
         </div>
       </section>
-      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
+      <TestimonialWallSection testimonialIds={[]} className="bg-light" />
       <CourseOutlineSection items={outlineItems} />
-      <GuaranteeSection title="Novel Writing" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
+      <GuaranteeSection title="Memoir Writing" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
     </>
   );
 };
