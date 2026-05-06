@@ -3,7 +3,6 @@ import type { FC, JSX } from 'react';
 
 import { ButtonWrapper } from './buttonWrapper';
 import styles from './header.module.scss';
-import { CountDownTimer } from '@/components/countDownTimer';
 import { Logo } from '@/components/logo';
 
 interface Props {
@@ -12,14 +11,11 @@ interface Props {
   buttonContent?: JSX.Element | string;
   buttonAlwaysVisible?: boolean;
   showBanner?: boolean;
-  countryCode: string;
-  date: number;
 }
 
-export const Header: FC<Props> = ({ logoLink, buttonHref = '#', buttonContent, buttonAlwaysVisible, showBanner, countryCode, date }) => (
+export const Header: FC<Props> = ({ logoLink, buttonHref = '#', buttonContent, buttonAlwaysVisible }) => (
   <div className={styles.headerComponent}>
     <header className={styles.header}>
-      {showBanner && <CountDownTimer date={date} countryCode={countryCode} />}
       <div className="container">
         <div className={styles.content}>
           {logoLink
