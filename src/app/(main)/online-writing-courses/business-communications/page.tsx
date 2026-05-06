@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Banner from './course-banner-business-communications.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
 import { GuaranteeSection } from '../_components/guaranteeSection';
+import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
@@ -19,6 +20,7 @@ const BusinessCommunicationsPage: PageComponent = async ({ searchParams }) => {
 
   return (
     <>
+      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
       <section>
         <div className="container">
           <h1>Business Communications Course</h1>

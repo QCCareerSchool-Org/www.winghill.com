@@ -3,6 +3,7 @@ import Image from 'next/image';
 import CourseBanner from './course-banner-memoir-writing.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
 import { GuaranteeSection } from '../_components/guaranteeSection';
+import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
@@ -10,16 +11,16 @@ import { formatPrice } from '@/lib/formatPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
-const courseCodes: CourseCode[] = [ 'rm' ];
+const courseCodes: CourseCode[] = [ 'fh' ];
 
 const MemoirWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
-
   const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
 
   return(
     <>
+      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
       <section>
         <div className="container">
           <h1>Memoir Writing Course</h1>
