@@ -12,8 +12,7 @@ import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
 const ContactUsPage: PageComponent = async props => {
-  // const { countryCode } = await getServerData(props.searchParams);
-  const countryCode = 'GB';
+  const { countryCode } = await getServerData(props.searchParams);
   const address = getAddress(countryCode);
 
   return (
