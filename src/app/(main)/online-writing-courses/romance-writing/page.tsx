@@ -5,6 +5,7 @@ import { CourseOutlineSection } from '../_components/courseOutlineSection';
 import { CoursePrice } from '../_components/coursePrice';
 import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
+import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
 import { getServerData } from '@/lib/getServerData';
@@ -30,14 +31,7 @@ const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
           <p className="mb-0">Our Romance Writing course shows you, step by step, how to take an idea and turn it into a publishable manuscript. You'll learn how to create dynamic characters, how to build dramatic tension, and how to use sensual words and phrases to draw readers into your story. Once you understand how to write romance that sells, you'll have a satisfying and lucrative career ahead of you.</p>
         </div>
       </section>
-      <section className="bg-light">
-        <div className="container">
-          <h2 className="h1">Student Testimonial</h2>
-          <p><i>&quot;In a short time you have helped me enhance my writing skills and develop the confidence to market my work. Thanks to the School, I no longer feel isolated in my writing goals. With my tutor's direction and encouragement I now believe I am capable of becoming a successful, well-paid writer. The course material and personal interest have surpassed my wildest expectations. It was worth every cent and so much more. Thank you.&quot;</i></p>
-          <p className="text-end">Coralie Darsey-Malloy</p>
-          <p className="text-end">Romance Writing</p>
-        </div>
-      </section>
+      <TestimonialWallSection testimonialIds={[ 'TW-0010' ]} className="bg-light" />
       <CourseOutlineSection items={outlineItems} className="" />
       <GuaranteeSection title="Romance Writing" doubleGuarantee={true} courseCodes={courseCodes} className="bg-light" />
     </>

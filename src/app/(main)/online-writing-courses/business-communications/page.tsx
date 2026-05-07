@@ -30,7 +30,7 @@ const BusinessCommunicationsPage: PageComponent = async ({ searchParams }) => {
           <p className="mb-0">In this course you'll learn how to create and structure all types of written business communications, from memos and letters to reports and marketing text. You'll learn how to give your readers the information they need to understand and accept your point of view. To round out your educational experience, our instructional movies on DVD give you tips and valuable advice from business professionals on everything from business presentations to dressing for success. If you're motivated and you want to enhance your professional image and skills, our Business Communications course is the best choice for you.</p>
         </div>
       </section>
-      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
+      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0012' ]} />
       <CourseOutlineSection items={outlineItems} noButton={true} />
       <GuaranteeSection title="Business Communications Course" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
     </>

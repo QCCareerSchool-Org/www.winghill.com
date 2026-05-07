@@ -29,7 +29,7 @@ export const TestimonialWallSection: FC<Props> = ({ h, courseCodes, testimonialI
       )}
       <div className="row justify-content-center g-5">
         {testimonialIds.map(id => (
-          <div key={id} className="col-12 col-sm-8 col-lg-4">
+          <div key={id} className={testimonialIds.length === 1 ? 'col-12' : testimonialIds.length === 2 ? 'col-12 col-md-6' : 'col-12 col-sm-8 col-lg-4'}>
             <Testimonial id={id} courseCodes={courseCodes} showProvinceCode={showProvinceCodes} schemaCourseId={schemaCourseId} />
           </div>
         ))}

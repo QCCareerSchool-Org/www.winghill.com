@@ -31,7 +31,7 @@ const ChildrenWritingPage: PageComponent = async ({ searchParams }) => {
           <p className="mb-0">You probably still remember the books you read as a child that captivated your attention and stole your heart. If you want to give future generations the same cherished memories, our writing for children program is the best choice for you.</p>
         </div>
       </section>
-      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
+      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0011' ]} />
       <CourseOutlineSection items={outlineItems} />
       <GuaranteeSection title="Writing for Children" doubleGuarantee={true} courseCodes={courseCodes} className="bg-light" />
     </>
