@@ -19,7 +19,7 @@ const LearningOnlinePage: PageComponent = () => (
       </div>
     </section>
     {steps.map((d, i) => (
-      <StepSection key={d.title} heading={d.title} src={d.icon} className={i % 2 === 0 ? 'bg-light' : undefined}>
+      <StepSection key={d.heading} heading={d.heading} src={d.imageSrc} className={i % 2 === 0 ? 'bg-light' : undefined}>
         {d.content}
       </StepSection>
     ))}
@@ -29,15 +29,15 @@ const LearningOnlinePage: PageComponent = () => (
 export default LearningOnlinePage;
 
 interface Step {
-  title: string;
-  icon: StaticImageData;
+  heading: string;
+  imageSrc: StaticImageData;
   content: ReactNode;
 }
 
 const steps: Step[] = [
   {
-    title: 'Your Course Begins',
-    icon: YourCourseBeginsIcon,
+    heading: 'Your Course Begins',
+    imageSrc: YourCourseBeginsIcon,
     content: (
       <>
         <p>When you enroll in one of our courses, we'll quickly courier your course materials to you. This package includes your first set of lessons and assignments, as well as valuable reference books, software, CDs, and movies on DVDs.</p>
@@ -47,8 +47,8 @@ const steps: Step[] = [
     ),
   },
   {
-    title: 'Work Through Your Assignments',
-    icon: AssignmentIcon,
+    heading: 'Work Through Your Assignments',
+    imageSrc: AssignmentIcon,
     content: (
       <>
         <p>In the comfort of your own home and at your own pace, you work through your assignments one unit at a time. You submit your assignments by uploading your work to our user-friendly online student center. Your tutor reviews each piece and sends back expert analysis and marketing advice.</p>
@@ -57,18 +57,18 @@ const steps: Step[] = [
     ),
   },
   {
-    title: 'Customize & Refine your Course',
-    icon: CustomizeIcon,
+    heading: 'Customize & Refine your Course',
+    imageSrc: CustomizeIcon,
     content: <p>By this time we are beginning to understand you quite well. Your tutor adapts the course to meet your unique needs. Together, you discover your hidden talents and full potential.</p>,
   },
   {
-    title: 'Refining Your Technique',
-    icon: RefiningYourTechniqueIcon,
+    heading: 'Refining Your Technique',
+    imageSrc: RefiningYourTechniqueIcon,
     content: <p>Your personal tutor reviews and analyzes each idea, story or article you submit. He or she will help you sharpen both your writing and marketing skills. You build confidence in your abilities as they improve with every unit you complete. By the end of the course, you should have an impressive portfolio of publishable work.</p>,
   },
   {
-    title: 'Graduate & Receive Your Certification',
-    icon: CertificatesIcon,
+    heading: 'Graduate & Receive Your Certification',
+    imageSrc: CertificatesIcon,
     content: <p>Once you've completed all your assignments, we send your certificate to you by courier. You now have the skills and confidence to achieve your writing goals!</p>,
   },
 
