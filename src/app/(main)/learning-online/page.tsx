@@ -53,7 +53,7 @@ const LearningOnlinePage: PageComponent = () => {
         </div>
       </section>
 
-      <section>
+      <section className="bg-light">
         <div className="container text-center">
           <Image src={CertificatesIcon} alt="" className="img-fluid" />
           <h2 className="h1 mb-4">Graduate & Receive Your Certificate</h2>
