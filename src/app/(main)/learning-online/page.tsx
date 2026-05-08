@@ -71,5 +71,4 @@ const steps: Step[] = [
     imageSrc: CertificatesIcon,
     content: <p>Once you've completed all your assignments, we send your certificate to you by courier. You now have the skills and confidence to achieve your writing goals!</p>,
   },
-
 ];
