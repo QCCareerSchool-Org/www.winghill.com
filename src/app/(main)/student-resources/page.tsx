@@ -8,7 +8,7 @@ import { EmailLink } from '@/components/emailLink';
 import ChatIcon from '@/components/icons/icon-chat.png';
 import EmailIcon from '@/components/icons/icon-email.png';
 import PhoneIcon from '@/components/icons/icon-phone.png';
-import { TelephoneLink } from '@/components/telephoneLink';gi
+import { TelephoneLink } from '@/components/telephoneLink';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
