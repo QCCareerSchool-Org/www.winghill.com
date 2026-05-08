@@ -8,7 +8,7 @@ interface Props {
   className?: string;
 }
 
-export const LearningOnlineSection: FC<PropsWithChildren<Props>> = ({ heading, src, className, children }) => (
+export const StepSection: FC<PropsWithChildren<Props>> = ({ heading, src, className, children }) => (
   <section className={className}>
     <div className="container text-center">
       <Image src={src} alt="" className="img-fluid" />

@@ -1,9 +1,12 @@
+import type { StaticImageData } from 'next/image';
+import type { ReactNode } from 'react';
+
 import AssignmentIcon from './learning-online-assignments.png';
 import CertificatesIcon from './learning-online-certificates.png';
 import CustomizeIcon from './learning-online-customize-and-refine.png';
 import RefiningYourTechniqueIcon from './learning-online-refining-your-technique.jpg';
 import YourCourseBeginsIcon from './learning-online-your-course-begins.png';
-import { LearningOnlineSection } from '@/components/learningOnlineSection';
+import { StepSection } from '@/app/(main)/learning-online/stepSection';
 import type { PageComponent } from '@/serverComponent';
 const LearningOnlinePage: PageComponent = () => (
   <>
@@ -15,17 +18,23 @@ const LearningOnlinePage: PageComponent = () => (
       </div>
     </section>
 
-    {sectionData.map((d, i) => (
-      <LearningOnlineSection key={d.title} heading={d.title} src={d.icon} className={i % 2 === 0 ? 'bg-light' : undefined}>
+    {steps.map((d, i) => (
+      <StepSection key={d.title} heading={d.title} src={d.icon} className={i % 2 === 0 ? 'bg-light' : undefined}>
         {d.content}
-      </LearningOnlineSection>
+      </StepSection>
     ))}
 
   </>
 );
 export default LearningOnlinePage;
 
-const sectionData = [
+interface Step {
+  title: string;
+  icon: StaticImageData;
+  content: ReactNode;
+}
+
+const steps: Step[] = [
   {
     title: 'Your Course Begins',
     icon: YourCourseBeginsIcon,
