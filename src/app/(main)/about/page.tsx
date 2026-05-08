@@ -50,7 +50,7 @@ const AboutPage: PageComponent = () => {
           </div>
         </div>
       </section>
-      <section className="bg-light">
+      <section className="bg-light" id="guarantee">
         <div className="container">
           <h2 className="h1 text-center mb-3">Our Guarantee</h2>
           <div className="row">
