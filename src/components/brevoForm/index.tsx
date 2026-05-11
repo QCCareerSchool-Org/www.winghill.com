@@ -6,7 +6,7 @@ import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { v1 } from 'uuid';
 
 import styles from './index.module.scss';
-import DownloadIcon from '@/components/download.svg';
+import DownloadIcon from '@/components/icons/download.svg';
 
 interface Props {
   successLocation: string;
