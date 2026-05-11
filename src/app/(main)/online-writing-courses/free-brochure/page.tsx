@@ -41,7 +41,7 @@ const FreeBrochurePage: PageComponent = async props => {
           </div>
         </div>
         <div className="row justify-content-center align-items-start text-center">
-          <div className="col-md-4 col-12 mt-5">
+          <div className="col-lg-4 col-12 mt-5">
             <h2 className="h3 mb-3">Email Me a Brochure</h2>
             <BrevoForm
               successLocation={`${process.env.NEXT_PUBLIC_HOST ?? 'https://www.winghill.com'}/thank-you`}
@@ -58,7 +58,7 @@ const FreeBrochurePage: PageComponent = async props => {
               placeholders
             />
           </div>
-          <div className="col-md-8 col-12 mt-5 mb-5">
+          <div className="col-lg-8 col-12 mt-5 mb-5">
             <Image src={BrochureImage} alt="" />
           </div>
         </div>
