@@ -1,14 +1,9 @@
-import Link from 'next/link';
 import type { FC } from 'react';
 
 export const FooterColumn1: FC = () => (
   <>
-    <li><Link href="/online-courses/home-staging">Home Staging</Link></li>
-    <li><Link href="/online-courses/landscape-design">Landscape Design</Link></li>
-    <li><Link href="/online-courses/feng-shui-design">Feng Shui Design</Link></li>
-    <li><Link href="/online-courses/professional-organizing">Professional Organizing</Link></li>
-    <li><Link href="/online-courses/event-decor">Event Decor</Link></li>
-    <li><Link href="/online-courses/color-consultant">Color Consultant</Link></li>
-    <li><Link href="/online-courses/floral-design">Floral Design</Link></li>
+    <li><a href="https://www.facebook.com/Winghill">Like Us on Facebook</a></li>
+    <li><a href="https://x.com/WinghillWS/">Follow Us on Twitter</a></li>
+    <li><a href="https://www.youtube.com/winghillschool">Subscribe on YouTube</a></li>
   </>
 );
