@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { FC } from 'react';
 
 import { Address } from './address';
+import styles from './footer.module.scss';
 import { FooterColumn1 } from './footerColumn1';
 import { FooterColumn2 } from './footerColumn2';
 import { FooterColumn3 } from './footerColumn3';
@@ -10,43 +11,27 @@ export const Footer: FC = () => (
   <footer className="mt-auto">
     <div className="container">
       <div className="row">
-        {/* <div className={styles.column0}>
-          <div className="d-flex h-100 flex-column justify-content-between">
-            <div className="mb-5">
-              <div className="mb-4"><Logo height={22} /></div>
-              <h2 className="h6 mb-4">Get Started with a Free Course Catalog</h2>
-              <Link href="/free-course-catalog" className="btn btn-outline-secondary">Get the Catalog</Link>
-            </div>
-            <div className="d-flex">
-              <div className="d-flex flex-column align-items-center text-center" style={{ width: 75, marginRight: '1.25rem' }}>
-                <div className="mb-2"><a href="http://www.bbb.org/ottawa/business-reviews/correspondence-schools/qc-quality-of-course-in-ottawa-on-4175" target="_blank" rel="noreferrer"><BBBIcon /></a></div>
-                <a href="http://www.bbb.org/ottawa/business-reviews/correspondence-schools/qc-quality-of-course-in-ottawa-on-4175" target="_blank" rel="noreferrer" className="small" style={{ color: 'inherit', lineHeight: '1rem' }}>A+ Rated by the BBB</a>
-              </div>
-              <div className="d-flex flex-column align-items-center text-center" style={{ width: 100 }}>
-                <div className="mb-2"><FortyYearsIcon height="68" /></div>
-                <span className="small" style={{ lineHeight: '1rem' }}>40+ Years of Innovation</span>
-              </div>
-            </div>
-          </div>
-        </div> */}
-        <div className="row align-items-start">
-          <h2 className="h6">Social Media</h2>
-          <ul>
+        <div className="col-6 col-lg-3">
+          <h3 className={`h6 ${styles.columnHeader}`}>Social Media</h3>
+          <ul className={styles.linkList}>
             <FooterColumn1 />
           </ul>
         </div>
-        <div>
-          <h2 className="h6">Quick Links</h2>
-          <ul>
+
+        <div className="col-6 col-lg-6">
+          <h3 className={`h6 ${styles.columnHeader}`}>Quick Links</h3>
+          <ul className={styles.linkList}>
             <FooterColumn2 />
           </ul>
         </div>
-        <div>
-          <h2 className="h6">Contact Us</h2>
-          <ul>
+
+        <div className="col-12 col-lg-3">
+          <h3 className={`h6 ${styles.columnHeader}`}>Contact Us</h3>
+          <ul className={styles.linkList}>
             <FooterColumn3 />
           </ul>
         </div>
+
       </div>
       <hr />
       <div className="d-flex flex-column flex-lg-row">
