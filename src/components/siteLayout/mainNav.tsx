@@ -25,6 +25,10 @@ export const MainNav: FC = () => {
 
   return (
     <div className="bg-white">
+      <div className="container d-none d-lg-flex justify-content-end mt-4">
+        <div className="d-lg-none d-xl-block ms-3"><Link href="https://studentcenter.qccareerschool.com/students/" className="btn btn-primary">Student Login</Link></div>
+        <div className="d-lg-none d-xl-block ms-3"><Link href="https://enroll.winghill.com" className="btn btn-primary">Enroll Now</Link></div>
+      </div>
       <Navbar key={key} expand="lg" collapseOnSelect={true} className={`${styles.mainNav} ${scrollPosition > 1 ? styles.scrolled : undefined} `}>
         <div className="container">
           <Link className="navbar-brand" href="/" aria-label="Go back to the home page">
@@ -36,31 +40,27 @@ export const MainNav: FC = () => {
             </div>
           </Link>
           <div className="d-flex">
-            <div className="d-none d-sm-block d-lg-none me-3"><Link href="https://enroll.winghill.com" className="btn btn-primary">Enroll Now</Link></div>
-            <div className="d-sm-none me-3"><Link href="https://enroll.winghill.com" className="btn btn-sm btn-primary">Enroll Now</Link></div>
             <Navbar.Toggle aria-controls="basic-navbar-nav">
               <Toggle />
             </Navbar.Toggle>
           </div>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <NavDropdown title="Online Writing Courses" id="courses-nav-dropdown">
+              <NavDropdown title="Online Writing Courses" className="d-lg-none d-xl-block" id="courses-nav-dropdown">
                 {courseCodes.map(c => <Link key={c} href={getCourseUrl(c)} className="dropdown-item" onClick={handleClick}>{getCourseName(c)}</Link>)}
                 <li><hr className="dropdown-divider" /></li>
                 <Link href="/online-writing-courses" className="dropdown-item" onClick={handleClick}>View All Courses</Link>
               </NavDropdown>
-              <Link href="/free-course-catalog" className="nav-link" onClick={handleClick}>Free Catalog</Link>
-              <Link href="/learning-online" className="nav-link" onClick={handleClick}>Learning Online</Link>
+              <Link href="/learning-online" className="nav-link d-lg-none d-xl-block" onClick={handleClick}>Learning Online</Link>
               <Link href="/tutors" className="nav-link d-lg-none d-xl-block" onClick={handleClick}>Your Tutors</Link>
               <Link href="/faq" className="nav-link d-lg-none d-xl-block" onClick={handleClick}>FAQ</Link>
-              <NavDropdown title="About" id="about-nav-dropdown">
-                <Link href="/about" className="dropdown-item" onClick={handleClick}>About the School</Link>
-                <Link href="/about/meet-the-team" className="dropdown-item" onClick={handleClick}>Meet the Team</Link>
-                <Link href="/tutors" className="dropdown-item d-none d-lg-block d-xl-none" onClick={handleClick}>Your Tutors</Link>
-                <Link href="/faq" className="dropdown-item d-none d-lg-block d-xl-none" onClick={handleClick}>FAQ</Link>
-                <Link href="/contact-us" className="dropdown-item" onClick={handleClick}>Contact Us</Link>
+              <NavDropdown title="About" id="about-nav-dropdown" className="d-lg-none d-xl-block">
+                <Link href="/about/#bbb" className="dropdown-item" onClick={handleClick}>BBB Accreditation</Link>
+                <Link href="/about/#values" className="dropdown-item" onClick={handleClick}>Our Core Values</Link>
+                <Link href="/about/#guarantee" className="dropdown-item" onClick={handleClick}>Guarantee</Link>
               </NavDropdown>
-              <div className="d-none d-lg-block ms-3"><Link href="https://enroll.winghill.com" className="btn btn-primary">Enroll Now</Link></div>
+              <Link href="/contact-us" className="nav-link d-lg-none d-xl-block" onClick={handleClick}>Contact</Link>
+
             </Nav>
           </Navbar.Collapse>
         </div>
