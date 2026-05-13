@@ -24,7 +24,7 @@ export const MainNav: FC = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-dark-grey">
       <div className="container d-none d-lg-flex justify-content-end pt-4">
         <div className="d-lg-none d-xl-block ms-3"><Link href="https://studentcenter.qccareerschool.com/students/" className="btn btn-primary">Student Login</Link></div>
         <div className="d-lg-none d-xl-block ms-3"><Link href="https://enroll.winghill.com" className="btn btn-primary">Enroll Now</Link></div>
@@ -51,15 +51,16 @@ export const MainNav: FC = () => {
                 <li><hr className="dropdown-divider" /></li>
                 <Link href="/online-writing-courses" className="dropdown-item" onClick={handleClick}>View All Courses</Link>
               </NavDropdown>
-              <Link href="/learning-online" className="nav-link d-lg-none d-xl-block" onClick={handleClick}>Learning Online</Link>
-              <Link href="/tutors" className="nav-link d-lg-none d-xl-block" onClick={handleClick}>Your Tutors</Link>
-              <Link href="/faq" className="nav-link d-lg-none d-xl-block" onClick={handleClick}>FAQ</Link>
-              <NavDropdown title="About" id="about-nav-dropdown" className="d-lg-none d-xl-block">
-                <Link href="/about/#bbb" className="dropdown-item" onClick={handleClick}>BBB Accreditation</Link>
-                <Link href="/about/#values" className="dropdown-item" onClick={handleClick}>Our Core Values</Link>
-                <Link href="/about/#guarantee" className="dropdown-item" onClick={handleClick}>Guarantee</Link>
+              <Link href="/learning-online" className="nav-link d-lg-none d-xl-block footerLink" onClick={handleClick}>Learning Online</Link>
+              <Link href="/tutors" className="nav-link d-lg-none d-xl-block footerLink" onClick={handleClick}>Your Tutors</Link>
+              <Link href="/faq" className="nav-link d-lg-none d-xl-block footerLink" onClick={handleClick}>FAQ</Link>
+              <Link href="/student-resources" className="nav-link d-lg-none d-xl-block footerLink" onClick={handleClick}>Student Resources</Link>
+              <NavDropdown title="About" id="about-nav-dropdown" className="d-lg-none d-xl-block text-white">
+                <Link href="/about/#bbb" className="dropdown-item footerLink" onClick={handleClick}>BBB Accreditation</Link>
+                <Link href="/about/#values" className="dropdown-item footerLink" onClick={handleClick}>Our Core Values</Link>
+                <Link href="/about/#guarantee" className="dropdown-item footerLink" onClick={handleClick}>Guarantee</Link>
               </NavDropdown>
-              <Link href="/contact-us" className="nav-link d-lg-none d-xl-block" onClick={handleClick}>Contact</Link>
+              <Link href="/contact-us" className="nav-link d-lg-none d-xl-block footerLink" onClick={handleClick}>Contact</Link>
 
             </Nav>
           </Navbar.Collapse>

@@ -12,3 +12,29 @@
 .react-multi-carousel-dot--active button {
   background-color: #02013f;
 }
+
+.bg-dark-grey {
+  background-color: #252525;
+}
+
+section.Toastify {
+  padding: 0;
+}
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+}
+.footerLink:hover {
+  text-decoration: underline;
+}
+.dropdown-toggle,
+.dropdown-toggle.show,
+.dropdown-toggle:focus,
+.dropdown-toggle:active {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #252525;
+}
