@@ -25,9 +25,9 @@ export const MainNav: FC = () => {
 
   return (
     <div className="bg-dark-grey position-relative">
-      <div className="container d-none d-lg-flex justify-content-end pt-4">
+      <div className="container d-none d-xl-flex justify-content-end pt-4">
         <div className="d-lg-none d-xl-block ms-3"><Link href="https://studentcenter.qccareerschool.com/students/" className="btn btn-primary btn-grey">Student Login</Link></div>
-        <div className="d-lg-none d-xl-block ms-3"><Link href="https://enroll.winghill.com" className="btn btn-primary">Enroll Now</Link></div>
+        <div className="d-lg-none d-xl-block ms-3"><Link href="https://enroll.winghill.com" className="btn btn-primary ">Enroll Now</Link></div>
       </div>
       <Navbar key={key} expand="xl" collapseOnSelect={true} className={`${styles.mainNav} ${scrollPosition > 1 ? styles.scrolled : undefined} `}>
         <div className="container">
@@ -37,23 +37,20 @@ export const MainNav: FC = () => {
             </Navbar.Toggle>
           </div>
           <Navbar.Collapse id="basic-navbar-nav">
+            <Link className="navbar-brand" href="/" aria-label="Go back to the home page">
+              <div
+                id="navLogo" className="d-none d-xl-block" style={{
+                  position: 'absolute',
+                  top: '100%',
+                  transform: 'translateY(-80%)',
+                  zIndex: 10,
+                }}
+              >
+                <Logo height={170} />
+              </div>
+            </Link>
             <Nav className="ms-auto">
-              <Link className="navbar-brand" href="/" aria-label="Go back to the home page">
-                <div
-                  id="navLogo" className="d-none d-xl-block" style={{
-                    position: 'absolute',
-                    left: 40,
-                    top: '100%',
-                    transform: 'translateY(-80%)',
-                    zIndex: 10,
-                  }}
-                >
-                  <Logo height={170} />
-                </div>
-                <div className="d-sm-none">
-                  <Logo height={17} />
-                </div>
-              </Link>
+
               <NavDropdown title="Online Writing Courses" className="d-lg-none d-xl-block" id="courses-nav-dropdown">
                 {courseCodes.map(c => <Link key={c} href={getCourseUrl(c)} className="dropdown-item footerLink" onClick={handleClick}>{getCourseName(c)}</Link>)}
               </NavDropdown>

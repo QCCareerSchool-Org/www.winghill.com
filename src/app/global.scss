@@ -26,8 +26,9 @@ section.Toastify {
   text-decoration: none;
 }
 .footerLink:hover {
+  background-color: #252525;
   text-decoration: underline;
-  color: white;
+  color:white;
 }
 
 .btn-grey {
@@ -39,10 +40,9 @@ section.Toastify {
   background-color: #3d3b3b;
 }
 
-.dropdown-toggle,
-.dropdown-toggle.show,
-.dropdown-toggle:focus,
-.dropdown-toggle:active {
+#courses-nav-dropdown,
+.nav-link:hover,
+#about-nav-dropdown {
   color: white;
 }
 
