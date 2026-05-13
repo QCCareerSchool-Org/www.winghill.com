@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import type { FC } from 'react';
 
-import styles from './footer.module.scss';
 import { FooterColumn1 } from './footerColumn1';
 import { FooterColumn2 } from './footerColumn2';
 import { FooterColumn3 } from './footerColumn3';
 export const Footer: FC = () => (
-  <footer className={`mt-auto pt-5 bg-dark-grey ${styles.footer}`}>
+  <footer className="mt-auto pt-5 bg-dark-grey">
     <div className="container text-white">
       <div className="row">
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 mb-0-lg">
@@ -25,7 +24,7 @@ export const Footer: FC = () => (
 
         <div className="col-12 col-md-12 col-lg-3">
           <h3 className="h5 text-white mb-4">Contact Us</h3>
-          <ul className={`list-unstyled ${styles.customGrey}`}>
+          <ul className="list-unstyled customGrey">
             <FooterColumn3 />
           </ul>
         </div>
@@ -33,7 +32,7 @@ export const Footer: FC = () => (
       </div>
       <hr />
       <div className="d-flex flex-column flex-sm-row flex-wrap justify-content-center align-items-center gap-3 text-center">
-        <div className={`me-md-3 mb-1 mb-md-0 ${styles.customGrey}`}>&copy; {new Date().getFullYear()} Winghill Writing School</div>
+        <div className="me-md-3 mb-1 mb-md-0 customGrey">&copy; {new Date().getFullYear()} Winghill Writing School</div>
         <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center">
           <div><Link href="/terms" className="me-sm-3 footerLink">Privacy Policy</Link></div>
           <div><Link href="/blog" className="me-sm-3 footerLink">Blog</Link></div>
