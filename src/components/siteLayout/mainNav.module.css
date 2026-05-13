@@ -6,24 +6,3 @@
 .mainNav.scrolled {
   border-color: rgba(0,0,0,0.15);
 }
-
-
-.btn-grey {
-    background-color: #494747;
-    border: none;
-}
-
-.btn-grey:hover {
-  background-color: #3d3b3b;
-}
-
-.dropdown-toggle,
-.dropdown-toggle.show,
-.dropdown-toggle:focus,
-.dropdown-toggle:active {
-  color: white !important;
-}
-
-.dropdown-menu {
-  background-color: #252525;
-}
