@@ -35,10 +35,10 @@ export const Footer: FC = () => (
       <div className="d-flex flex-column flex-sm-row flex-wrap justify-content-center align-items-center gap-3 text-center">
         <div className={`me-md-3 mb-1 mb-md-0 ${styles.customGrey}`}>&copy; {new Date().getFullYear()} Winghill Writing School</div>
         <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center">
-          <div><Link href="/terms" className={`me-sm-3 ${styles.footerLink}`}>Privacy Policy</Link></div>
-          <div><Link href="/blog" className={`me-sm-3 ${styles.footerLink}`}>Blog</Link></div>
-          <a href="https://www.bbb.org/ca/on/ottawa/profile/correspondence-schools/qc-career-school-0117-4175" className={`me-sm-3 ${styles.footerLink}`}>BBC Accredited A+</a>
-          <a href="https://www.qccareerschool.com" target="_blank" rel="noreferrer" className={`me-sm-3 ${styles.footerLink}`}>QC Career School</a>
+          <div><Link href="/terms" className="me-sm-3 footerLink">Privacy Policy</Link></div>
+          <div><Link href="/blog" className="me-sm-3 footerLink">Blog</Link></div>
+          <a href="https://www.bbb.org/ca/on/ottawa/profile/correspondence-schools/qc-career-school-0117-4175" className="me-sm-3 footerLink">BBC Accredited A+</a>
+          <a href="https://www.qccareerschool.com" target="_blank" rel="noreferrer" className="me-sm-3 footerLink">QC Career School</a>
         </div>
         <div className="d-flex gap-3">
           <div><a href="https://www.facebook.com/Winghill" target="_blank" rel="noreferrer" aria-label="Facebook" /></div>

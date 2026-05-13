@@ -20,3 +20,11 @@
 section.Toastify {
   padding: 0;
 }
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+}
+.footerLink:hover {
+  text-decoration: underline;
+}
