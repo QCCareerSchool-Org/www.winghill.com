@@ -27,7 +27,18 @@ section.Toastify {
 }
 .footerLink:hover {
   text-decoration: underline;
+  color: white;
 }
+
+.btn-grey {
+    background-color: #494747;
+    border: none;
+}
+
+.btn-grey:hover {
+  background-color: #3d3b3b;
+}
+
 .dropdown-toggle,
 .dropdown-toggle.show,
 .dropdown-toggle:focus,

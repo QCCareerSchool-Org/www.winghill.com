@@ -24,21 +24,29 @@ export const MainNav: FC = () => {
   };
 
   return (
-    <div className="bg-dark-grey">
+    <div className="bg-dark-grey position-relative">
+      <Link className="navbar-brand" href="/" aria-label="Go back to the home page">
+        <div
+          id="navLogo" className="d-none d-sm-block" style={{
+            position: 'absolute',
+            left: 400,
+            top: '100%',
+            transform: 'translateY(-80%)',
+            zIndex: 10,
+          }}
+        >
+          <Logo height={170} />
+        </div>
+        <div className="d-sm-none">
+          <Logo height={17} />
+        </div>
+      </Link>
       <div className="container d-none d-lg-flex justify-content-end pt-4">
-        <div className="d-lg-none d-xl-block ms-3"><Link href="https://studentcenter.qccareerschool.com/students/" className="btn btn-primary">Student Login</Link></div>
+        <div className="d-lg-none d-xl-block ms-3"><Link href="https://studentcenter.qccareerschool.com/students/" className="btn btn-primary btn-grey">Student Login</Link></div>
         <div className="d-lg-none d-xl-block ms-3"><Link href="https://enroll.winghill.com" className="btn btn-primary">Enroll Now</Link></div>
       </div>
       <Navbar key={key} expand="xl" collapseOnSelect={true} className={`${styles.mainNav} ${scrollPosition > 1 ? styles.scrolled : undefined} `}>
         <div className="container">
-          <Link className="navbar-brand" href="/" aria-label="Go back to the home page">
-            <div id="navLogo" className="d-none d-sm-block">
-              <Logo height={22} />
-            </div>
-            <div className="d-sm-none">
-              <Logo height={17} />
-            </div>
-          </Link>
           <div className="d-flex">
             <Navbar.Toggle aria-controls="basic-navbar-nav">
               <Toggle />
@@ -47,9 +55,7 @@ export const MainNav: FC = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <NavDropdown title="Online Writing Courses" className="d-lg-none d-xl-block" id="courses-nav-dropdown">
-                {courseCodes.map(c => <Link key={c} href={getCourseUrl(c)} className="dropdown-item" onClick={handleClick}>{getCourseName(c)}</Link>)}
-                <li><hr className="dropdown-divider" /></li>
-                <Link href="/online-writing-courses" className="dropdown-item" onClick={handleClick}>View All Courses</Link>
+                {courseCodes.map(c => <Link key={c} href={getCourseUrl(c)} className="dropdown-item footerLink" onClick={handleClick}>{getCourseName(c)}</Link>)}
               </NavDropdown>
               <Link href="/learning-online" className="nav-link d-lg-none d-xl-block footerLink" onClick={handleClick}>Learning Online</Link>
               <Link href="/tutors" className="nav-link d-lg-none d-xl-block footerLink" onClick={handleClick}>Your Tutors</Link>
