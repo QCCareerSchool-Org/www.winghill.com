@@ -1,80 +1,66 @@
 import Link from 'next/link';
 import type { FC } from 'react';
-import { BiLogoFacebook, BiLogoLinkedin, BiLogoPinterest } from 'react-icons/bi';
+import { Fragment } from 'react';
+import { FaFacebook, FaLinkedin, FaPinterest } from 'react-icons/fa6';
 
-import FortyYearsIcon from './40-years.svg';
-import { Address } from './address';
-import BBBIcon from './bbb.svg';
-import styles from './footer.module.scss';
-import { FooterColumn1 } from './footerColumn1';
-import { FooterColumn2 } from './footerColumn2';
-import { FooterColumn3 } from './footerColumn3';
-import { Logo } from '@/components/logo';
+import { TelephoneLink } from '../telephoneLink';
+import { getAddress } from '@/lib/address';
 
-const iconSize = 20;
+interface Props {
+  countryCode: string;
+}
 
-export const Footer: FC = () => (
-  <footer className={`${styles.footer} mt-auto`}>
-    <div className="container">
-      <div className="row">
-        <div className={styles.column0}>
-          <div className="d-flex h-100 flex-column justify-content-between">
-            <div className="mb-5">
-              <div className="mb-4"><Logo height={22} /></div>
-              <h2 className="h6 mb-4">Get Started with a Free Course Catalog</h2>
-              <Link href="/free-course-catalog" className="btn btn-outline-secondary">Get the Catalog</Link>
-            </div>
-            <div className="d-flex">
-              <div className="d-flex flex-column align-items-center text-center" style={{ width: 75, marginRight: '1.25rem' }}>
-                <div className="mb-2"><a href="http://www.bbb.org/ottawa/business-reviews/correspondence-schools/qc-quality-of-course-in-ottawa-on-4175" target="_blank" rel="noreferrer"><BBBIcon /></a></div>
-                <a href="http://www.bbb.org/ottawa/business-reviews/correspondence-schools/qc-quality-of-course-in-ottawa-on-4175" target="_blank" rel="noreferrer" className="small" style={{ color: 'inherit', lineHeight: '1rem' }}>A+ Rated by the BBB</a>
-              </div>
-              <div className="d-flex flex-column align-items-center text-center" style={{ width: 100 }}>
-                <div className="mb-2"><FortyYearsIcon height="68" /></div>
-                <span className="small" style={{ lineHeight: '1rem' }}>40+ Years of Innovation</span>
-              </div>
-            </div>
+const bbbUrl = 'https://www.bbb.org/ca/on/ottawa/profile/correspondence-schools/qc-career-school-0117-4175';
+
+export const Footer: FC<Props> = ({ countryCode }) => {
+  const address = getAddress(countryCode);
+
+  return (
+    <footer className="mt-auto py-5 bg-dark-grey">
+      <div className="container text-white text-center text-sm-start text-md-center">
+
+        <div className="row g-2 g-sm-4 mb-sm-4">
+          <div className="col-12 col-sm-6 col-md-4">
+            <h3 className="h5 text-white mb-1 mb-md-2">Social Media</h3>
+            <ul className="list-unstyled d-flex flex-column gap-md-2">
+              <li><a href="https://www.facebook.com/Winghill" className="footerLink">Like Us on Facebook</a></li>
+              <li><a href="https://x.com/WinghillWS/" className="footerLink">Follow Us on Twitter</a></li>
+              <li><a href="https://www.youtube.com/winghillschool" className="footerLink">Subscribe on YouTube</a></li>
+            </ul>
+          </div>
+          <div className="col-12 col-sm-6 col-md-4">
+            <h3 className="h5 text-white mb-1 mb-md-2">Quick Links</h3>
+            <ul className="list-unstyled d-flex flex-column gap-md-2">
+              <li><Link href="/online-writing-courses" className="footerLink">Courses</Link></li>
+              <li><Link href="/faq" className="footerLink">FAQ</Link></li>
+              <li><Link href="/about/#guarantee" className="footerLink">Our Guarantee</Link></li>
+            </ul>
+          </div>
+          <div className="col-12 col-sm-6 col-md-4">
+            <h3 className="h5 text-white mb-1 mb-md-2">Contact Us</h3>
+            <ul className="list-unstyled customGrey">
+              {address.map(line => <Fragment key={line}>{line}<br /></Fragment>)}
+              <TelephoneLink countryCode={countryCode} className="footerLink" />
+            </ul>
           </div>
         </div>
-        <div className={styles.column1}>
-          <h3 className={`h6 ${styles.columnHeader}`}><Link href="/online-courses">Popular Courses</Link></h3>
-          <ul className={styles.linkList}>
-            <FooterColumn1 />
-          </ul>
-        </div>
-        <div className={styles.column2}>
-          <h3 className={`h6 ${styles.columnHeader}`}>Resources</h3>
-          <ul className={styles.linkList}>
-            <FooterColumn2 />
-          </ul>
-        </div>
-        <div className={styles.column3}>
-          <h3 className={`h6 ${styles.columnHeader}`}><Link href="/contact-us">Contact Us</Link></h3>
-          <ul className={styles.linkList}>
-            <FooterColumn3 />
-          </ul>
+
+        <div className="d-flex flex-column justify-content-center gap-2 text-center">
+          <hr className="mt-0 mb-4 align-self-stretch" />
+          <div className="customGrey">&copy; {new Date().getFullYear()} Winghill Writing School</div>
+          <div className="d-flex flex-column flex-sm-row justify-content-center gap-sm-3">
+            <Link href="/terms" className="footerLink">Privacy Policy</Link>
+            <Link href="/blog" className="footerLink">Blog</Link>
+            <Link href={bbbUrl} target="_blank" rel="noreferrer" className="footerLink">BBC Accredited A+</Link>
+            <Link href="https://www.qccareerschool.com" target="_blank" rel="noreferrer" className="footerLink">QC Career School</Link>
+          </div>
+          <div className="d-flex justify-content-center gap-3">
+            <div><a href="https://www.facebook.com/Winghill" target="_blank" rel="noreferrer" aria-label="Facebook" /><FaFacebook /></div>
+            <div><a href="https://www.linkedin.com/showcase/winghill-writing-school/" target="_blank" rel="noreferrer" aria-label="LinkedIn" /><FaLinkedin /></div>
+            <div><a href="https://www.pinterest.com/qccareerschool" target="_blank" rel="noreferrer" aria-label="Pinterest" /><FaPinterest /></div>
+          </div>
         </div>
       </div>
-      <hr />
-      <div className={`${styles.bottom} d-flex flex-column flex-lg-row justify-content-lg-between`}>
-        <div>
-          <div className="d-flex flex-column flex-md-row mb-1">
-            <div className="me-md-3 mb-1 mb-md-0">&copy; {new Date().getFullYear()} Winghill Writing School</div>
-            <div className="d-flex flex-column flex-sm-row">
-              <div className="me-sm-3"><Link href="/terms">Privacy Policy</Link></div>
-              <a href="https://www.qccareerschool.com" target="_blank" rel="noreferrer">QC Career School</a>
-            </div>
-          </div>
-          <div className="mb-2 mb-lg-0">
-            <Address />
-          </div>
-        </div>
-        <div className="d-flex gap-3">
-          <div><a href="https://www.facebook.com/Winghill" target="_blank" rel="noreferrer" aria-label="Facebook"><BiLogoFacebook size={iconSize} className={styles.socialIcon} title="Facebook" /></a></div>
-          <div><a href="https://www.linkedin.com/showcase/winghill-writing-school/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BiLogoLinkedin size={iconSize} className={styles.socialIcon} title="LinkedIn" /></a></div>
-          <div><a href="https://www.pinterest.com/qccareerschool" target="_blank" rel="noreferrer" aria-label="Pinterest"><BiLogoPinterest size={iconSize} className={styles.socialIcon} title="Pinterest" /></a></div>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
