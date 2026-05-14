@@ -116,15 +116,15 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   --qc-box-shadow: #{$box-shadow};
   --qc-text-shadow: 0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.25);
 
-  --qc-section-padding: 4rem;
+   --qc-section-padding: 2rem;
+  @media only screen and (min-width: 576px) {
+    --qc-section-padding: 3rem;
+  }
   @media only screen and (min-width: 768px) {
-    --qc-section-padding: 5rem;
+    --qc-section-padding: 3.5rem;
   }
   @media only screen and (min-width: 992px) {
-    --qc-section-padding: 6rem;
-  }
-  @media only screen and (min-width: 1200px) {
-    --qc-section-padding: 7rem;
+    --qc-section-padding: 4rem;
   }
 }
 
