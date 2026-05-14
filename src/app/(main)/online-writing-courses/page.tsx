@@ -14,32 +14,36 @@ import type { CourseCode } from '@/domain/courseCode';
 import { getCourseName, getCourseUrl } from '@/domain/courseCode';
 import type { PageComponent } from '@/serverComponent';
 
-const CourseOverviewPage: PageComponent = () => {
-  return(
-    <>
-      <section>
-        <div className="container">
-          <h1 className="text-center">Online Writing Courses</h1>
-          <p>Do you want to stand out and get noticed by publishers and readers alike? Do you have a passion for a single writing style or would you like to diversify your knowledge and learn about multiple genres? At Winghill, we offer seven distinct writing courses to help you reach your goals. With guidance from your personal tutor, you'll work on customized assignments that will help you tune your craft and allow you to reach your goal of becoming a published professional writer!</p>
-        </div>
-      </section>
-      <section className="bg-light">
-        <div className="container">
-          <div className="row justify-content-center g-5">
-            {courses.map(c => (
-              <div key={c.code} className="col-md-12 col-lg-4 mb-5 text-center d-flex flex-column">
-                <Image src={c.icon} alt="" className="mb-3 w-75 h-auto mx-auto" />
-                <h2 className="h3">{getCourseName(c.code)}</h2>
-                {c.description}
-                <Link href={getCourseUrl(c.code)} className="btn btn-primary btn-lg mt-auto align-self-center">Learn More</Link>
-              </div>
-            ))}
+const CourseOverviewPage: PageComponent = () => (
+  <>
+    <section>
+      <div className="container text-center">
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-10 col-lg-8">
+            <h1 className="mb-3">Online Writing Courses</h1>
+            <p className="mb-0">Do you want to stand out and get noticed by publishers and readers alike? Do you have a passion for a single writing style or would you like to diversify your knowledge and learn about multiple genres? At Winghill, we offer seven distinct writing courses to help you reach your goals. With guidance from your personal tutor, you'll work on customized assignments that will help you tune your craft and allow you to reach your goal of becoming a published professional writer!</p>
           </div>
         </div>
-      </section>
-    </>
-  );
-};
+      </div>
+    </section>
+    <section className="bg-light">
+      <div className="container">
+        <div className="row justify-content-center g-5">
+          {courses.map(c => (
+            <div key={c.code} className="col-sm-10 col-md-6 col-lg-4 mb-5 text-center d-flex flex-column">
+              <Link href={getCourseUrl(c.code)}>
+                <Image src={c.icon} alt="" className="img-fluid mb-4" style={{ width: 200 }} />
+              </Link>
+              <h2 className="h4 mb-3">{getCourseName(c.code)}</h2>
+              {c.description}
+              <Link href={getCourseUrl(c.code)} className="btn btn-primary btn-lg mt-auto align-self-center">Learn More</Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </>
+);
 
 export default CourseOverviewPage;
 
