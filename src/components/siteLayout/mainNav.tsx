@@ -10,6 +10,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import styles from './mainNav.module.css';
 import Toggle from './toggle.svg';
 // import { Logo } from '@/components/logo';
+import { Logo } from '../logo';
 import { courseCodes, getCourseName, getCourseUrl } from '@/domain/courseCode';
 import { useScrollPositionContext } from '@/hooks/useScrollPositionContext';
 
@@ -37,7 +38,7 @@ export const MainNav: FC = () => {
             </Navbar.Toggle>
           </div>
           <Navbar.Collapse id="basic-navbar-nav">
-            {/* <Link className="navbar-brand" href="/" aria-label="Go back to the home page">
+            <Link className="navbar-brand" href="/" aria-label="Go back to the home page">
               <div
                 id="navLogo" className="d-none d-xl-block" style={{
                   position: 'absolute',
@@ -47,22 +48,22 @@ export const MainNav: FC = () => {
               >
                 <Logo height={170} />
               </div>
-            </Link> */}
+            </Link>
             <Nav className="ms-auto">
 
               <NavDropdown title="Online Writing Courses" className="" id="courses-nav-dropdown">
                 {courseCodes.map(c => <Link key={c} href={getCourseUrl(c)} className="dropdown-item footerLink" onClick={handleClick}>{getCourseName(c)}</Link>)}
               </NavDropdown>
-              <Link href="/learning-online" className="nav-link  footerLink" onClick={handleClick}>Learning Online</Link>
-              <Link href="/tutors" className="nav-link  footerLink" onClick={handleClick}>Your Tutors</Link>
-              <Link href="/faq" className="nav-link  footerLink" onClick={handleClick}>FAQ</Link>
-              <Link href="/student-resources" className="nav-link  footerLink" onClick={handleClick}>Student Resources</Link>
+              <Link href="/learning-online" className="nav-link footerLink" onClick={handleClick}>Learning Online</Link>
+              <Link href="/tutors" className="nav-link footerLink" onClick={handleClick}>Your Tutors</Link>
+              <Link href="/faq" className="nav-link footerLink" onClick={handleClick}>FAQ</Link>
+              <Link href="/student-resources" className="nav-link footerLink" onClick={handleClick}>Student Resources</Link>
               <NavDropdown title="About" id="about-nav-dropdown" className=" text-white">
                 <Link href="/about/#bbb" className="dropdown-item footerLink" onClick={handleClick}>BBB Accreditation</Link>
                 <Link href="/about/#values" className="dropdown-item footerLink" onClick={handleClick}>Our Core Values</Link>
                 <Link href="/about/#guarantee" className="dropdown-item footerLink" onClick={handleClick}>Guarantee</Link>
               </NavDropdown>
-              <Link href="/contact-us" className="nav-link  footerLink" onClick={handleClick}>Contact</Link>
+              <Link href="/contact-us" className="nav-link footerLink" onClick={handleClick}>Contact</Link>
 
             </Nav>
           </Navbar.Collapse>
