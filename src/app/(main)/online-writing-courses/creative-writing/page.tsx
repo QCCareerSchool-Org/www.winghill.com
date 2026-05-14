@@ -30,7 +30,7 @@ const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
           <p className="mb-0">The creative writing program shows you how to write articles and short stories for a variety of audiences. You''ll even learn how to tackle opportunities for radio, television, and screenplays. Each lesson of the course covers a new and exciting topic. You might discover a previously untapped passion for romance writing, or a rewarding new career as a children's author. If you've never been published before and you're not sure what area of writing you'd like to focus on, the creative writing program is the best choice for you.</p>
         </div>
       </section>
-      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
+      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0002', 'TW-0003', 'TW-0004' ]} />
       <CourseOutlineSection items={outlineItems} />
       <GuaranteeSection title="Creative Writing" doubleGuarantee={true} courseCodes={courseCodes} className="bg-light" />
     </>

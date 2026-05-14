@@ -30,7 +30,7 @@ const MemoirWritingPage: PageComponent = async ({ searchParams }) => {
           <p className="mb-0">Our easy-to-follow course makes it a pleasure to re-discover your personal history or your family's past. You'll write a treasured legacy for yourself, your children, and future generations of your family. We'll show you how to effectively research and organize information. We'll help you to decide what's important and what can be left out. And, most importantly, you'll learn how to structure an engaging and captivating story that will fascinate both your loved ones and general readers.</p>
         </div>
       </section>
-      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
+      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0014', 'TW-0013' ]} />
       <CourseOutlineSection items={outlineItems} />
       <GuaranteeSection title="Memoir Writing" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
     </>

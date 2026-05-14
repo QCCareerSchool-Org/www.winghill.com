@@ -31,7 +31,7 @@ const NovelWritingPage: PageComponent = async ({ searchParams }) => {
           <p className="mb-0">If you've ever read a book and thought &ldquo;I could do better than that!&rdquo; or you've always dreamed of writing a novel, our program will guide you towards success.</p>
         </div>
       </section>
-      <TestimonialWallSection testimonialIds={[]} className="bg-light" />
+      <TestimonialWallSection testimonialIds={[ 'TW-0001', 'TW-0007', 'TW-0008' ]} className="bg-light" />
       <CourseOutlineSection items={outlineItems} />
       <GuaranteeSection title="Novel Writing" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
     </>
