@@ -30,5 +30,24 @@ section.Toastify {
 }
 
 .customGrey {
-    color: #8f8b8b;
+  color: #8f8b8b;
+}
+
+.btn-grey {
+    background-color: #494747;
+    border: none;
+}
+
+.btn-grey:hover {
+  background-color: #3d3b3b;
+}
+
+#courses-nav-dropdown,
+.nav-link:hover,
+#about-nav-dropdown {
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: #252525;
 }
