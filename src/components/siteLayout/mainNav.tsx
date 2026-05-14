@@ -41,8 +41,7 @@ export const MainNav: FC = () => {
               <div
                 id="navLogo" className="d-none d-xl-block" style={{
                   position: 'absolute',
-                  top: '100%',
-                  transform: 'translateY(-80%)',
+                  top: -48,
                   zIndex: 10,
                 }}
               >
