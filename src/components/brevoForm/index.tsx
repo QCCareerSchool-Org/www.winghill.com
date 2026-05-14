@@ -87,7 +87,7 @@ export const BrevoForm: FC<Props> = props => {
   };
 
   return (
-    <form action="https://www.winghill.com" method="post" className={styles.brochureForm} onSubmit={handleSubmit}>
+    <form action="https://leads.qccareerschool.com" method="post" className={styles.brochureForm} onSubmit={handleSubmit}>
       <input type="hidden" name="nonce" value={v1()} />
       <input type="hidden" name="g-recaptcha-response" value={token} />
       <input type="hidden" name="school" value="Winghill Writing School" />

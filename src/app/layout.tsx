@@ -42,7 +42,7 @@ const RootLayout: LayoutComponent = async ({ children }) => {
         {process.env.TIKTOK_ID && <Tiktok id={process.env.TIKTOK_ID} />}
         {process.env.BING_ID && <Bing id={process.env.BING_ID} userValues={userValues} />}
       </head>
-      <body className="d-flex flex-column">
+      <body className="d-flex flex-column vh-100">
         <Provider userValues={userValues} clientIp={clientIp}>
           {children}
         </Provider>
