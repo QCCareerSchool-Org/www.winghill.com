@@ -18,10 +18,12 @@ export const Header: FC<Props> = ({ logoLink, buttonHref = '#', buttonContent, b
     <header className={styles.header}>
       <div className="container">
         <div className={styles.content}>
-          {logoLink
-            ? <Link href="/" aria-label="Home page"><Logo height={20} /></Link>
-            : <Logo height={20} />
-          }
+          <div className={styles.logo}>
+            {logoLink
+              ? <Link href="/" aria-label="Home page"><Logo height={96} /></Link>
+              : <Logo height={96} />
+            }
+          </div>
           {buttonContent && (
             <ButtonWrapper alwaysVisible={!!buttonAlwaysVisible}>
               <Link href={buttonHref} className={`btn btn-navy ${styles.button}`}>{buttonContent}</Link>

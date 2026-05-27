@@ -8,7 +8,7 @@ import { getServerData } from '@/lib/getServerData';
 export const Footer: FC = async () => {
   const { countryCode } = await getServerData();
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} mt-auto bg-dark text-white`}>
       <div className="container text-center">
         <div className="small d-flex flex-column flex-md-row justify-content-around">
           <div className="mb-2 mb-md-0">&copy; {new Date().getFullYear()} QC Event School</div>

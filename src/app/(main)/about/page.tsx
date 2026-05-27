@@ -20,7 +20,7 @@ const AboutPage: PageComponent = () => (
         </div>
       </div>
     </section>
-    <section className="bg-light">
+    <section className="bg-light" id="bbb">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-xl-10">
@@ -36,7 +36,7 @@ const AboutPage: PageComponent = () => (
       </div>
     </section>
     <CoreValuesSection />
-    <section className="bg-light">
+    <section className="bg-light" id="guarantee">
       <div className="container">
         <div className="row justify-content-center g-4">
           <div className="col-12 col-lg-3 text-center">

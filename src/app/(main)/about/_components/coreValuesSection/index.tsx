@@ -8,7 +8,7 @@ import ServiceIcon from './core-values-icon-service.png';
 import SupportIcon from './core-values-icon-support.png';
 
 export const CoreValuesSection: FC = () => (
-  <section>
+  <section id="values">
     <div className="container text-center">
       <h2 className="h1 text-center mb-3">Our Core Values</h2>
       <p className="mb-5">Our mission is to provide you with a rich and personalized learning experience, all from the comfort of your home.</p>

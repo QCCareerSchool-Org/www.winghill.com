@@ -6,7 +6,7 @@ import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { v1 } from 'uuid';
 
 import styles from './index.module.scss';
-import DownloadIcon from '@/components/download.svg';
+import DownloadIcon from '@/components/icons/download.svg';
 
 interface Props {
   successLocation: string;
@@ -90,7 +90,7 @@ export const BrevoForm: FC<Props> = props => {
     <form action="https://leads.qccareerschool.com" method="post" className={styles.brochureForm} onSubmit={handleSubmit}>
       <input type="hidden" name="nonce" value={v1()} />
       <input type="hidden" name="g-recaptcha-response" value={token} />
-      <input type="hidden" name="school" value="QC Event School" />
+      <input type="hidden" name="school" value="Winghill Writing School" />
       <input type="hidden" name="successLocation" value={props.successLocation} />
       <input type="hidden" name="listId" value={props.listId} />
       {props.courseCodes?.map(c => <input key={c} type="hidden" name="courseCodes" value={c} />)}

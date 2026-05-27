@@ -12,3 +12,42 @@
 .react-multi-carousel-dot--active button {
   background-color: #02013f;
 }
+
+.bg-dark-grey {
+  background-color: #252525;
+}
+
+section.Toastify {
+  padding: 0;
+}
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+}
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+.customGrey {
+  color: #8f8b8b;
+}
+
+.btn-grey {
+    background-color: #494747;
+    border: none;
+}
+
+.btn-grey:hover {
+  background-color: #3d3b3b;
+}
+
+#courses-nav-dropdown,
+.nav-link:hover,
+#about-nav-dropdown {
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: #252525;
+}

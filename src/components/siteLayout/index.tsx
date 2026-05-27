@@ -17,7 +17,7 @@ export const SiteLayout: FC<PropsWithChildren<Props>> = async ({ date, children 
     <>
       <Header date={date} countryCode={countryCode} provinceCode={provinceCode} />
       <main className="flex-shrink-0">{children}</main>
-      <Footer />
+      <Footer countryCode={countryCode} />
       {process.env.BREVO_CONVERSATIONS_ID && process.env.BREVO_GROUP_ID && <BrevoConversations conversationsId={process.env.BREVO_CONVERSATIONS_ID} groupId={process.env.BREVO_GROUP_ID} />}
       <TaxCreditsModal />
     </>

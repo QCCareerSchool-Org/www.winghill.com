@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { Fragment } from 'react/jsx-runtime';
 
-import ChatIcon from './icon-chat.png';
-import EmailIcon from './icon-email.png';
-import MailIcon from './icon-envelope.png';
-import PhoneIcon from './icon-phone.png';
 import { ChatLink } from '@/components/chatLink';
 import { EmailLink } from '@/components/emailLink';
+import ChatIcon from '@/components/icons/icon-chat.png';
+import EmailIcon from '@/components/icons/icon-email.png';
+import MailIcon from '@/components/icons/icon-envelope.png';
+import PhoneIcon from '@/components/icons/icon-phone.png';
 import { TelephoneLink } from '@/components/telephoneLink';
 import { getAddress } from '@/lib/address';
 import { getServerData } from '@/lib/getServerData';

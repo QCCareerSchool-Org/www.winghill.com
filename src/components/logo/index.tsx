@@ -7,4 +7,4 @@ interface Props {
   height: number;
 }
 
-export const Logo: FC<Props> = ({ height }) => <Image src={LogoImage} alt="Winghill Writing School" style={{ height, width: 'auto' }} />;
+export const Logo: FC<Props> = ({ height }) => <Image src={LogoImage} alt="Winghill Writing School" style={{ height, width: 'auto' }} priority />;

@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 import CourseBanner from './course-banner-memoir-writing.jpg';
 import { CourseOutlineSection } from '../_components/courseOutlineSection';
+import { CoursePrice } from '../_components/coursePrice';
 import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
-import { formatPrice } from '@/lib/formatPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
@@ -24,13 +24,13 @@ const MemoirWritingPage: PageComponent = async ({ searchParams }) => {
       <section>
         <div className="container">
           <h1>Memoir Writing Course</h1>
-          {price && <h2>{price.currency.symbol}{formatPrice(price.plans.full.total)} or {price.currency.symbol}{formatPrice(price.plans.part.installmentSize)}/mo</h2>}
+          {price && <CoursePrice price={price} />}
           <Image src={CourseBanner} alt="" style={{ maxWidth: '100%', height: 'auto', marginBottom: '0.5rem' }} />
           <p>Can you trace your family tree back hundreds of years, with a delightful array of colorful or even infamous characters perched on every branch? Do you want to preserve the lives and loves of your ancestors so their stories can be passed down to future generations and shared with the world? Or perhaps you have your own story to tell and you wish to engage in the therapeutic and liberating task of penning your memoirs? If this is your goal, our memoir and family history course is perfectly suited to you.</p>
-          <p>Our easy-to-follow course makes it a pleasure to re-discover your personal history or your family's past. You'll write a treasured legacy for yourself, your children, and future generations of your family. We'll show you how to effectively research and organize information. We'll help you to decide what's important and what can be left out. And, most importantly, you'll learn how to structure an engaging and captivating story that will fascinate both your loved ones and general readers.</p>
+          <p className="mb-0">Our easy-to-follow course makes it a pleasure to re-discover your personal history or your family's past. You'll write a treasured legacy for yourself, your children, and future generations of your family. We'll show you how to effectively research and organize information. We'll help you to decide what's important and what can be left out. And, most importantly, you'll learn how to structure an engaging and captivating story that will fascinate both your loved ones and general readers.</p>
         </div>
       </section>
-      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0001', 'TW-0002', 'TW-0003' ]} />
+      <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0014', 'TW-0013' ]} />
       <CourseOutlineSection items={outlineItems} />
       <GuaranteeSection title="Memoir Writing" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
     </>
