@@ -54,7 +54,7 @@ export const dataMap: Readonly<Record<CourseCode, CourseData>> = {
   },
   bc: {
     name: 'Business Communications',
-    url: `${baseUrl}/online-writing-courses/creative-writing`,
+    url: `${baseUrl}/online-writing-courses/business-communications`,
     description: '',
     certification: undefined,
     subjects: undefined,

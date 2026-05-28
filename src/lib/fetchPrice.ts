@@ -31,6 +31,7 @@ export const fetchPrice = async (
     }
 
     const responseBody: unknown = await response.json();
+    console.log(responseBody);
     if (!isPrice(responseBody)) {
       throw Error('Unexpected response');
     }

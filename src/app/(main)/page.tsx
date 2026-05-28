@@ -17,7 +17,7 @@ const HomePage: PageComponent = () => (
     </section>
     <section className="bg-light">
       <div className="container">
-        <h2 className="h1">You Can Succeed As a Writer</h2>
+        <h2>You Can Succeed As a Writer</h2>
         <p>To succeed as a writer, you simply need to exploit the things you know best. Perhaps you grow roses for a hobby? You can share your personal knowledge with fellow gardeners in newspapers and magazines. If you work in a bank, you could write articles on personal finance. Great cooks are always in demand for their recipes and tips. The bedtime stories you tell your own children can be shared with other parents and their kids.</p>
         <p>This simple approach—working with the things you know best—is the key to success. Knowing how and where to send your work are vital skills and they can be learned with the help of the School. We'll strengthen your special knowledge with professional technique and marketing skills.</p>
       </div>

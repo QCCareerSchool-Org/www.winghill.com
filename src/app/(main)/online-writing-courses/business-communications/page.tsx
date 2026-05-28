@@ -23,9 +23,9 @@ const BusinessCommunicationsPage: PageComponent = async ({ searchParams }) => {
       {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
       <section>
         <div className="container">
-          <h1>Business Communications Course</h1>
+          <h1 className="h2">Business Communications Course</h1>
           {price && <CoursePrice price={price} />}
-          <Image src={Banner} alt="" />
+          <Image src={Banner} alt="" priority className="img-fluid mb-4" />
           <p>If you are running your own business or working in a business environment, you know that effective communication is a vital skill. When interacting with colleagues, clients, and business partners, it's crucial that you be able to communicate your position clearly and concisely. When thousands or even millions of dollars are at stake, or something even more priceless—your reputation, effective communication can mean the difference between success and failure.</p>
           <p className="mb-0">In this course you'll learn how to create and structure all types of written business communications, from memos and letters to reports and marketing text. You'll learn how to give your readers the information they need to understand and accept your point of view. To round out your educational experience, our instructional movies on DVD give you tips and valuable advice from business professionals on everything from business presentations to dressing for success. If you're motivated and you want to enhance your professional image and skills, our Business Communications course is the best choice for you.</p>
         </div>

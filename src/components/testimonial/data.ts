@@ -1,6 +1,5 @@
 import type { StaticImageData } from 'next/image';
 
-import * as Images from './images';
 import type { CourseCode } from '@/domain/courseCode';
 
 type ID = `TW-${number}`;
@@ -27,7 +26,7 @@ export const testimonials = {
     provinceCode: undefined,
     short: [ 'I never imagined I could or would write an entire novel one day. My first published novel is a standalone paranormal romance, The Gathering Darkness, which I wrote while taking the Winghill Novel Writing course.' ],
     long: [ 'I never imagined I could or would write an entire novel one day. My first published novel is a standalone paranormal romance, The Gathering Darkness, which I wrote while taking the Winghill Novel Writing course. Since then, I\'ve written and published The Devil\'s Flower and the first and second books in the Serendipitous Curse series.' ],
-    image: Images.LisaCollicut,
+    image: undefined,
     stars: 5,
     imagePositionX: undefined,
     imagePositionY: undefined,

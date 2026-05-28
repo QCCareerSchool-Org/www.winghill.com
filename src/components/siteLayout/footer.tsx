@@ -50,14 +50,13 @@ export const Footer: FC<Props> = ({ countryCode }) => {
           <div className="customGrey">&copy; {new Date().getFullYear()} Winghill Writing School</div>
           <div className="d-flex flex-column flex-sm-row justify-content-center gap-sm-3">
             <Link href="/terms" className="footerLink">Privacy Policy</Link>
-            <Link href="/blog" className="footerLink">Blog</Link>
             <Link href={bbbUrl} target="_blank" rel="noreferrer" className="footerLink">BBC Accredited A+</Link>
             <Link href="https://www.qccareerschool.com" target="_blank" rel="noreferrer" className="footerLink">QC Career School</Link>
           </div>
           <div className="d-flex justify-content-center gap-3">
-            <div><a href="https://www.facebook.com/Winghill" target="_blank" rel="noreferrer" aria-label="Facebook" /><FaFacebook /></div>
-            <div><a href="https://www.linkedin.com/showcase/winghill-writing-school/" target="_blank" rel="noreferrer" aria-label="LinkedIn" /><FaLinkedin /></div>
-            <div><a href="https://www.pinterest.com/qccareerschool" target="_blank" rel="noreferrer" aria-label="Pinterest" /><FaPinterest /></div>
+            <div><a href="https://www.facebook.com/Winghill" target="_blank" rel="noreferrer" aria-label="Facebook" className="footerLink"><FaFacebook /></a></div>
+            <div><a href="https://www.linkedin.com/showcase/winghill-writing-school/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="footerLink"><FaLinkedin /></a></div>
+            <div><a href="https://www.pinterest.com/qccareerschool" target="_blank" rel="noreferrer" aria-label="Pinterest" className="footerLink"><FaPinterest /></a></div>
           </div>
         </div>
       </div>

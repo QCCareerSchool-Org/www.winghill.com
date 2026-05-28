@@ -1,7 +1,5 @@
 import type { Currency } from './currency';
 import { isCurrency } from './currency';
-import type { NoShipping } from './noShipping';
-import { isNoShipping } from './noShipping';
 
 interface Plan {
   /** the discount based on the payment plan */
@@ -88,7 +86,6 @@ const isPriceDetails = (obj: unknown): obj is PriceDetails => {
     'cost' in obj && typeof obj.cost === 'number' &&
     'multiCourseDiscount' in obj && typeof obj.multiCourseDiscount === 'number' &&
     'promoDiscount' in obj && typeof obj.promoDiscount === 'number' &&
-    'shippingDiscount' in obj && typeof obj.shippingDiscount === 'number' &&
     'discountedCost' in obj && typeof obj.discountedCost === 'number' &&
     'plans' in obj && isPlans(obj.plans);
 };
