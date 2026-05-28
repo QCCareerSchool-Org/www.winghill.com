@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -5,6 +6,11 @@ import { CoreValuesSection } from './_components/coreValuesSection';
 import BBB from './bbb.png';
 import Guarantee from './money-back-guarantee.png';
 import type { PageComponent } from '@/serverComponent';
+
+export const metadata: Metadata = {
+  title: 'About',
+  alternates: { canonical: '/about' },
+};
 
 const AboutPage: PageComponent = () => (
   <>

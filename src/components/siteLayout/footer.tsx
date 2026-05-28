@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { FC } from 'react';
 import { Fragment } from 'react';
-import { FaFacebook, FaLinkedin, FaPinterest } from 'react-icons/fa6';
+import { FaFacebook, FaLinkedin, FaPinterest, FaYoutube } from 'react-icons/fa6';
 
 import { TelephoneLink } from '../telephoneLink';
 import { getAddress } from '@/lib/address';
@@ -23,9 +23,9 @@ export const Footer: FC<Props> = ({ countryCode }) => {
           <div className="col-12 col-sm-6 col-md-4">
             <h3 className="h5 text-white mb-1 mb-md-2">Social Media</h3>
             <ul className="list-unstyled d-flex flex-column gap-md-2">
-              <li><a href="https://www.facebook.com/Winghill" className="footerLink">Like Us on Facebook</a></li>
-              <li><a href="https://x.com/WinghillWS/" className="footerLink">Follow Us on Twitter</a></li>
-              <li><a href="https://www.youtube.com/winghillschool" className="footerLink">Subscribe on YouTube</a></li>
+              <li><a href="https://www.facebook.com/Winghill" target="_blank" rel="noreferrer" className="footerLink">Like Us on Facebook</a></li>
+              <li><a href="https://www.linkedin.com/showcase/winghill-writing-school/" target="_blank" rel="noreferrer" className="footerLink">Follow us on LinkedIn</a></li>
+              <li><a href="https://www.youtube.com/winghillschool" target="_blank" rel="noreferrer" className="footerLink">Subscribe on YouTube</a></li>
             </ul>
           </div>
           <div className="col-12 col-sm-6 col-md-4">
@@ -56,6 +56,7 @@ export const Footer: FC<Props> = ({ countryCode }) => {
           <div className="d-flex justify-content-center gap-3">
             <div><a href="https://www.facebook.com/Winghill" target="_blank" rel="noreferrer" aria-label="Facebook" className="footerLink"><FaFacebook /></a></div>
             <div><a href="https://www.linkedin.com/showcase/winghill-writing-school/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="footerLink"><FaLinkedin /></a></div>
+            <div><a href="https://www.youtube.com/winghillschool" target="_blank" rel="noreferrer" aria-label="Youtube" className="footerLink"><FaYoutube /></a></div>
             <div><a href="https://www.pinterest.com/qccareerschool" target="_blank" rel="noreferrer" aria-label="Pinterest" className="footerLink"><FaPinterest /></a></div>
           </div>
         </div>

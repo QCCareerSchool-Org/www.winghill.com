@@ -22,7 +22,7 @@ export const TestimonialWallSection: FC<Props> = ({ h, courseCodes, testimonialI
       {!hideHeading && (
         <div className="row justify-content-center">
           <div className="col-12 col-lg-9 col-xl-8 col-xxl-7 text-lg-center">
-            <h2 className={`mb-4 ${headerClass(h)}`}>Hear From Students and Grads</h2>
+            <h2 className={`text-center mb-4 ${headerClass(h)}`}>Hear From Students and Grads</h2>
           </div>
         </div>
       )}

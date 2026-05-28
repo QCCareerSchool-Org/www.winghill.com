@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import Banner from './course-banner-romance-writing.jpg';
@@ -7,20 +8,27 @@ import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
+import { getCourseDescription, getCourseName, getCourseUrl } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
-const courseCodes: CourseCode[] = [ 'rm' ];
+const courseCode: CourseCode = 'rm';
+
+export const metadata: Metadata = {
+  title: getCourseName(courseCode),
+  description: getCourseDescription(courseCode),
+  alternates: { canonical: getCourseUrl(courseCode) },
+};
 
 const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
-  const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
+  const priceResult = await fetchPrice([ courseCode ], countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
 
   return (
     <>
-      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
+      <CourseJsonLd courseCode={courseCode} />
       <section>
         <div className="container">
           <h1 className="h2">Romance Writing Course</h1>
@@ -33,7 +41,7 @@ const RomanceWritingPage: PageComponent = async ({ searchParams }) => {
       </section>
       <TestimonialWallSection testimonialIds={[ 'TW-0010' ]} className="bg-light" />
       <CourseOutlineSection items={outlineItems} className="" />
-      <GuaranteeSection title="Romance Writing" doubleGuarantee={true} courseCodes={courseCodes} className="bg-light" />
+      <GuaranteeSection title="Romance Writing" doubleGuarantee={true} courseCodes={[ courseCode ]} className="bg-light" />
     </>
   );
 };

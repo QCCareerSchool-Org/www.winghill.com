@@ -10,8 +10,6 @@ const expectedVariables = [
   // Meta
   'NEXT_PUBLIC_FACEBOOK_ID',
   'FACEBOOK_ACCESS_TOKEN',
-  // Tiktok
-  'TIKTOK_ID',
   // Microsoft Ads
   'BING_ID',
   // Brevo

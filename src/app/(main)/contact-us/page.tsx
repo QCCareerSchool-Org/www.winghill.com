@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Fragment } from 'react/jsx-runtime';
 
@@ -11,6 +12,11 @@ import { TelephoneLink } from '@/components/telephoneLink';
 import { getAddress } from '@/lib/address';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  alternates: { canonical: '/contact-us' },
+};
 
 const ContactUsPage: PageComponent = async props => {
   const { countryCode } = await getServerData(props.searchParams);

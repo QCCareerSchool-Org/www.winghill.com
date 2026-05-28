@@ -1,18 +1,24 @@
+import type { Metadata } from 'next';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
-import bcIcon from './courses-business-communications.png';
-import wsIcon from './courses-creative-writing.png';
-import fhIcon from './courses-memoir-writing.png';
-import nvIcon from './courses-novel-writing.png';
-import rmIcon from './courses-romance-writing.png';
-import scIcon from './courses-screenwriting.png';
-import chIcon from './courses-writing-for-children.png';
+import bcIcon from './_images/courses-business-communications.png';
+import wsIcon from './_images/courses-creative-writing.png';
+import fhIcon from './_images/courses-memoir-writing.png';
+import nvIcon from './_images/courses-novel-writing.png';
+import rmIcon from './_images/courses-romance-writing.png';
+import scIcon from './_images/courses-screenwriting.png';
+import chIcon from './_images/courses-writing-for-children.png';
 import type { CourseCode } from '@/domain/courseCode';
 import { getCourseName, getCourseUrl } from '@/domain/courseCode';
 import type { PageComponent } from '@/serverComponent';
+
+export const metadata: Metadata = {
+  title: 'Online Writing Courses',
+  alternates: { canonical: '/online-writing-courses' },
+};
 
 const CourseOverviewPage: PageComponent = () => (
   <>
