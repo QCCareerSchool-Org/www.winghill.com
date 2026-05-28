@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import Banner from './course-banner-memoir-writing.jpg';
@@ -7,20 +8,26 @@ import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
+import { getCourseDescription, getCourseName } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
-const courseCodes: CourseCode[] = [ 'fh' ];
+const courseCode: CourseCode = 'fh';
+
+export const metadata: Metadata = {
+  title: getCourseName(courseCode),
+  description: getCourseDescription(courseCode),
+};
 
 const MemoirWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
-  const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
+  const priceResult = await fetchPrice([ courseCode ], countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
 
   return(
     <>
-      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
+      <CourseJsonLd courseCode={courseCode} />
       <section>
         <div className="container">
           <h1 className="h2">Memoir Writing Course</h1>
@@ -33,7 +40,7 @@ const MemoirWritingPage: PageComponent = async ({ searchParams }) => {
       </section>
       <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0014', 'TW-0013' ]} />
       <CourseOutlineSection items={outlineItems} />
-      <GuaranteeSection title="Memoir Writing" doubleGuarantee={false} courseCodes={courseCodes} className="bg-light" />
+      <GuaranteeSection title="Memoir Writing" doubleGuarantee={false} courseCodes={[ courseCode ]} className="bg-light" />
     </>
   );
 };

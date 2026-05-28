@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import Banner from './course-banner-screenwriting.jpg';
@@ -7,20 +8,26 @@ import { CoursePrice } from '../_components/coursePrice';
 import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import type { CourseCode } from '@/domain/courseCode';
+import { getCourseDescription, getCourseName } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
-const courseCodes: CourseCode[] = [ 'sc' ];
+const courseCode: CourseCode = 'sc';
+
+export const metadata: Metadata = {
+  title: getCourseName(courseCode),
+  description: getCourseDescription(courseCode),
+};
 
 const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
-  const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
+  const priceResult = await fetchPrice([ courseCode ], countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
 
   return (
     <>
-      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
+      <CourseJsonLd courseCode={courseCode} />
       <section>
         <div className="container">
           <h1 className="h2">Screenwriting</h1>
@@ -70,7 +77,7 @@ const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
           <p className="mb-0">Your tutors learned their skills through a long process of trial and error. They will call on all their skills and longstanding experience to guide you in the best way possible as you submit your work. From the start, you are able to work in a really constructive and productive manner that produces real results. Your assignments result in a professional level script that you can feel really proud of.</p>
         </div>
       </section>
-      <GuaranteeSection title="Screenwriting" doubleGuarantee={false} courseCodes={courseCodes} additionalText={additionalText} />
+      <GuaranteeSection title="Screenwriting" doubleGuarantee={false} courseCodes={[ courseCode ]} additionalText={additionalText} />
     </>
   );
 };
@@ -78,6 +85,27 @@ const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
 export default ScreenwritingPage;
 
 const outlineItems = [
-  'Introduction to Screenwriting', 'Script Formatting 101', 'Understanding the Different Parts of a Script', 'Confidence Is Key: Diminishing Self-Doubt', 'The Art of Dialogue: Creating a Voice For Your Character', 'Meet the Cast: Key Members in the Industry', 'Notes From the Life of a Screenwriter', 'How to Build Suspense: Learning From the Masters', 'Mastering Your Plot\'s All-Important “Conflict”', 'The Rewrite: A Vital Step in Polishing Your Script', 'Defining Your Characters', '“Know More Than You Show”', 'The Finance of Screenwriting', 'Determining Ratings', 'Adapting: Script to Novel', 'Adapting: Novel to Script', 'Agents, Talking Heads and Other Key Professionals', 'Creating a Movie Budget: Nuts and Bolts, to High Finance', 'Readers, Endings, and Finalizing Character Development', 'Read, Analyze and Review a Sample Script: Crossword by Michael Crawley & Laurie Clayton', 'The Professional Associations, and Other Closing Thoughts',
+  'Introduction to Screenwriting',
+  'Script Formatting 101',
+  'Understanding the Different Parts of a Script',
+  'Confidence Is Key: Diminishing Self-Doubt',
+  'The Art of Dialogue: Creating a Voice For Your Character',
+  'Meet the Cast: Key Members in the Industry',
+  'Notes From the Life of a Screenwriter',
+  'How to Build Suspense: Learning From the Masters',
+  'Mastering Your Plot\'s All-Important “Conflict”',
+  'The Rewrite: A Vital Step in Polishing Your Script',
+  'Defining Your Characters',
+  '“Know More Than You Show”',
+  'The Finance of Screenwriting',
+  'Determining Ratings',
+  'Adapting: Script to Novel',
+  'Adapting: Novel to Script',
+  'Agents, Talking Heads and Other Key Professionals',
+  'Creating a Movie Budget: Nuts and Bolts, to High Finance',
+  'Readers, Endings, and Finalizing Character Development',
+  'Read, Analyze and Review a Sample Script: Crossword by Michael Crawley & Laurie Clayton',
+  'The Professional Associations, and Other Closing Thoughts',
 ];
+
 const additionalText = 'Please note that the Movie Magic Screenwriter software program (value $170 US) can not be refunded.';

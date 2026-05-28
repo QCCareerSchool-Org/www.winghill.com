@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import Banner from './course-banner-creative-writing.jpg';
@@ -7,20 +8,26 @@ import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import { TestimonialWallSection } from '@/components/testimonialWallSection';
 import type { CourseCode } from '@/domain/courseCode';
+import { getCourseDescription, getCourseName } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
 
-const courseCodes: CourseCode[] = [ 'ws' ];
+const courseCode: CourseCode = 'ws';
+
+export const metadata: Metadata = {
+  title: getCourseName(courseCode),
+  description: getCourseDescription(courseCode),
+};
 
 const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
   const { countryCode, provinceCode } = await getServerData(searchParams);
-  const priceResult = await fetchPrice(courseCodes, countryCode, provinceCode);
+  const priceResult = await fetchPrice([ courseCode ], countryCode, provinceCode);
   const price = priceResult.success ? priceResult.value : undefined;
 
   return (
     <>
-      {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
+      <CourseJsonLd courseCode={courseCode} />)
       <section>
         <div className="container">
           <h1 className="h2">Creative Writing</h1>
@@ -32,7 +39,7 @@ const CreativeWritingPage: PageComponent = async ({ searchParams }) => {
       </section>
       <TestimonialWallSection className="bg-light" testimonialIds={[ 'TW-0002', 'TW-0003', 'TW-0004' ]} />
       <CourseOutlineSection items={outlineItems} />
-      <GuaranteeSection title="Creative Writing" doubleGuarantee={true} courseCodes={courseCodes} className="bg-light" />
+      <GuaranteeSection title="Creative Writing" doubleGuarantee={true} courseCodes={[ courseCode ]} className="bg-light" />
     </>
   );
 };
