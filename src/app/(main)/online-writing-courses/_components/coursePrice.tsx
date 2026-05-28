@@ -8,5 +8,5 @@ interface Props {
 }
 
 export const CoursePrice: FC<Props> = ({ price }) => (
-  <h2>{price.currency.symbol}{formatPrice(price.plans.full.total)} or {price.currency.symbol}{formatPrice(price.plans.part.installmentSize)}/mo</h2>
+  <p className="display-6">{price.currency.symbol}{formatPrice(price.plans.full.total)} or {price.currency.symbol}{formatPrice(price.plans.part.installmentSize)}/mo</p>
 );

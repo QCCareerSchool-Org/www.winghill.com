@@ -1,8 +1,20 @@
 .mainNav {
   transition: border-color 300ms;
   border-bottom: 0.5px solid rgba(0,0,0,0.10);
+  text-transform: uppercase;
+  font-weight: 300;
+  * { color: white; }
+  .nav-link { margin: 0 0.125rem; }
+
+  @media (min-width: 992px) {
+    font-size: 15px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 1rem;
+  }
 }
 
 .mainNav.scrolled {
   border-color: rgba(0,0,0,0.15);
 }
+

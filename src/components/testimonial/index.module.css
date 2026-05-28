@@ -4,6 +4,7 @@
 
 .stars {
   margin-bottom: 2rem;
+  color: var(--qc-color-gold);
 }
 
 .quotation {

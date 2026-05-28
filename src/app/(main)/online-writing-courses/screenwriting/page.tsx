@@ -23,9 +23,9 @@ const ScreenwritingPage: PageComponent = async ({ searchParams }) => {
       {courseCodes.map(c => <CourseJsonLd key={c} courseCode={c} />)}
       <section>
         <div className="container">
-          <h1>Screenwriting</h1>
+          <h1 className="h2">Screenwriting</h1>
           {price && <CoursePrice price={price} />}
-          <Image src={Banner} alt="" />
+          <Image src={Banner} alt="" priority className="img-fluid mb-4" />
           <p>Have you dreamed of seeing your creative work on the big screen? Would you love to see your name on movie credits or on TV? Find out how to write money-making scripts with our distance education course in Screenwriting.</p>
           <p>You'll learn what's in demand and you'll learn how to make your script or screenplay the one producers notice. You'll understand how to develop your plot, how to write dialogue that rings true, and how to make your characters the ones that audiences care about. What's more we'll show you how to make good money from your ideas—even if your work is NOT produced!</p>
           <p className="mb-0">Our script and screenwriting course is designed for creative individuals with a passion for cinema and television, people just like you! You'll work closely with a professional screenwriter who will carefully review your work. You'll learn what's good and what can be improved. Your tutor will give you industry tips, valuable information and guidance that you'll need to succeed. You'll learn exactly how to create content for movies, television, new media, and much more.</p>
