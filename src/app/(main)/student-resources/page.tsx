@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -11,6 +12,11 @@ import PhoneIcon from '@/components/icons/icon-phone.png';
 import { TelephoneLink } from '@/components/telephoneLink';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
+
+export const metadata: Metadata = {
+  title: 'Student Resources',
+  alternates: { canonical: '/student-resources' },
+};
 
 const StudentResourcesPage: PageComponent = async props => {
   const { countryCode } = await getServerData(props.searchParams);

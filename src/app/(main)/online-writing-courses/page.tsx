@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,6 +14,11 @@ import chIcon from './_images/courses-writing-for-children.png';
 import type { CourseCode } from '@/domain/courseCode';
 import { getCourseName, getCourseUrl } from '@/domain/courseCode';
 import type { PageComponent } from '@/serverComponent';
+
+export const metadata: Metadata = {
+  title: 'Online Writing Courses',
+  alternates: { canonical: '/online-writing-courses' },
+};
 
 const CourseOverviewPage: PageComponent = () => (
   <>

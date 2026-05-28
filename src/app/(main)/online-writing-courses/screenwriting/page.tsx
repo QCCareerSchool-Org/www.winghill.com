@@ -8,7 +8,7 @@ import { CoursePrice } from '../_components/coursePrice';
 import { GuaranteeSection } from '../_components/guaranteeSection';
 import { CourseJsonLd } from '@/components/jsonLd/course';
 import type { CourseCode } from '@/domain/courseCode';
-import { getCourseDescription, getCourseName } from '@/domain/courseCode';
+import { getCourseDescription, getCourseName, getCourseUrl } from '@/domain/courseCode';
 import { fetchPrice } from '@/lib/fetchPrice';
 import { getServerData } from '@/lib/getServerData';
 import type { PageComponent } from '@/serverComponent';
@@ -18,6 +18,7 @@ const courseCode: CourseCode = 'sc';
 export const metadata: Metadata = {
   title: getCourseName(courseCode),
   description: getCourseDescription(courseCode),
+  alternates: { canonical: getCourseUrl(courseCode) },
 };
 
 const ScreenwritingPage: PageComponent = async ({ searchParams }) => {

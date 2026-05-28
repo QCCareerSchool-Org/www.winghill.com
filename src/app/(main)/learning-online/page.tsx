@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import type { StaticImageData } from 'next/image';
 import type { CSSProperties, ReactNode } from 'react';
 
@@ -8,6 +9,11 @@ import RefiningYourTechniqueIcon from './learning-online-refining-your-technique
 import YourCourseBeginsIcon from './learning-online-your-course-begins.png';
 import { StepSection } from '@/app/(main)/learning-online/stepSection';
 import type { PageComponent } from '@/serverComponent';
+
+export const metadata: Metadata = {
+  title: 'Learning Online',
+  alternates: { canonical: '/learning-online' },
+};
 
 const LearningOnlinePage: PageComponent = () => (
   <>

@@ -19,9 +19,7 @@ const brevoStudentListId = 14;
 
 export const metadata: Metadata = {
   title: 'Thank You for Enrolling with QC Event School!',
-  alternates: {
-    canonical: '/welcome-to-the-school',
-  },
+  alternates: { canonical: '/welcome-to-the-school' },
 };
 
 const WelcomeToTheSchoolPage: PageComponent = async props => {
