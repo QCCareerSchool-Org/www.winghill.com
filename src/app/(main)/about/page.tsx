@@ -50,7 +50,7 @@ const AboutPage: PageComponent = () => (
           </div>
           <div className="col-12 col-lg-9">
             <h2 className="h1 text-center text-lg-start mb-3">Our Guarantee</h2>
-            <p>We have absolute faith in our courses. As a result, we offer our students a full money-back guarantee. From the moment you receive your first package, you have 21 days to go over your course materials and assignments. If for any reason you decide that a career in writing is not for you, all you need to do is return your course materials in their original condition for an immediate refund. All we ask of you is to call the School to receive instructions on how to ship the package to us.</p>
+            <p>We have absolute faith in our courses. As a result, we offer our students a full money-back guarantee. From the moment you receive your first package, you have 14 days to go over your course materials and assignments. If for any reason you decide that a career in writing is not for you, all you need to do is return your course materials in their original condition for an immediate refund. All we ask of you is to call the School to receive instructions on how to ship the package to us.</p>
             <p>Please note that the Movie Magic Screenwriter software program (value $170 US) can not be refunded.</p>
             <h3>Double Guarantee</h3>
             <p>If you enroll in our <Link href="/online-writing-courses/creative-writing">Creative Writing</Link>, <Link href="/online-writing-courses/romance-writing">Romance Writing</Link>, or <Link href="/online-writing-courses/writing-for-children">Writing For Children</Link> courses, you also qualify for our Double Guarantee policy.</p>

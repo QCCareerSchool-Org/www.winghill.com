@@ -27,7 +27,7 @@ const FAQPage: PageComponent = () => (
               <p className="mb-0">If you want to expand your skills after you've graduated, you are eligible to enroll for one of our other courses at a reduced price.</p>
             </AccordionFAQ>
             <AccordionFAQ heading="What if I decide the course is not right for me?">
-              <p className="mb-0">Once you receive your course materials, you have 21 days to decide if you want to continue. If you are not satisfied, simply return the shipment in mint condition, and you'll receive a full refund. Please note that the Movie Magic Screenwriter software program (value $170 US) can not be refunded. <Link href="/about/#guarantee">Read more about our double guarantee.</Link></p>
+              <p className="mb-0">Once you receive your course materials, you have 14 days to decide if you want to continue. If you are not satisfied, simply return the shipment in mint condition, and you'll receive a full refund. Please note that the Movie Magic Screenwriter software program (value $170 US) can not be refunded. <Link href="/about/#guarantee">Read more about our double guarantee.</Link></p>
             </AccordionFAQ>
             <AccordionFAQ heading="Is the school a member of the Better Business Bureau?">
               <p className="mb-0">Yes. As a member of the BBB's stringent Online Reliability Program, Winghill Writing School is authorized to display the BBB seal. In business since 1984, we have a superb track record.</p>
